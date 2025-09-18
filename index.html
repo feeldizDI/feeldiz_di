@@ -37,17 +37,19 @@
             font-size: 4rem;
             font-weight: 100;
             margin-bottom: 20px;
-            letter-spacing: 8px;
+            letter-spacing: 20px;
             text-transform: uppercase;
             color: #ffffff;
             text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            font-family: 'Arial', sans-serif;
+            font-stretch: ultra-expanded;
         }
 
         .subtitle {
             font-size: 1.1rem;
             opacity: 0.7;
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: #b0b0b0;
         }
@@ -135,13 +137,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-            filter: brightness(0.85) contrast(1.1);
             z-index: 1;
         }
 
         .gallery-item:hover img {
             transform: scale(1.1);
-            filter: brightness(1) contrast(1.2);
         }
 
         .gallery-item-overlay {
@@ -157,7 +157,7 @@
         }
 
         .gallery-item:hover .gallery-item-overlay {
-            transform: translateY(0);
+            /* transform: translateY(0); - 호버 정보 표시 비활성화 */
         }
 
         .overlay-title {
@@ -287,7 +287,7 @@
             
             h1 {
                 font-size: 3rem;
-                letter-spacing: 4px;
+                letter-spacing: 15px;
             }
             
             .gallery-item {
@@ -302,7 +302,7 @@
             
             h1 {
                 font-size: 2.5rem;
-                letter-spacing: 2px;
+                letter-spacing: 8px;
             }
             
             .filter-tabs {
@@ -380,8 +380,8 @@
 <body>
     <header>
         <div class="container">
-            <h1>Portfolio</h1>
-            <p class="subtitle">Visual Excellence in Wide Format</p>
+            <h1>PHOTO</h1>
+            <p class="subtitle">Feeldiz DI STUDIO</p>
         </div>
     </header>
 
