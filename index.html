@@ -157,7 +157,7 @@
         }
 
         .gallery-item:hover .gallery-item-overlay {
-            /* transform: translateY(0); - 호버 정보 표시 비활성화 */
+            transform: translateY(0);
         }
 
         .overlay-category {
@@ -166,6 +166,15 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #ccc;
+            font-weight: 300;
+        }
+
+        .overlay-description {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-top: 15px;
+            line-height: 1.6;
+            color: #fff;
             font-weight: 300;
         }
 
@@ -256,6 +265,14 @@
             color: #ccc;
         }
 
+        .modal-description {
+            font-size: 1.8rem;
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .container {
@@ -320,6 +337,14 @@
 
             .scroll-to-top::before {
                 font-size: 20px;
+            }
+
+            .overlay-description {
+                font-size: 1.2rem;
+            }
+
+            .modal-description {
+                font-size: 1.4rem;
             }
         }
 
@@ -419,6 +444,7 @@
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-info">
                 <p class="modal-category" id="modalCategory"></p>
+                <h3 class="modal-description" id="modalDescription"></h3>
             </div>
         </div>
     </div>
@@ -429,217 +455,260 @@
             {
                 id: 1,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true",
+                description: "환영"
             },
             {
                 id: 2,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true",
+                description: "제비"
             },
             {
                 id: 3,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true",
+                description: "제비"
             },
             {
                 id: 4,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true",
+                description: "제비"
             },
             {
                 id: 5,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true",
+                description: "제비"
             },
             {
                 id: 6,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true",
+                description: "Ronin 4D"
             },
             {
                 id: 7,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true",
+                description: "Arri 65"
             },
             {
                 id: 8,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true",
+                description: "Ronin 4D"
             },
             {
                 id: 9,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true",
+                description: "Arri 65"
             },
             {
                 id: 10,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true",
+                description: "그릇된소녀"
             },
             {
                 id: 11,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true",
+                description: "그릇된소녀"
             },
             {
                 id: 12,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true",
+                description: "그릇된소녀"
             },
             {
                 id: 13,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true",
+                description: "그릇된소녀"
             },
             {
                 id: 14,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true",
+                description: "그릇된소녀"
             },
             {
                 id: 15,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true",
+                description: "로망스"
             },
             {
                 id: 16,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true",
+                description: "로망스"
             },
             {
                 id: 17,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true",
+                description: "로망스"
             },
             {
                 id: 18,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true",
+                description: "가문의영광"
             },
             {
                 id: 19,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true",
+                description: "가문의영광"
             },
             {
                 id: 20,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true",
+                description: "가문의영광"
             },
             {
                 id: 21,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true",
+                description: "가문의영광"
             },
             {
                 id: 22,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true",
+                description: "Portfolio"
             },
             {
                 id: 23,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/05c40cf3228ce6344bc3e475ac36bbd9c8240319/GM.jpg"
+                image: "https://github.com/suukkim/image/blob/main/GM2.jpg?raw=true",
+                description: "착한사나이"
             },
             {
                 id: 24,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM3.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/GM3.jpg?raw=true",
+                description: "착한사나이"
             },
             {
                 id: 25,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM4.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/GM4.jpg?raw=true",
+                description: "착한사나이"
             },
             {
                 id: 26,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true",
+                description: "Portfolio"
             },
             {
                 id: 27,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/GM.jpg?raw=true",
+                description: "착한사나이"
             },
             {
                 id: 28,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true",
+                description: "Portfolio"
             },
             {
                 id: 29,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 30,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS2.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS2.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 31,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS3.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS3.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 32,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS4.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS4.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 33,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS5.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS5.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 34,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS6.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS6.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 35,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS7.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS7.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 36,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS8.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS8.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 37,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS9.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS9.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 38,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS10.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS10.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 39,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS11.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS11.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 40,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS12.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS12.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 41,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS13.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS13.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 42,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS14.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS14.jpg?raw=true",
+                description: "BlackSnake"
             },
             {
                 id: 43,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS15.jpg?raw=true"
+                image: "https://github.com/suukkim/image/blob/main/BS15.jpg?raw=true",
+                description: "BlackSnake"
             }
         ];
 
@@ -677,6 +746,7 @@
                     <img src="${item.image}" alt="Portfolio Image" data-id="${item.id}">
                     <div class="gallery-item-overlay">
                         <p class="overlay-category">${item.category}</p>
+                        <p class="overlay-description">${item.description}</p>
                     </div>
                 `;
 
@@ -741,9 +811,11 @@
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalCategory = document.getElementById('modalCategory');
+            const modalDescription = document.getElementById('modalDescription');
 
             modalImage.src = item.image;
             modalCategory.textContent = item.category;
+            modalDescription.textContent = item.description;
 
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
