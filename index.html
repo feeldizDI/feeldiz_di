@@ -160,14 +160,6 @@
             /* transform: translateY(0); - 호버 정보 표시 비활성화 */
         }
 
-        .overlay-title {
-            font-size: 2.5rem;
-            font-weight: 100;
-            margin-bottom: 15px;
-            color: #fff;
-            letter-spacing: 2px;
-        }
-
         .overlay-category {
             font-size: 1rem;
             opacity: 0.8;
@@ -175,14 +167,6 @@
             letter-spacing: 3px;
             color: #ccc;
             font-weight: 300;
-        }
-
-        .overlay-description {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-top: 20px;
-            line-height: 1.6;
-            color: #e0e0e0;
         }
 
         /* Modal Styles */
@@ -264,13 +248,6 @@
             min-width: 400px;
         }
 
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 100;
-            letter-spacing: 2px;
-        }
-
         .modal-category {
             font-size: 1rem;
             opacity: 0.8;
@@ -320,10 +297,6 @@
                 height: 50vh;
             }
             
-            .overlay-title {
-                font-size: 2rem;
-            }
-            
             .modal-close {
                 top: 20px;
                 right: 20px;
@@ -336,10 +309,6 @@
                 bottom: 20px;
                 padding: 20px 25px;
                 min-width: 300px;
-            }
-            
-            .modal-title {
-                font-size: 1.5rem;
             }
         }
 
@@ -403,7 +372,6 @@
             <span class="modal-close">&times;</span>
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-info">
-                <h3 class="modal-title" id="modalTitle"></h3>
                 <p class="modal-category" id="modalCategory"></p>
             </div>
         </div>
@@ -414,163 +382,160 @@
         const portfolioData = [
             {
                 id: 1,
-                title: "After 2",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true",
-                description: "Creative visual expression capturing unique moments and perspectives."
+                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true"
             },
             {
                 id: 2,
-                title: "After 3",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true",
-                description: "Artistic composition showcasing innovative photography techniques."
+                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true"
             },
             {
                 id: 3,
-                title: "After 4",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true",
-                description: "Contemporary visual storytelling through dynamic imagery."
+                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true"
             },
             {
                 id: 4,
-                title: "After 5",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true",
-                description: "Professional photography with attention to detail and composition."
+                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true"
             },
             {
                 id: 5,
-                title: "After 6",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true",
-                description: "Striking visual narrative captured with artistic precision."
+                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true"
             },
             {
                 id: 6,
-                title: "After 7",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true",
-                description: "Expressive photography exploring light, shadow, and form."
+                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true"
             },
             {
                 id: 7,
-                title: "After 8",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true",
-                description: "Creative vision brought to life through innovative photographic techniques."
+                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true"
             },
             {
                 id: 8,
-                title: "After 9",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true",
-                description: "Artistic interpretation of reality through the lens of creativity."
+                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true"
             },
             {
                 id: 9,
-                title: "After 10",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true",
-                description: "Dynamic composition showcasing the beauty of visual storytelling."
+                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true"
             },
             {
                 id: 10,
-                title: "After 11",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true",
-                description: "Professional imagery capturing emotion and movement in perfect harmony."
+                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true"
             },
             {
                 id: 11,
-                title: "After 12",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true",
-                description: "Innovative photographic approach creating compelling visual narratives."
+                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true"
             },
             {
                 id: 12,
-                title: "After 13",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true",
-                description: "Artistic excellence demonstrated through masterful composition and timing."
+                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true"
             },
             {
                 id: 13,
-                title: "After 14",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true",
-                description: "Creative exploration of visual elements and photographic possibilities."
+                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true"
             },
             {
                 id: 14,
-                title: "After 15",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true",
-                description: "Professional photography showcasing technical skill and artistic vision."
+                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true"
             },
             {
                 id: 15,
-                title: "After 16",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true",
-                description: "Striking imagery that captures the essence of creative expression."
+                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true"
             },
             {
                 id: 16,
-                title: "After 17",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true",
-                description: "Dynamic visual composition highlighting innovative photographic techniques."
+                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true"
             },
             {
                 id: 17,
-                title: "After 18",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true",
-                description: "Artistic interpretation showcasing the power of visual storytelling."
+                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true"
             },
             {
                 id: 18,
-                title: "After 19",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true",
-                description: "Creative photography that pushes the boundaries of conventional imagery."
+                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true"
             },
             {
                 id: 19,
-                title: "After 20",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true",
-                description: "Professional visual work demonstrating mastery of light and composition."
+                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true"
             },
             {
                 id: 20,
-                title: "After 21",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true",
-                description: "Innovative approach to photography creating memorable visual experiences."
+                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true"
             },
             {
                 id: 21,
-                title: "After 22",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true",
-                description: "Artistic excellence in capturing moments with precision and creativity."
+                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true"
             },
             {
                 id: 22,
-                title: "After 23",
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true",
-                description: "Final piece showcasing the culmination of creative vision and technical expertise."
+                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true"
+            },
+            {
+                id: 23,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/착사2.jpg?raw=true"
+            },
+            {
+                id: 24,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/착사3.jpg?raw=true"
+            },
+            {
+                id: 25,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/착사4.jpg?raw=true"
+            },
+            {
+                id: 26,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true"
+            },
+            {
+                id: 27,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/착사.jpg?raw=true"
+            },
+            {
+                id: 28,
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true"
             }
         ];
 
+        // Shuffle array function
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
         // Initialize gallery
         function initGallery() {
-            renderGallery(portfolioData);
+            const shuffledData = shuffleArray(portfolioData);
+            renderGallery(shuffledData);
             setupEventListeners();
         }
 
@@ -588,11 +553,9 @@
                 galleryItem.style.animationDelay = `${index * 0.2}s`;
                 
                 galleryItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" data-id="${item.id}">
+                    <img src="${item.image}" alt="Portfolio Image" data-id="${item.id}">
                     <div class="gallery-item-overlay">
-                        <h3 class="overlay-title">${item.title}</h3>
                         <p class="overlay-category">${item.category}</p>
-                        <p class="overlay-description">${item.description}</p>
                     </div>
                 `;
 
@@ -648,11 +611,9 @@
         function openModal(item) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
             const modalCategory = document.getElementById('modalCategory');
 
             modalImage.src = item.image;
-            modalTitle.textContent = item.title;
             modalCategory.textContent = item.category;
 
             modal.style.display = 'block';
