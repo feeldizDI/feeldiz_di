@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Portfolio - Wide Format</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 100;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b0b0b0;
+        }
+
+        .filter-section {
+            background: rgba(0,0,0,0.2);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .filter-tabs {
+            display: inline-flex;
+            gap: 0;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            padding: 16px 32px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, #666, #999);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .gallery {
+            padding: 80px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .gallery-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #333;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+            filter: brightness(0.85) contrast(1.1);
+            z-index: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 60px 40px 40px;
+            transform: translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+
+        .overlay-title {
+            font-size: 2.5rem;
+            font-weight: 100;
+            margin-bottom: 15px;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .overlay-category {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .overlay-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalZoom 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        @keyframes modalZoom {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-image {
+            max-width: 95vw;
+            max-height: 95vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            background: rgba(0,0,0,0.7);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.1);
+        }
+
+        .modal-info {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            background: rgba(0,0,0,0.8);
+            padding: 25px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            z-index: 1001;
+            border: 1px solid rgba(255,255,255,0.1);
+            min-width: 400px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+
+        .modal-category {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+            
+            .gallery-item {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .filter-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-item {
+                height: 50vh;
+            }
+            
+            .overlay-title {
+                font-size: 2rem;
+            }
+            
+            .modal-close {
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+            
+            .modal-info {
+                bottom: 20px;
+                padding: 20px 25px;
+                min-width: 300px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Loading animation */
+        .gallery-item.loading {
+            background: linear-gradient(90deg, #444 0%, #555 50%, #444 100%);
+            background-size: 200% 100%;
+            animation: loading 2s infinite;
+        }
+
+        .gallery-item.loading::before {
+            content: "Loading...";
+            color: #aaa;
+            font-size: 1.2rem;
+            z-index: 3;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Scroll animations */
+        .gallery-item {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p class="subtitle">Visual Excellence in Wide Format</p>
+        </div>
+    </header>
+
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All Works</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery" id="gallery">
+            <!-- Gallery items will be generated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <p class="modal-category" id="modalCategory"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample portfolio data with ultra-wide images
+        const portfolioData = [
+            {
+                id: 1,
+                title: "After 2",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true",
+                description: "Creative visual expression capturing unique moments and perspectives."
+            },
+            {
+                id: 2,
+                title: "After 3",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true",
+                description: "Artistic composition showcasing innovative photography techniques."
+            },
+            {
+                id: 3,
+                title: "After 4",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true",
+                description: "Contemporary visual storytelling through dynamic imagery."
+            },
+            {
+                id: 4,
+                title: "After 5",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true",
+                description: "Professional photography with attention to detail and composition."
+            },
+            {
+                id: 5,
+                title: "After 6",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true",
+                description: "Striking visual narrative captured with artistic precision."
+            },
+            {
+                id: 6,
+                title: "After 7",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true",
+                description: "Expressive photography exploring light, shadow, and form."
+            },
+            {
+                id: 7,
+                title: "After 8",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true",
+                description: "Creative vision brought to life through innovative photographic techniques."
+            },
+            {
+                id: 8,
+                title: "After 9",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true",
+                description: "Artistic interpretation of reality through the lens of creativity."
+            },
+            {
+                id: 9,
+                title: "After 10",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true",
+                description: "Dynamic composition showcasing the beauty of visual storytelling."
+            },
+            {
+                id: 10,
+                title: "After 11",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true",
+                description: "Professional imagery capturing emotion and movement in perfect harmony."
+            },
+            {
+                id: 11,
+                title: "After 12",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true",
+                description: "Innovative photographic approach creating compelling visual narratives."
+            },
+            {
+                id: 12,
+                title: "After 13",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true",
+                description: "Artistic excellence demonstrated through masterful composition and timing."
+            },
+            {
+                id: 13,
+                title: "After 14",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true",
+                description: "Creative exploration of visual elements and photographic possibilities."
+            },
+            {
+                id: 14,
+                title: "After 15",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true",
+                description: "Professional photography showcasing technical skill and artistic vision."
+            },
+            {
+                id: 15,
+                title: "After 16",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true",
+                description: "Striking imagery that captures the essence of creative expression."
+            },
+            {
+                id: 16,
+                title: "After 17",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true",
+                description: "Dynamic visual composition highlighting innovative photographic techniques."
+            },
+            {
+                id: 17,
+                title: "After 18",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true",
+                description: "Artistic interpretation showcasing the power of visual storytelling."
+            },
+            {
+                id: 18,
+                title: "After 19",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true",
+                description: "Creative photography that pushes the boundaries of conventional imagery."
+            },
+            {
+                id: 19,
+                title: "After 20",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true",
+                description: "Professional visual work demonstrating mastery of light and composition."
+            },
+            {
+                id: 20,
+                title: "After 21",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true",
+                description: "Innovative approach to photography creating memorable visual experiences."
+            },
+            {
+                id: 21,
+                title: "After 22",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true",
+                description: "Artistic excellence in capturing moments with precision and creativity."
+            },
+            {
+                id: 22,
+                title: "After 23",
+                category: "portfolio",
+                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true",
+                description: "Final piece showcasing the culmination of creative vision and technical expertise."
+            }
+        ];
+
+        // Initialize gallery
+        function initGallery() {
+            renderGallery(portfolioData);
+            setupEventListeners();
+        }
+
+        // Render gallery items
+        function renderGallery(items) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const galleryRow = document.createElement('div');
+                galleryRow.className = 'gallery-row';
+                
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item loading';
+                galleryItem.style.animationDelay = `${index * 0.2}s`;
+                
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" data-id="${item.id}">
+                    <div class="gallery-item-overlay">
+                        <h3 class="overlay-title">${item.title}</h3>
+                        <p class="overlay-category">${item.category}</p>
+                        <p class="overlay-description">${item.description}</p>
+                    </div>
+                `;
+
+                galleryRow.appendChild(galleryItem);
+                gallery.appendChild(galleryRow);
+
+                // Remove loading class after image loads
+                const img = galleryItem.querySelector('img');
+                img.onload = () => {
+                    galleryItem.classList.remove('loading');
+                };
+                
+                img.onerror = () => {
+                    galleryItem.classList.remove('loading');
+                    galleryItem.innerHTML = `
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;">
+                            <div>⚠️</div>
+                            <div>Image not found</div>
+                        </div>
+                    `;
+                };
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Gallery item clicks
+            document.getElementById('gallery').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    const itemId = parseInt(e.target.dataset.id);
+                    const item = portfolioData.find(p => p.id === itemId);
+                    openModal(item);
+                }
+            });
+
+            // Modal close
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
+            document.getElementById('imageModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    closeModal();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Open modal
+        function openModal(item) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalCategory = document.getElementById('modalCategory');
+
+            modalImage.src = item.image;
+            modalTitle.textContent = item.title;
+            modalCategory.textContent = item.category;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>
