@@ -68,6 +68,8 @@
             border-radius: 50px;
             padding: 8px;
             border: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filter-btn {
@@ -99,19 +101,29 @@
             padding: 80px 0;
             display: flex;
             flex-direction: column;
-            gap: 60px;
+            gap: 25px;
         }
 
         .gallery-row {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .gallery-row.wide-layout {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gallery-row.wide-layout .gallery-item {
+            height: 35vh;
+            aspect-ratio: 16/9;
         }
 
         .gallery-item {
             position: relative;
             width: 100%;
-            height: 70vh;
+            height: 50vh;
             cursor: pointer;
             overflow: hidden;
             border-radius: 20px;
@@ -283,9 +295,27 @@
                 font-size: 3rem;
                 letter-spacing: 15px;
             }
+
+            .gallery {
+                gap: 20px;
+            }
+
+            .filter-btn {
+                padding: 14px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-row.wide-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+
+            .gallery-row.wide-layout .gallery-item {
+                height: 40vh;
+            }
             
             .gallery-item {
-                height: 60vh;
+                height: 45vh;
             }
         }
 
@@ -300,18 +330,31 @@
             }
             
             .filter-tabs {
-                flex-direction: column;
-                width: 100%;
-                max-width: 300px;
+                flex-direction: row;
+                width: auto;
+                max-width: 100%;
+                gap: 5px;
+                padding: 8px;
             }
             
             .filter-btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            
+            .gallery {
+                padding: 60px 0;
+                gap: 30px;
+            }
+
+            .gallery-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .gallery-item {
-                height: 50vh;
+                height: 40vh;
             }
             
             .modal-close {
@@ -515,14 +558,16 @@
 
     <header>
         <div class="container">
-            <h1>PHOTO</h1>
-            <p class="subtitle">Feeldiz DI STUDIO</p>
+            <h1>Feeldiz DI STUDIO</h1>
+            <p class="subtitle">feel our contrast</p>
         </div>
     </header>
 
     <div class="filter-section">
         <div class="filter-tabs">
             <button class="filter-btn active" data-filter="all">All Works</button>
+            <button class="filter-btn" data-filter="착한사나이">착한사나이</button>
+            <button class="filter-btn" data-filter="film">Film</button>
         </div>
     </div>
 
@@ -548,302 +593,319 @@
     </div>
 
     <script>
-        // Sample portfolio data with ultra-wide images
-        const portfolioData = [
-            // 착한사나이
-            {
+        // Generate GM series (착한사나이) data - including original 4
+        function generateGMSeries() {
+            const gmSeries = [];
+            // Original 4 images
+            gmSeries.push({
                 id: 1,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/GM.jpg?raw=true",
                 description: "착한사나이"
-            },
-            {
+            });
+            gmSeries.push({
                 id: 2,
-                category: "portfolio",
+                category: "portfolio", 
                 image: "https://github.com/suukkim/image/blob/main/GM2.jpg?raw=true",
                 description: "착한사나이"
-            },
-            {
+            });
+            gmSeries.push({
                 id: 3,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM3.jpg?raw=true",
+                image: "https://github.com/suukkim/image/blob/main/GM3.jpg?raw=true", 
                 description: "착한사나이"
-            },
-            {
+            });
+            gmSeries.push({
                 id: 4,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/GM4.jpg?raw=true",
                 description: "착한사나이"
-            },
+            });
+            // GM_1 to GM_137
+            for (let i = 1; i <= 137; i++) {
+                gmSeries.push({
+                    id: i + 4,
+                    category: "portfolio",
+                    image: `https://github.com/suukkim/image/blob/main/GM_${i}.jpg?raw=true`,
+                    description: "착한사나이"
+                });
+            }
+            return gmSeries;
+        }
+
+        // Sample portfolio data with ultra-wide images
+        const portfolioData = [
+            // 착한사나이 (GM_1 ~ GM_137)
+            ...generateGMSeries(),
             // 환영
             {
-                id: 5,
+                id: 142,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true",
                 description: "환영"
             },
             {
-                id: 6,
+                id: 143,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true",
                 description: "환영"
             },
             {
-                id: 7,
+                id: 144,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true",
                 description: "환영"
             },
             {
-                id: 8,
+                id: 145,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true",
                 description: "환영"
             },
             // 제비
             {
-                id: 9,
+                id: 146,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true",
                 description: "제비"
             },
             {
-                id: 10,
+                id: 147,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true",
                 description: "제비"
             },
             {
-                id: 11,
+                id: 148,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true",
                 description: "제비"
             },
             {
-                id: 12,
+                id: 149,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true",
                 description: "제비"
             },
             // 16mm 현상
             {
-                id: 13,
+                id: 150,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/16mm_1.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
-                id: 14,
+                id: 151,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/16mm_2.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
-                id: 15,
+                id: 152,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/16mm_3.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
-                id: 16,
+                id: 153,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/16mm_4.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
-                id: 17,
+                id: 154,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/16mm_5.jpg?raw=true",
                 description: "16mm 현상"
             },
             // Ronin 4D
             {
-                id: 18,
+                id: 155,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true",
                 description: "Ronin 4D"
             },
             {
-                id: 19,
+                id: 156,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true",
                 description: "Ronin 4D"
             },
             // Arri 65
             {
-                id: 20,
+                id: 157,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true",
                 description: "Arri 65"
             },
             {
-                id: 21,
+                id: 158,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true",
                 description: "Arri 65"
             },
             // 그릇된소녀
             {
-                id: 22,
+                id: 159,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
-                id: 23,
+                id: 160,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
-                id: 24,
+                id: 161,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
-                id: 25,
+                id: 162,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
-                id: 26,
+                id: 163,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true",
                 description: "그릇된소녀"
             },
             // 로망스
             {
-                id: 27,
+                id: 164,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true",
                 description: "로망스"
             },
             {
-                id: 28,
+                id: 165,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true",
                 description: "로망스"
             },
             {
-                id: 29,
+                id: 166,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true",
                 description: "로망스"
             },
             // 가문의영광
             {
-                id: 30,
+                id: 167,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true",
                 description: "가문의영광"
             },
             {
-                id: 31,
+                id: 168,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true",
                 description: "가문의영광"
             },
             {
-                id: 32,
+                id: 169,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true",
                 description: "가문의영광"
             },
             {
-                id: 33,
+                id: 170,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true",
                 description: "가문의영광"
             },
             // BlackSnake
             {
-                id: 34,
+                id: 171,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 35,
+                id: 172,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS2.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 36,
+                id: 173,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS3.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 37,
+                id: 174,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS4.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 38,
+                id: 175,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS5.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 39,
+                id: 176,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS6.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 40,
+                id: 177,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS7.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 41,
+                id: 178,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS8.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 42,
+                id: 179,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS9.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 43,
+                id: 180,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS10.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 44,
+                id: 181,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS11.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 45,
+                id: 182,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS12.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 46,
+                id: 183,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS13.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 47,
+                id: 184,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS14.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
-                id: 48,
+                id: 185,
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS15.jpg?raw=true",
                 description: "BlackSnake"
@@ -853,6 +915,18 @@
         // Loading screen management
         let loadedImages = 0;
         let totalImages = portfolioData.length;
+        let currentFilter = 'all';
+
+        function updateTotalImages() {
+            if (currentFilter === '착한사나이') {
+                totalImages = portfolioData.filter(item => item.description === "착한사나이").length;
+            } else if (currentFilter === 'film') {
+                totalImages = portfolioData.filter(item => item.description !== "착한사나이").length;
+            } else {
+                totalImages = portfolioData.length;
+            }
+            loadedImages = 0;
+        }
 
         function hideLoadingScreen() {
             setTimeout(() => {
@@ -883,47 +957,113 @@
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
 
-            items.forEach((item, index) => {
-                const galleryRow = document.createElement('div');
-                galleryRow.className = 'gallery-row';
-                
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item loading';
-                galleryItem.style.animationDelay = `${index * 0.2}s`;
-                
+            // Update total images count for loading
+            updateTotalImages();
+
+            // Filter items based on current filter
+            let filteredItems = items;
+            if (currentFilter === '착한사나이') {
+                filteredItems = items.filter(item => item.description === "착한사나이");
+            } else if (currentFilter === 'film') {
+                filteredItems = items.filter(item => item.description !== "착한사나이");
+            }
+
+            // Separate 착한사나이 and other items from filtered results
+            const gmItems = filteredItems.filter(item => item.description === "착한사나이");
+            const otherItems = filteredItems.filter(item => item.description !== "착한사나이");
+
+            // Render 착한사나이 with 3 columns (if any in filtered results)
+            if (gmItems.length > 0) {
+                for (let i = 0; i < gmItems.length; i += 3) {
+                    const galleryRow = document.createElement('div');
+                    galleryRow.className = 'gallery-row wide-layout';
+                    
+                    // Add up to 3 items per row
+                    for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
+                        const item = gmItems[i + j];
+                        const galleryItem = createGalleryItem(item, i + j);
+                        galleryRow.appendChild(galleryItem);
+                    }
+                    
+                    gallery.appendChild(galleryRow);
+                }
+            }
+
+            // Render other items with 2 columns (if any in filtered results)
+            if (otherItems.length > 0) {
+                for (let i = 0; i < otherItems.length; i += 2) {
+                    const galleryRow = document.createElement('div');
+                    galleryRow.className = 'gallery-row';
+                    
+                    // First item
+                    const item1 = otherItems[i];
+                    if (item1) {
+                        const galleryItem1 = createGalleryItem(item1, gmItems.length + i);
+                        galleryRow.appendChild(galleryItem1);
+                    }
+                    
+                    // Second item (if exists)
+                    const item2 = otherItems[i + 1];
+                    if (item2) {
+                        const galleryItem2 = createGalleryItem(item2, gmItems.length + i + 1);
+                        galleryRow.appendChild(galleryItem2);
+                    }
+                    
+                    gallery.appendChild(galleryRow);
+                }
+            }
+        }
+
+        // Create individual gallery item
+        function createGalleryItem(item, index) {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item loading';
+            galleryItem.style.animationDelay = `${index * 0.1}s`;
+            
+            galleryItem.innerHTML = `
+                <img src="${item.image}" alt="Portfolio Image" data-id="${item.id}">
+                <div class="gallery-item-overlay">
+                    <p class="overlay-category">${item.category}</p>
+                    <p class="overlay-description">${item.description}</p>
+                </div>
+            `;
+
+            // Remove loading class after image loads
+            const img = galleryItem.querySelector('img');
+            img.onload = () => {
+                galleryItem.classList.remove('loading');
+                checkAllImagesLoaded();
+            };
+            
+            img.onerror = () => {
+                galleryItem.classList.remove('loading');
                 galleryItem.innerHTML = `
-                    <img src="${item.image}" alt="Portfolio Image" data-id="${item.id}">
-                    <div class="gallery-item-overlay">
-                        <p class="overlay-category">${item.category}</p>
-                        <p class="overlay-description">${item.description}</p>
+                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;">
+                        <div>⚠️</div>
+                        <div>Image not found</div>
                     </div>
                 `;
+                checkAllImagesLoaded();
+            };
 
-                galleryRow.appendChild(galleryItem);
-                gallery.appendChild(galleryRow);
-
-                // Remove loading class after image loads
-                const img = galleryItem.querySelector('img');
-                img.onload = () => {
-                    galleryItem.classList.remove('loading');
-                    checkAllImagesLoaded();
-                };
-                
-                img.onerror = () => {
-                    galleryItem.classList.remove('loading');
-                    galleryItem.innerHTML = `
-                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;">
-                            <div>⚠️</div>
-                            <div>Image not found</div>
-                        </div>
-                    `;
-                    checkAllImagesLoaded();
-                };
-            });
+            return galleryItem;
         }
 
         // Setup event listeners
         function setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    // Update filter and re-render
+                    currentFilter = e.target.dataset.filter;
+                    renderGallery(portfolioData);
+                });
+            });
+
             // Gallery item clicks
             document.getElementById('gallery').addEventListener('click', (e) => {
                 if (e.target.tagName === 'IMG') {
