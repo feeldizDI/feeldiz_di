@@ -1236,32 +1236,33 @@
                     <div class="contact-form">
                         <h3>문의하기 (Send Message)</h3>
                         <div class="contact-form-container">
-                            <form>
+                            <form id="contactForm">
                                 <div class="form-group">
                                     <label for="name">이름 (Name) *</label>
-                                    <input type="text" id="name" name="name" required>
+                                    <input type="text" id="name" name="from_name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="company">회사명 (Company)</label>
-                                    <input type="text" id="company" name="company">
+                                    <input type="text" id="company" name="company" placeholder="선택사항">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">이메일 (Email) *</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <input type="email" id="email" name="reply_to" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">전화번호 (Phone)</label>
-                                    <input type="tel" id="phone" name="phone">
+                                    <input type="tel" id="phone" name="phone" placeholder="선택사항">
                                 </div>
                                 <div class="form-group">
                                     <label for="project">프로젝트 유형 (Project Type)</label>
-                                    <input type="text" id="project" name="project" placeholder="영화, 드라마, 광고, 뮤직비디오 등">
+                                    <input type="text" id="project" name="project_type" placeholder="영화, 드라마, 광고, 뮤직비디오 등">
                                 </div>
                                 <div class="form-group">
                                     <label for="message">메시지 (Message) *</label>
                                     <textarea id="message" name="message" required placeholder="프로젝트에 대해 자세히 알려주세요..."></textarea>
                                 </div>
-                                <button type="submit" class="submit-btn">문의 보내기</button>
+                                <button type="submit" class="submit-btn" id="submitBtn">문의 보내기</button>
+                                <div id="formStatus" style="margin-top: 20px; text-align: center; display: none;"></div>
                             </form>
                         </div>
                     </div>
@@ -1310,6 +1311,9 @@
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script>
         // Generate GM series (착한사나이) data - including original 4
         function generateGMSeries() {
@@ -1627,6 +1631,16 @@
                 category: "portfolio",
                 image: "https://github.com/suukkim/image/blob/main/BS15.jpg?raw=true",
                 description: "BlackSnake"
+            },
+            // YouTube Video
+            {
+                id: 186,
+                category: "portfolio",
+                type: "video",
+                videoUrl: "https://youtu.be/PfEMKreJVDo",
+                embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo",
+                thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg",
+                description: "착한사나이"
             }
         ];
 
@@ -1739,8 +1753,14 @@
             galleryItem.className = 'gallery-item loading';
             galleryItem.style.animationDelay = `${index * 0.1}s`;
             
+            // Check if it's a video item
+            const isVideo = item.type === 'video';
+            const imageSrc = isVideo ? item.thumbnail : item.image;
+            const playIcon = isVideo ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;color:white;font-size:3rem;opacity:0.8;">▶</div>' : '';
+            
             galleryItem.innerHTML = `
-                <img src="${item.image}" alt="Portfolio Image" data-id="${item.id}">
+                <img src="${imageSrc}" alt="Portfolio Image" data-id="${item.id}">
+                ${playIcon}
                 <div class="gallery-item-overlay">
                     <p class="overlay-category">${item.category}</p>
                     <p class="overlay-description">${item.description}</p>
@@ -1759,7 +1779,7 @@
                 galleryItem.innerHTML = `
                     <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;">
                         <div>⚠️</div>
-                        <div>Image not found</div>
+                        <div>Content not found</div>
                     </div>
                 `;
                 checkAllImagesLoaded();
@@ -1941,10 +1961,21 @@
         function openModal(item) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
+            const modalVideo = document.getElementById('modalVideo');
             const modalCategory = document.getElementById('modalCategory');
             const modalDescription = document.getElementById('modalDescription');
 
-            modalImage.src = item.image;
+            // Check if it's a video item
+            if (item.type === 'video') {
+                modalImage.style.display = 'none';
+                modalVideo.style.display = 'block';
+                modalVideo.src = item.embedUrl;
+            } else {
+                modalVideo.style.display = 'none';
+                modalImage.style.display = 'block';
+                modalImage.src = item.image;
+            }
+
             modalCategory.textContent = item.category;
             modalDescription.textContent = item.description;
 
@@ -1955,7 +1986,10 @@
         // Close modal
         function closeModal() {
             const modal = document.getElementById('imageModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
             modal.style.display = 'none';
+            modalVideo.src = ''; // Stop video playback
             document.body.style.overflow = 'auto';
         }
 
@@ -1963,6 +1997,54 @@
         document.addEventListener('DOMContentLoaded', () => {
             initGallery();
             showSection('home'); // Ensure home section is shown initially
+            
+            // Initialize EmailJS
+            emailjs.init("LQ4ZMYydDYnVxc1mh"); // Your EmailJS public key
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.textContent = '전송 중...';
+                submitBtn.disabled = true;
+                formStatus.style.display = 'none';
+
+                // Send email using EmailJS
+                emailjs.sendForm(
+                    'service_s086xku',    // Your EmailJS service ID
+                    'template_0b2efsk',   // Your EmailJS template ID
+                    this
+                )
+                .then(function(response) {
+                    // Success
+                    submitBtn.textContent = '문의 보내기';
+                    submitBtn.disabled = false;
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#4CAF50';
+                    formStatus.innerHTML = '✅ 문의가 성공적으로 전송되었습니다!<br>빠른 시일 내에 답변드리겠습니다.';
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                    
+                }, function(error) {
+                    // Error
+                    submitBtn.textContent = '문의 보내기';
+                    submitBtn.disabled = false;
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#f44336';
+                    formStatus.innerHTML = '❌ 전송 중 오류가 발생했습니다.<br>직접 이메일로 연락해주세요: feeldiz.studio.di@gmail.com';
+                    
+                    console.error('EmailJS Error:', error);
+                });
+            });
             
             // 최대 로딩 시간 제한 (5초)
             setTimeout(() => {
