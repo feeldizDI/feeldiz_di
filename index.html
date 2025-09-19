@@ -264,10 +264,10 @@
 
         .modal-info {
             position: fixed;
-            bottom: 40px;
-            right: 40px;
+            bottom: 60px;
+            left: 60px;
             color: white;
-            text-align: right;
+            text-align: left;
             z-index: 1001;
         }
 
@@ -276,11 +276,11 @@
         }
 
         .modal-description {
-            font-size: 2rem;
+            font-size: 1.4rem;
             font-weight: 300;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         /* Responsive Design */
@@ -381,12 +381,12 @@
             
             @media (max-width: 768px) {
                 .modal-info {
-                    bottom: 20px;
-                    right: 20px;
+                    bottom: 15px;
+                    left: 15px;
                 }
 
                 .modal-description {
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                 }
             }
 
@@ -1984,8 +1984,6 @@
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalVideo = document.getElementById('modalVideo');
-            const modalCategory = document.getElementById('modalCategory');
-            const modalDescription = document.getElementById('modalDescription');
 
             // Check if it's a video item
             if (item.type === 'video') {
@@ -1997,9 +1995,6 @@
                 modalImage.style.display = 'block';
                 modalImage.src = item.image;
             }
-
-            modalCategory.textContent = item.category;
-            modalDescription.textContent = item.description;
 
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
