@@ -731,7 +731,252 @@
             font-weight: 300;
         }
 
-        /* Responsive About Section */
+        /* Contact Section - Complete page override */
+        .contact-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+            z-index: 1500;
+            overflow-y: auto;
+            padding-top: 80px;
+        }
+
+        .contact-section.active {
+            display: block;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 60px 10px 80px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .contact-header h2 {
+            font-size: 3.5rem;
+            font-weight: 100;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .contact-info h3,
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            padding: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .contact-item h4 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            color: #cccccc;
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 5px 0;
+        }
+
+        .contact-form-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #e0e0e0;
+            margin-bottom: 8px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #666, #999);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #777, #aaa);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        .business-hours {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .business-hours h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hours-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hours-item h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .hours-item p {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Contact Section */
+        @media (max-width: 1200px) {
+            .contact-header h2 {
+                font-size: 3rem;
+                letter-spacing: 6px;
+            }
+
+            .contact-grid {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 120px 0 60px;
+            }
+
+            .contact-header {
+                margin-bottom: 50px;
+            }
+
+            .contact-header h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 50px;
+            }
+
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
         @media (max-width: 1200px) {
             .about-header h2 {
                 font-size: 3rem;
@@ -904,7 +1149,7 @@
                 <div class="about-grid">
                     <div class="about-text">
                         <h3>Who We Are</h3>
-                        <p>필디즈는 2023년에 설립된 프리미엄 디지털 인터미디어트(DI) 스튜디오입니다. 우리는 영화, 드라마, 광고, 뮤직비디오 등 다양한 영상 콘텐츠의 후반작업을 전문으로 하며, 최고 수준의 기술력과 창의적 비전으로 국내외 제작진들과 협업하고 있습니다.</p>
+                        <p>필디즈는 2023년에 설립된 프리미엄 디지털 인터미디어트(DI) 스튜디오입니다. 우리는 영화, 드라마, 광고, 뮤직비디오 등 다양한 영상 콘텐츠의 후반작업을<br>전문으로 하며, 최고 수준의 기술력과 창의적 비전으로 국내외 제작진들과 협업하고 있습니다.</p>
                         
                         <h3>Our Vision</h3>
                         <p>우리의 비전은 단순히 기술적 완성도를 넘어서, 각 프로젝트만의 고유한 감성과 스토리를 시각적으로 완성하는 것입니다. '느껴보세요, 우리의 대비(Feel Our Contrast)'라는 모토 아래, 색감과 톤, 질감의 미묘한 차이를 통해 관객에게 깊은 감동을 전달합니다.</p>
@@ -949,6 +1194,102 @@
                     <div class="stat-item">
                         <h4>24/7</h4>
                         <p>프로젝트 지원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h2>CONTACT</h2>
+                    <p class="contact-subtitle">Get In Touch With Us</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <h4>주소 (Address)</h4>
+                                <p>서울특별시 강남구 테헤란로</p>
+                                <p>Seoul, Gangnam-gu, Teheran-ro</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>전화 (Phone)</h4>
+                                <p>+82 2-0000-0000</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>이메일 (Email)</h4>
+                                <p>info@feeldiz.com</p>
+                                <p>business@feeldiz.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>카카오톡 (KakaoTalk)</h4>
+                                <p>@feeldiz_studio</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>문의하기 (Send Message)</h3>
+                        <div class="contact-form-container">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">이름 (Name) *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">회사명 (Company)</label>
+                                    <input type="text" id="company" name="company">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">이메일 (Email) *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">전화번호 (Phone)</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="project">프로젝트 유형 (Project Type)</label>
+                                    <input type="text" id="project" name="project" placeholder="영화, 드라마, 광고, 뮤직비디오 등">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">메시지 (Message) *</label>
+                                    <textarea id="message" name="message" required placeholder="프로젝트에 대해 자세히 알려주세요..."></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">문의 보내기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <h3>운영시간 (Business Hours)</h3>
+                    <div class="hours-grid">
+                        <div class="hours-item">
+                            <h4>평일 (Weekdays)</h4>
+                            <p>오전 9:00 - 오후 7:00</p>
+                            <p>9:00 AM - 7:00 PM</p>
+                        </div>
+                        <div class="hours-item">
+                            <h4>토요일 (Saturday)</h4>
+                            <p>오전 10:00 - 오후 3:00</p>
+                            <p>10:00 AM - 3:00 PM</p>
+                        </div>
+                        <div class="hours-item">
+                            <h4>일요일 (Sunday)</h4>
+                            <p>휴무 (Closed)</p>
+                        </div>
+                        <div class="hours-item">
+                            <h4>24/7 지원 (Emergency)</h4>
+                            <p>긴급 프로젝트 지원</p>
+                            <p>Emergency Project Support</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1437,6 +1778,7 @@
             const filterSection = document.querySelector('.filter-section');
             const galleryContainer = document.querySelector('.container');
             const aboutSection = document.getElementById('about');
+            const contactSection = document.getElementById('contact');
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
             if (sectionName === 'home') {
@@ -1446,10 +1788,14 @@
                 if (galleryContainer) galleryContainer.style.display = 'block';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'flex';
                 
-                // Hide about
+                // Hide about and contact
                 if (aboutSection) {
                     aboutSection.style.display = 'none';
                     aboutSection.classList.remove('active');
+                }
+                if (contactSection) {
+                    contactSection.style.display = 'none';
+                    contactSection.classList.remove('active');
                 }
                 
                 // Restore body background
@@ -1462,6 +1808,12 @@
                 if (galleryContainer) galleryContainer.style.display = 'none';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
                 
+                // Hide contact section
+                if (contactSection) {
+                    contactSection.style.display = 'none';
+                    contactSection.classList.remove('active');
+                }
+                
                 // Show about section
                 if (aboutSection) {
                     aboutSection.style.display = 'block';
@@ -1469,6 +1821,29 @@
                 }
                 
                 // Change body background for about page
+                document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)';
+                document.body.style.minHeight = '100vh';
+                
+            } else if (sectionName === 'contact') {
+                // Hide all home elements
+                if (homeHeader) homeHeader.style.display = 'none';
+                if (filterSection) filterSection.style.display = 'none';
+                if (galleryContainer) galleryContainer.style.display = 'none';
+                if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
+                
+                // Hide about section
+                if (aboutSection) {
+                    aboutSection.style.display = 'none';
+                    aboutSection.classList.remove('active');
+                }
+                
+                // Show contact section
+                if (contactSection) {
+                    contactSection.style.display = 'block';
+                    contactSection.classList.add('active');
+                }
+                
+                // Change body background for contact page
                 document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)';
                 document.body.style.minHeight = '100vh';
             }
