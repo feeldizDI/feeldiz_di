@@ -228,6 +228,15 @@
             box-shadow: 0 0 100px rgba(0,0,0,0.8);
         }
 
+        .modal-video {
+            max-width: 95vw;
+            max-height: 95vh;
+            width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+
         .modal-close {
             position: fixed;
             top: 40px;
@@ -256,33 +265,22 @@
         .modal-info {
             position: fixed;
             bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 40px;
             color: white;
-            text-align: center;
-            background: rgba(0,0,0,0.8);
-            padding: 25px 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(20px);
+            text-align: right;
             z-index: 1001;
-            border: 1px solid rgba(255,255,255,0.1);
-            min-width: 400px;
         }
 
         .modal-category {
-            font-size: 1rem;
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ccc;
+            display: none;
         }
 
         .modal-description {
-            font-size: 1.8rem;
-            margin-top: 10px;
+            font-size: 2rem;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         /* Responsive Design */
@@ -381,10 +379,15 @@
                 font-size: 30px;
             }
             
-            .modal-info {
-                bottom: 20px;
-                padding: 20px 25px;
-                min-width: 300px;
+            @media (max-width: 768px) {
+                .modal-info {
+                    bottom: 20px;
+                    right: 20px;
+                }
+
+                .modal-description {
+                    font-size: 1.4rem;
+                }
             }
 
             .scroll-to-top {
@@ -1311,7 +1314,8 @@
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <img class="modal-image" id="modalImage" src="" alt="">
+            <img class="modal-image" id="modalImage" src="" alt="" style="display: none;">
+            <iframe class="modal-video" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
             <div class="modal-info">
                 <p class="modal-category" id="modalCategory"></p>
                 <h3 class="modal-description" id="modalDescription"></h3>
@@ -1330,25 +1334,25 @@
             gmSeries.push({
                 id: 1,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM.jpg?raw=true",
                 description: "착한사나이"
             });
             gmSeries.push({
                 id: 2,
                 category: "portfolio", 
-                image: "https://github.com/suukkim/image/blob/main/GM2.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM2.jpg?raw=true",
                 description: "착한사나이"
             });
             gmSeries.push({
                 id: 3,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM3.jpg?raw=true", 
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM3.jpg?raw=true", 
                 description: "착한사나이"
             });
             gmSeries.push({
                 id: 4,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/GM4.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM4.jpg?raw=true",
                 description: "착한사나이"
             });
             // GM_1 to GM_137
@@ -1356,7 +1360,7 @@
                 gmSeries.push({
                     id: i + 4,
                     category: "portfolio",
-                    image: `https://github.com/suukkim/image/blob/main/GM_${i}.jpg?raw=true`,
+                    image: `https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM_${i}.jpg?raw=true`,
                     description: "착한사나이"
                 });
             }
@@ -1371,273 +1375,273 @@
             {
                 id: 142,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after2.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after2.jpg?raw=true",
                 description: "환영"
             },
             {
                 id: 143,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after23.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after23.jpg?raw=true",
                 description: "환영"
             },
             {
                 id: 144,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true",
                 description: "환영"
             },
             {
                 id: 145,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true",
                 description: "환영"
             },
             // 제비
             {
                 id: 146,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after3.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after3.jpg?raw=true",
                 description: "제비"
             },
             {
                 id: 147,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after4.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after4.jpg?raw=true",
                 description: "제비"
             },
             {
                 id: 148,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after5.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after5.jpg?raw=true",
                 description: "제비"
             },
             {
                 id: 149,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after6.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after6.jpg?raw=true",
                 description: "제비"
             },
             // 16mm 현상
             {
                 id: 150,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/16mm_1.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_1.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
                 id: 151,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/16mm_2.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_2.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
                 id: 152,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/16mm_3.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_3.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
                 id: 153,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/16mm_4.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_4.jpg?raw=true",
                 description: "16mm 현상"
             },
             {
                 id: 154,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/16mm_5.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_5.jpg?raw=true",
                 description: "16mm 현상"
             },
             // Ronin 4D
             {
                 id: 155,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after7.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after7.jpg?raw=true",
                 description: "Ronin 4D"
             },
             {
                 id: 156,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after9.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after9.jpg?raw=true",
                 description: "Ronin 4D"
             },
             // Arri 65
             {
                 id: 157,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after8.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after8.jpg?raw=true",
                 description: "Arri 65"
             },
             {
                 id: 158,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after10.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after10.jpg?raw=true",
                 description: "Arri 65"
             },
             // 그릇된소녀
             {
                 id: 159,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after11.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after11.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
                 id: 160,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after12.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after12.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
                 id: 161,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after13.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after13.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
                 id: 162,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after14.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after14.jpg?raw=true",
                 description: "그릇된소녀"
             },
             {
                 id: 163,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after15.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after15.jpg?raw=true",
                 description: "그릇된소녀"
             },
             // 로망스
             {
                 id: 164,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after16.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after16.jpg?raw=true",
                 description: "로망스"
             },
             {
                 id: 165,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after17.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after17.jpg?raw=true",
                 description: "로망스"
             },
             {
                 id: 166,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after18.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after18.jpg?raw=true",
                 description: "로망스"
             },
             // 가문의영광
             {
                 id: 167,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after19.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after19.jpg?raw=true",
                 description: "가문의영광"
             },
             {
                 id: 168,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after20.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after20.jpg?raw=true",
                 description: "가문의영광"
             },
             {
                 id: 169,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after21.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after21.jpg?raw=true",
                 description: "가문의영광"
             },
             {
                 id: 170,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/after22.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after22.jpg?raw=true",
                 description: "가문의영광"
             },
             // BlackSnake
             {
                 id: 171,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 172,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS2.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS2.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 173,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS3.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS3.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 174,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS4.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS4.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 175,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS5.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS5.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 176,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS6.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS6.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 177,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS7.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS7.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 178,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS8.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS8.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 179,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS9.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS9.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 180,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS10.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS10.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 181,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS11.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS11.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 182,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS12.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS12.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 183,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS13.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS13.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 184,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS14.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS14.jpg?raw=true",
                 description: "BlackSnake"
             },
             {
                 id: 185,
                 category: "portfolio",
-                image: "https://github.com/suukkim/image/blob/main/BS15.jpg?raw=true",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS15.jpg?raw=true",
                 description: "BlackSnake"
             },
             // YouTube Video
@@ -1933,21 +1937,31 @@
             });
 
             // Gallery item clicks
-            document.getElementById('gallery').addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG') {
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG' && e.target.dataset.id) {
                     const itemId = parseInt(e.target.dataset.id);
                     const item = portfolioData.find(p => p.id === itemId);
-                    openModal(item);
+                    if (item) {
+                        openModal(item);
+                    }
                 }
             });
 
             // Modal close
-            document.querySelector('.modal-close').addEventListener('click', closeModal);
-            document.getElementById('imageModal').addEventListener('click', (e) => {
-                if (e.target === e.currentTarget) {
-                    closeModal();
-                }
-            });
+            const modalCloseBtn = document.querySelector('.modal-close');
+            const imageModal = document.getElementById('imageModal');
+            
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', closeModal);
+            }
+            
+            if (imageModal) {
+                imageModal.addEventListener('click', (e) => {
+                    if (e.target === imageModal) {
+                        closeModal();
+                    }
+                });
+            }
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
