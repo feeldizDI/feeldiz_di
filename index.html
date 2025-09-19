@@ -1899,6 +1899,14 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     
+                    const section = link.dataset.section;
+                    
+                    // Home 버튼 클릭시 페이지 새로고침
+                    if (section === 'home') {
+                        window.location.reload();
+                        return;
+                    }
+                    
                     // Update active link
                     navLinks.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
@@ -1907,7 +1915,6 @@
                     navMenu.classList.remove('active');
                     
                     // Handle navigation
-                    const section = link.dataset.section;
                     showSection(section);
                     window.scrollTo({
                         top: 0,
