@@ -1139,6 +1139,65 @@
                 transform: translateY(0);
             }
         }
+
+        /* Dice animation overlay */
+        .dice-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .dice-overlay.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .dice {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rollDice 1.5s ease-out;
+        }
+
+        @keyframes rollDice {
+            0% { transform: rotate3d(1, 1, 1, 0deg); }
+            25% { transform: rotate3d(1, 1, 1, 180deg); }
+            50% { transform: rotate3d(1, 1, 1, 360deg); }
+            75% { transform: rotate3d(1, 1, 1, 540deg); }
+            100% { transform: rotate3d(1, 1, 1, 720deg); }
+        }
+
+        .dice-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .dice-dot {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -1186,6 +1245,14 @@
             <button class="filter-btn" data-filter="착한사나이">착한사나이</button>
             <button class="filter-btn" data-filter="short">Short Film</button>
             <button class="filter-btn" data-filter="feature">Feature Film</button>
+            <button class="filter-btn" data-filter="random">Random 🎲</button>
+        </div>
+    </div>
+
+    <!-- Dice Animation Overlay -->
+    <div class="dice-overlay" id="diceOverlay">
+        <div class="dice" id="dice">
+            <div class="dice-face">🎲</div>
         </div>
     </div>
 
@@ -1639,112 +1706,6 @@
                 description: "가문의영광",
                 type: "feature"
             },
-            // BlackSnake
-            {
-                id: 171,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 172,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS2.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 173,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS3.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 174,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS4.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 175,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS5.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 176,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS6.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 177,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS7.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 178,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS8.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 179,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS9.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 180,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS10.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 181,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS11.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 182,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS12.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 183,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS13.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 184,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS14.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 185,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS15.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
             // 비밀일수밖에
             {
                 id: 187,
@@ -1910,6 +1871,98 @@
                 embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo",
                 thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg",
                 description: "착한사나이"
+            },
+            // BlackSnake (id 171, 172 삭제 후 제일 하단으로 이동)
+            {
+                id: 173,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS3.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 174,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS4.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 175,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS5.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 176,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS6.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 177,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS7.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 178,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS8.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 179,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS9.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 180,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS10.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 181,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS11.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 182,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS12.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 183,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS13.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 184,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS14.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
+            },
+            {
+                id: 185,
+                category: "portfolio",
+                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS15.jpg?raw=true",
+                description: "BlackSnake",
+                type: "feature"
             }
         ];
 
@@ -1980,13 +2033,16 @@
                 filteredItems = items.filter(item => item.type === "short");
             } else if (currentFilter === 'feature') {
                 filteredItems = items.filter(item => item.type === "feature");
+            } else if (currentFilter === 'random') {
+                // Random: shuffle all items
+                filteredItems = [...items].sort(() => Math.random() - 0.5);
             }
 
-            // Separate 착한사나이 and other items from filtered results
-            const gmItems = filteredItems.filter(item => item.description === "착한사나이");
-            const otherItems = filteredItems.filter(item => item.description !== "착한사나이");
+            // Separate 착한사나이 and other items from filtered results (only for non-random filters)
+            const gmItems = currentFilter === 'random' ? [] : filteredItems.filter(item => item.description === "착한사나이");
+            const otherItems = currentFilter === 'random' ? filteredItems : filteredItems.filter(item => item.description !== "착한사나이");
 
-            // Render 착한사나이 with 3 columns (if any in filtered results)
+            // Render 착한사나이 with 3 columns (if any in filtered results and not random)
             if (gmItems.length > 0) {
                 for (let i = 0; i < gmItems.length; i += 3) {
                     const galleryRow = document.createElement('div');
@@ -2003,7 +2059,7 @@
                 }
             }
 
-            // Render other items with 2 columns (if any in filtered results)
+            // Render other items with 2 columns (or 1 column for random on mobile)
             if (otherItems.length > 0) {
                 for (let i = 0; i < otherItems.length; i += 2) {
                     const galleryRow = document.createElement('div');
@@ -2026,6 +2082,17 @@
                     gallery.appendChild(galleryRow);
                 }
             }
+        }
+
+        // Show dice animation and shuffle
+        function showDiceAnimation() {
+            const diceOverlay = document.getElementById('diceOverlay');
+            diceOverlay.classList.add('show');
+            
+            setTimeout(() => {
+                diceOverlay.classList.remove('show');
+                renderGallery(portfolioData);
+            }, 1500);
         }
 
         // Create individual gallery item
@@ -2206,9 +2273,15 @@
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     e.target.classList.add('active');
                     
-                    // Update filter and re-render
+                    // Update filter
                     currentFilter = e.target.dataset.filter;
-                    renderGallery(portfolioData);
+                    
+                    // Show dice animation for random, otherwise render normally
+                    if (currentFilter === 'random') {
+                        showDiceAnimation();
+                    } else {
+                        renderGallery(portfolioData);
+                    }
                 });
             });
 
