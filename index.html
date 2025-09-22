@@ -2124,10 +2124,16 @@
             
             img.onerror = () => {
                 galleryItem.classList.remove('loading');
+                
+                // Extract filename from URL
+                const url = imageSrc;
+                const fileName = url.split('/').pop().split('?')[0]; // Get filename before '?'
+                
                 galleryItem.innerHTML = `
-                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;">
-                        <div>⚠️</div>
-                        <div>Content not found</div>
+                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;padding:20px;text-align:center;">
+                        <div style="font-size:2rem;margin-bottom:10px;">⚠️</div>
+                        <div style="margin-bottom:5px;">Content not found</div>
+                        <div style="font-size:0.9rem;color:#666;word-break:break-all;">${fileName}</div>
                     </div>
                 `;
                 checkAllImagesLoaded();
