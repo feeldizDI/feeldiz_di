@@ -27,7 +27,7 @@
 
         header {
             text-align: center;
-            padding: 80px 0 60px;
+            padding: 140px 0 60px;
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -295,22 +295,6 @@
             right: 30px;
         }
 
-        @media (max-width: 768px) {
-            .modal-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .modal-nav.prev {
-                left: 15px;
-            }
-
-            .modal-nav.next {
-                right: 15px;
-            }
-        }
-
         .modal-info {
             position: fixed;
             bottom: 60px;
@@ -330,138 +314,6 @@
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.7);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 8px;
-            }
-            
-            h1 {
-                font-size: 3rem;
-                letter-spacing: 15px;
-            }
-
-            .navbar-container {
-                padding: 0 8px;
-            }
-
-            .nav-menu {
-                gap: 30px;
-            }
-
-            .nav-link {
-                font-size: 0.9rem;
-            }
-
-            header {
-                padding: 130px 0 60px;
-            }
-
-            .gallery {
-                gap: 10px;
-            }
-
-            .filter-btn {
-                padding: 14px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .gallery-row.wide-layout {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .gallery-row.wide-layout .gallery-item {
-                height: 20vh;
-            }
-            
-            .gallery-row {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .gallery-item {
-                height: 20vh;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-                letter-spacing: 8px;
-            }
-            
-            .filter-tabs {
-                flex-direction: row;
-                width: auto;
-                max-width: 100%;
-                gap: 5px;
-                padding: 8px;
-            }
-            
-            .filter-btn {
-                padding: 10px 16px;
-                font-size: 0.8rem;
-                white-space: nowrap;
-            }
-            
-            .gallery {
-                padding: 60px 0;
-                gap: 30px;
-            }
-
-            .gallery-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .gallery-item {
-                height: 20vh;
-            }
-            
-            .modal-close {
-                top: 90px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 30px;
-            }
-            
-            @media (max-width: 768px) {
-                .modal-info {
-                    bottom: 15px;
-                    left: 15px;
-                }
-
-                .modal-description {
-                    font-size: 1.2rem;
-                }
-            }
-
-            .scroll-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-            }
-
-            .scroll-to-top::before {
-                font-size: 20px;
-            }
-
-            .overlay-description {
-                font-size: 1.2rem;
-            }
-
-            .modal-description {
-                font-size: 1.4rem;
-            }
         }
 
         /* Navigation Bar */
@@ -535,30 +387,6 @@
             color: #ffffff;
         }
 
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        /* Adjust header padding for fixed navbar */
-        header {
-            text-align: center;
-            padding: 140px 0 60px;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
         /* Loading Screen */
         .loading-screen {
             position: fixed;
@@ -619,7 +447,6 @@
             100% { width: 100%; }
         }
 
-        /* Studio name animation */
         .loading-studio {
             color: #b0b0b0;
             font-size: 0.9rem;
@@ -631,24 +458,7 @@
             animation: fadeInText 0.8s ease 1.5s forwards;
         }
 
-        /* Responsive loading screen */
-        @media (max-width: 768px) {
-            .loading-text {
-                font-size: 1rem;
-                letter-spacing: 2px;
-            }
-            
-            .loading-bar-container {
-                width: 250px;
-            }
-            
-            .loading-studio {
-                font-size: 0.8rem;
-                letter-spacing: 1px;
-            }
-        }
-
-        /* About Section - Complete page override */
+        /* About Section */
         .about-section {
             display: none;
             position: fixed;
@@ -664,15 +474,6 @@
 
         .about-section.active {
             display: block;
-        }
-
-        /* Hide gallery when about section is active */
-        .about-section.active ~ .container .gallery {
-            display: none !important;
-        }
-
-        .about-section.active ~ .filter-section {
-            display: none !important;
         }
 
         .about-content {
@@ -788,7 +589,297 @@
             font-weight: 300;
         }
 
-        /* Contact Section - Complete page override */
+        /* Works Section */
+        .works-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+            z-index: 1500;
+            overflow-y: auto;
+            padding-top: 80px;
+        }
+
+        .works-section.active {
+            display: block;
+        }
+
+        .works-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 60px 10px 80px;
+        }
+
+        .works-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .works-header h2 {
+            font-size: 3.5rem;
+            font-weight: 100;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .works-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .works-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .works-tab {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #888;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .works-tab:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .works-tab.active {
+            background: linear-gradient(45deg, #666, #999);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #666, #999);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .work-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .work-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .work-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .work-category {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .work-platform {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255,0,0,0.15), rgba(0,100,255,0.15));
+            border: 1px solid rgba(255,100,100,0.3);
+            color: #ff6b6b;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .work-card:hover .work-platform {
+            background: linear-gradient(135deg, rgba(255,0,0,0.25), rgba(0,100,255,0.25));
+            border-color: rgba(255,100,100,0.5);
+            transform: translateY(-2px);
+        }
+
+        .work-year {
+            font-size: 1.1rem;
+            color: #999;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .work-awards-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .work-card:hover .work-awards-badge {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        /* Awards Modal */
+        .awards-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .awards-content {
+            background: rgba(40, 40, 40, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+
+        .awards-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .awards-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .awards-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .awards-title {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .awards-subtitle {
+            font-size: 1.1rem;
+            color: #ffd700;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .award-entry {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid #ffd700;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .award-entry:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(5px);
+        }
+
+        .award-festival {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .award-name {
+            font-size: 1rem;
+            color: #ffd700;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
         .contact-section {
             display: none;
             position: fixed;
@@ -993,89 +1084,6 @@
             font-weight: 300;
         }
 
-        /* Responsive Contact Section */
-        @media (max-width: 1200px) {
-            .contact-header h2 {
-                font-size: 3rem;
-                letter-spacing: 6px;
-            }
-
-            .contact-grid {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-section {
-                padding: 120px 0 60px;
-            }
-
-            .contact-header {
-                margin-bottom: 50px;
-            }
-
-            .contact-header h2 {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                margin-bottom: 50px;
-            }
-
-            .contact-form-container {
-                padding: 30px 20px;
-            }
-
-            .hours-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-        }
-        @media (max-width: 1200px) {
-            .about-header h2 {
-                font-size: 3rem;
-                letter-spacing: 6px;
-            }
-
-            .about-grid {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-section {
-                padding: 120px 0 60px;
-            }
-
-            .about-header {
-                margin-bottom: 50px;
-            }
-
-            .about-header h2 {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                margin-bottom: 50px;
-            }
-
-            .about-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-
-            .stat-item h4 {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Scroll to top button */
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -1107,7 +1115,6 @@
             font-weight: 300;
         }
 
-        /* Loading animation */
         .gallery-item.loading {
             background: linear-gradient(90deg, #444 0%, #555 50%, #444 100%);
             background-size: 200% 100%;
@@ -1126,7 +1133,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Scroll animations */
         .gallery-item {
             opacity: 0;
             transform: translateY(50px);
@@ -1140,7 +1146,6 @@
             }
         }
 
-        /* Dice animation overlay */
         .dice-overlay {
             position: fixed;
             top: 0;
@@ -1192,21 +1197,160 @@
             font-size: 80px;
         }
 
-        .dice-dot {
-            width: 18px;
-            height: 18px;
-            background: white;
-            border-radius: 50%;
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 15px;
+            }
+            header {
+                padding: 130px 0 60px;
+            }
+            .filter-btn {
+                padding: 14px 20px;
+                font-size: 0.9rem;
+            }
+            .gallery-row.wide-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .gallery-row.wide-layout .gallery-item {
+                height: 20vh;
+            }
+            .gallery-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .gallery-item {
+                height: 20vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 8px;
+            }
+            .filter-tabs {
+                flex-direction: row;
+                width: auto;
+                max-width: 100%;
+                gap: 5px;
+                padding: 8px;
+            }
+            .filter-btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            .gallery {
+                padding: 60px 0;
+                gap: 30px;
+            }
+            .gallery-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .gallery-item {
+                height: 20vh;
+            }
+            .modal-close {
+                top: 90px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+            .modal-info {
+                bottom: 15px;
+                left: 15px;
+            }
+            .modal-description {
+                font-size: 1.2rem;
+            }
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            .scroll-to-top::before {
+                font-size: 20px;
+            }
+            .overlay-description {
+                font-size: 1.2rem;
+            }
+            .loading-text {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+            .loading-bar-container {
+                width: 250px;
+            }
+            .loading-studio {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+            .about-header h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 50px;
+            }
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .stat-item h4 {
+                font-size: 2.5rem;
+            }
+            .works-header h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .work-card {
+                padding: 25px;
+            }
+            .work-title {
+                font-size: 1.5rem;
+            }
+            .contact-header h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 50px;
+            }
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+            .hours-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link active" data-section="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#works" class="nav-link" data-section="works">Works</a>
                 </li>
                 <li class="nav-item">
                     <a href="#about" class="nav-link" data-section="about">About</a>
@@ -1215,15 +1359,9 @@
                     <a href="#contact" class="nav-link" data-section="contact">Contact</a>
                 </li>
             </ul>
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-text">Loading Portfolio</div>
         <div class="loading-bar-container">
@@ -1249,7 +1387,6 @@
         </div>
     </div>
 
-    <!-- Dice Animation Overlay -->
     <div class="dice-overlay" id="diceOverlay">
         <div class="dice" id="dice">
             <div class="dice-face">🎲</div>
@@ -1257,12 +1394,9 @@
     </div>
 
     <div class="container">
-        <div class="gallery" id="gallery">
-            <!-- Gallery items will be generated by JavaScript -->
-        </div>
+        <div class="gallery" id="gallery"></div>
     </div>
 
-    <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-content">
@@ -1270,19 +1404,15 @@
                     <h2>ABOUT Feeldiz Studio</h2>
                     <p class="about-subtitle">Crafting Visual Stories Through Innovation</p>
                 </div>
-                
                 <div class="about-grid">
                     <div class="about-text">
                         <h3>Who We Are</h3>
                         <p>필디즈는 2023년에 설립된 프리미엄 디지털 인터미디어트(DI) 스튜디오입니다. 우리는 영화, 드라마, 광고, 뮤직비디오 등 다양한 영상 콘텐츠의 후반작업을<br>전문으로 하며, 최고 수준의 기술력과 창의적 비전으로 국내외 제작진들과<br>협업하고 있습니다.</p>
-                        
                         <h3>Our Vision</h3>
                         <p>우리의 비전은 단순히 기술적 완성도를 넘어서, 각 프로젝트만의 고유한 감성과<br>스토리를 시각적으로 완성하는 것입니다.<br>'느껴보세요, 우리의 대비(Feel Our Contrast)'라는 모토 아래, 색감과 톤, 질감의 미묘한 차이를 통해 관객에게 깊은 감동을 전달합니다.</p>
-                        
                         <h3>Event</h3>
                         <p>9월 가을 특별 이벤트 <a href="https://www.filmmakers.co.kr/pr/26607337" target="_blank" style="color: #ff6b6b; text-decoration: none; border-bottom: 1px solid #ff6b6b; transition: all 0.3s ease;">링크를 참고하세요</a></p>
                     </div>
-                    
                     <div class="about-services">
                         <h3>Services</h3>
                         <div class="service-list">
@@ -1305,7 +1435,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="about-stats">
                     <div class="stat-item">
                         <h4>100+</h4>
@@ -1328,7 +1457,22 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <div class="works-content">
+                <div class="works-header">
+                    <h2>OUR WORKS</h2>
+                    <p class="works-subtitle">Portfolio of Excellence</p>
+                </div>
+                <div class="works-tabs">
+                    <button class="works-tab active" data-works-filter="film">Film</button>
+                    <button class="works-tab" data-works-filter="drama">Drama</button>
+                </div>
+                <div class="works-grid" id="worksGrid"></div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-content">
@@ -1336,7 +1480,6 @@
                     <h2>CONTACT</h2>
                     <p class="contact-subtitle">Get In Touch With Us</p>
                 </div>
-                
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Contact Information</h3>
@@ -1365,7 +1508,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="contact-form">
                         <h3>문의하기 (Send Message)</h3>
                         <div class="contact-form-container">
@@ -1400,7 +1542,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="business-hours">
                     <h3>운영시간 (Business Hours)</h3>
                     <div class="hours-grid">
@@ -1429,10 +1570,20 @@
         </div>
     </section>
 
-    <!-- Scroll to top button -->
+    <!-- Awards Modal -->
+    <div id="awardsModal" class="awards-modal">
+        <div class="awards-content">
+            <button class="awards-close-btn" onclick="closeAwards()">&times;</button>
+            <div class="awards-header">
+                <div class="awards-title" id="modalAwardsTitle"></div>
+                <div class="awards-subtitle">영화제 수상 및 초청 내역</div>
+            </div>
+            <div class="awards-list" id="modalAwardsList"></div>
+        </div>
+    </div>
+
     <div class="scroll-to-top" id="scrollToTop"></div>
 
-    <!-- Modal -->
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
@@ -1447,961 +1598,299 @@
         </div>
     </div>
 
-    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <script>
-        // Generate GM series (착한사나이) data - including original 4
+        // 작품별 수상 데이터
+        const awardsData = {
+            moviefan: [
+                { festival: 'Jeolla누벨바그영화제', award: '장려상' }
+            ],
+            wronggirl: [
+                { festival: '제50회 서울독립영화제 (2024)', award: '관객상 수상' },
+                { festival: '제22회 청주국제단편영화제 (2024)', award: '배우상 수상' },
+                { festival: '제천국제음악영화제', award: '초청 상영' },
+                { festival: '여수국제웹드라마영화제', award: '초청 상영' }
+            ],
+            workshop3: [],
+            caution: [
+                { festival: '제천국제음악영화제', award: '상영' }
+            ],
+            mung: [
+                { festival: '브라질 한국 영화제', award: '경쟁부문' }
+            ],
+            stain: [
+                { festival: '25회 전주국제영화제', award: '코리안시네마' },
+                { festival: '18회 안양여성인원 영화제', award: '초청작' },
+                { festival: '25회 제주여성영화제', award: '본선' },
+                { festival: '목포국도 1호성 영화제', award: '초청' },
+                { festival: '브라질 한국 영화제', award: '경쟁부문' },
+                { festival: '제천국제음악영화제', award: '메이드인제천' },
+                { festival: '전북여성영화제', award: '초청' },
+                { festival: '꽃심어린이청소년영화제', award: '대상' },
+                { festival: '무비블록 단편영화제', award: '본선' }
+            ],
+            uriduri: [],
+            cleanzone: [
+                { festival: '4회 울산단편영화제', award: '감독상' },
+                { festival: '2회 합천수려한영화제', award: '초청' }
+            ],
+            holiday: [],
+            openyoursense: [],
+            bichang: [
+                { festival: '17회 제천국제음악영화제', award: '경쟁부문' },
+                { festival: '22회 대한민국 청소년 영화제', award: '본선' },
+                { festival: '17회 대학영화제', award: '본선' },
+                { festival: '5회 미사리음악영화제', award: '본선' }
+            ],
+            portrait: [
+                { festival: '1회 코닥어패럴영화제', award: '초청작' },
+                { festival: '1회 동대문단편영화제', award: '본선' }
+            ],
+            bravolife: [
+                { festival: '제천국제영화제', award: '메이드인 제천' },
+                { festival: '충무로단편독립영화제', award: '본선' },
+                { festival: '6회 우리나라 가장동쪽영화제', award: '공식초청' },
+                { festival: '18회 정읍전국실버 영화제', award: '본선' },
+                { festival: '5회 제주무비콘서트 페스티벌', award: '국내단편' },
+                { festival: '서울여성독립영화제', award: '경쟁부문' }
+            ],
+            harmful: [
+                { festival: '제 3회 울산단편영화제', award: '본선' }
+            ]
+        };
+
+        const worksData = [
+            // 드라마
+            {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney"},
+            
+            // Film - 순서: 그릇된 소녀(1) → 가문의영광(2) → 만추(3) → 수상내역 많은 순
+            {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
+            {title: "가문의영광", type: "feature", year: "2023", category: "상업영화"},
+            {title: "만추", type: "feature", year: "2023 Remaster", category: "상업영화"},
+            {title: "얼룩", type: "short", year: "2023", filmId: "stain", category: "단편"},
+            {title: "브라보 마이라이프", type: "short", year: "2021", filmId: "bravolife", category: "단편"},
+            {title: "비창", type: "short", year: "2021", filmId: "bichang", category: "단편"},
+            {title: "청정구역", type: "short", year: "2022", filmId: "cleanzone", category: "단편"},
+            {title: "초상", type: "short", year: "2021", filmId: "portrait", category: "단편"},
+            {title: "우리동네영화광", type: "feature", year: "2024", filmId: "moviefan", category: "독립장편"},
+            {title: "취급주의", type: "short", year: "2024", filmId: "caution", category: "단편"},
+            {title: "멍", type: "short", year: "2024", filmId: "mung", category: "단편"},
+            {title: "유해한 녀석들", type: "short", year: "2020", filmId: "harmful", category: "단편"},
+            {title: "BlackSnake", type: "feature", year: "2025", category: "독립장편"},
+            {title: "비밀일수밖에", type: "feature", year: "2025", category: "독립장편"},
+            {title: "워크숍 3", type: "short", year: "2025", filmId: "workshop3", category: "단편"},
+            {title: "환영", type: "short", year: "2024", category: "단편"},
+            {title: "제비", type: "short", year: "2024", category: "단편"},
+            {title: "로망스", type: "feature", year: "2024", category: "독립장편"},
+            {title: "우리두리", type: "short", year: "2022", filmId: "uriduri", category: "단편"},
+            {title: "휴일", type: "short", year: "2021", filmId: "holiday", category: "단편"},
+            {title: "오픈유어센스", type: "short", year: "2021", filmId: "openyoursense", category: "단편"}
+        ];
+
+        function renderWorks(filter = 'film') {
+            const worksGrid = document.getElementById('worksGrid');
+            worksGrid.innerHTML = '';
+            let filteredWorks = filter === 'drama' ? worksData.filter(work => work.type === 'drama') : 
+                               filter === 'film' ? worksData.filter(work => work.type === 'feature' || work.type === 'short') : worksData;
+            
+            filteredWorks.forEach(work => {
+                const workCard = document.createElement('div');
+                workCard.className = 'work-card';
+                
+                const filmId = work.filmId || work.title.toLowerCase().replace(/\s+/g, '').replace(/[[\]]/g, '');
+                const hasAwards = awardsData[filmId] && awardsData[filmId].length > 0;
+                
+                if (hasAwards) {
+                    workCard.style.cursor = 'pointer';
+                    workCard.addEventListener('click', () => showAwards(filmId, work.title));
+                }
+                
+                const awardsHTML = hasAwards ? 
+                    `<div class="work-awards-badge">🏆 수상작 (클릭하여 상세보기)</div>` : '';
+                
+                const categoryHTML = work.category ? 
+                    `<div class="work-category">${work.category}</div>` : '';
+                
+                const platformHTML = work.platform ? 
+                    `<div class="work-platform">${work.platform}</div>` : '';
+                
+                workCard.innerHTML = `
+                    <h3 class="work-title">${work.title}</h3>
+                    ${platformHTML}
+                    ${categoryHTML}
+                    <div class="work-year">${work.year}</div>
+                    ${awardsHTML}
+                `;
+                
+                worksGrid.appendChild(workCard);
+            });
+        }
+
+        function showAwards(filmId, title) {
+            const awards = awardsData[filmId];
+            if (!awards || awards.length === 0) return;
+            
+            const modal = document.getElementById('awardsModal');
+            const modalTitle = document.getElementById('modalAwardsTitle');
+            const awardsList = document.getElementById('modalAwardsList');
+            
+            modalTitle.textContent = title;
+            
+            awardsList.innerHTML = awards.map(award => `
+                <div class="award-entry">
+                    <div class="award-festival">${award.festival}</div>
+                    <div class="award-name">${award.award}</div>
+                </div>
+            `).join('');
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAwards() {
+            const modal = document.getElementById('awardsModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         function generateGMSeries() {
             const gmSeries = [];
-            // Original 4 images
-            gmSeries.push({
-                id: 1,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM.jpg?raw=true",
-                description: "착한사나이"
-            });
-            gmSeries.push({
-                id: 2,
-                category: "portfolio", 
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM2.jpg?raw=true",
-                description: "착한사나이"
-            });
-            gmSeries.push({
-                id: 3,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM3.jpg?raw=true", 
-                description: "착한사나이"
-            });
-            gmSeries.push({
-                id: 4,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM4.jpg?raw=true",
-                description: "착한사나이"
-            });
-            // GM_1 to GM_137
+            gmSeries.push({id: 1, category: "portfolio", image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM.jpg?raw=true", description: "착한사나이"});
+            gmSeries.push({id: 2, category: "portfolio", image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM2.jpg?raw=true", description: "착한사나이"});
+            gmSeries.push({id: 3, category: "portfolio", image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM3.jpg?raw=true", description: "착한사나이"});
+            gmSeries.push({id: 4, category: "portfolio", image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM4.jpg?raw=true", description: "착한사나이"});
             for (let i = 1; i <= 137; i++) {
-                gmSeries.push({
-                    id: i + 4,
-                    category: "portfolio",
-                    image: `https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM_${i}.jpg?raw=true`,
-                    description: "착한사나이"
-                });
+                gmSeries.push({id: i + 4, category: "portfolio", image: `https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/GM_${i}.jpg?raw=true`, description: "착한사나이"});
             }
             return gmSeries;
         }
 
-        // Sample portfolio data with ultra-wide images
         const portfolioData = [
-            // 착한사나이 (GM_1 ~ GM_137)
             ...generateGMSeries(),
-            // 환영
-            {
-                id: 142,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after2.jpg?raw=true",
-                description: "환영",
-                type: "short"
-            },
-            {
-                id: 143,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after23.jpg?raw=true",
-                description: "환영",
-                type: "short"
-            },
-            {
-                id: 144,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true",
-                description: "환영",
-                type: "short"
-            },
-            {
-                id: 145,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true",
-                description: "환영",
-                type: "short"
-            },
-            // 제비
-            {
-                id: 146,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after3.jpg?raw=true",
-                description: "제비",
-                type: "short"
-            },
-            {
-                id: 147,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after4.jpg?raw=true",
-                description: "제비",
-                type: "short"
-            },
-            {
-                id: 148,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after5.jpg?raw=true",
-                description: "제비",
-                type: "short"
-            },
-            {
-                id: 149,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after6.jpg?raw=true",
-                description: "제비",
-                type: "short"
-            },
-            // 16mm 현상
-            {
-                id: 150,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_1.jpg?raw=true",
-                description: "16mm 현상",
-                type: "short"
-            },
-            {
-                id: 151,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_2.jpg?raw=true",
-                description: "16mm 현상",
-                type: "short"
-            },
-            {
-                id: 152,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_3.jpg?raw=true",
-                description: "16mm 현상",
-                type: "short"
-            },
-            {
-                id: 153,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_4.jpg?raw=true",
-                description: "16mm 현상",
-                type: "short"
-            },
-            {
-                id: 154,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/16mm_5.jpg?raw=true",
-                description: "16mm 현상",
-                type: "short"
-            },
-            // Ronin 4D
-            {
-                id: 155,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after7.jpg?raw=true",
-                description: "Ronin 4D",
-                type: "short"
-            },
-            {
-                id: 156,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after9.jpg?raw=true",
-                description: "Ronin 4D",
-                type: "short"
-            },
-            // Arri 65
-            {
-                id: 157,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after8.jpg?raw=true",
-                description: "Arri 65",
-                type: "short"
-            },
-            {
-                id: 158,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after10.jpg?raw=true",
-                description: "Arri 65",
-                type: "short"
-            },
-            // 그릇된소녀
-            {
-                id: 159,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after11.jpg?raw=true",
-                description: "그릇된소녀",
-                type: "feature"
-            },
-            {
-                id: 160,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after12.jpg?raw=true",
-                description: "그릇된소녀",
-                type: "feature"
-            },
-            {
-                id: 161,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after13.jpg?raw=true",
-                description: "그릇된소녀",
-                type: "feature"
-            },
-            {
-                id: 162,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after14.jpg?raw=true",
-                description: "그릇된소녀",
-                type: "feature"
-            },
-            {
-                id: 163,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after15.jpg?raw=true",
-                description: "그릇된소녀",
-                type: "feature"
-            },
-            // 로망스
-            {
-                id: 164,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after16.jpg?raw=true",
-                description: "로망스",
-                type: "feature"
-            },
-            {
-                id: 165,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after17.jpg?raw=true",
-                description: "로망스",
-                type: "feature"
-            },
-            {
-                id: 166,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after18.jpg?raw=true",
-                description: "로망스",
-                type: "feature"
-            },
-            // 가문의영광
-            {
-                id: 167,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after19.jpg?raw=true",
-                description: "가문의영광",
-                type: "feature"
-            },
-            {
-                id: 168,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after20.jpg?raw=true",
-                description: "가문의영광",
-                type: "feature"
-            },
-            {
-                id: 169,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after21.jpg?raw=true",
-                description: "가문의영광",
-                type: "feature"
-            },
-            {
-                id: 170,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/after22.jpg?raw=true",
-                description: "가문의영광",
-                type: "feature"
-            },
-            // 비밀일수밖에
-            {
-                id: 187,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_1.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 188,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_2.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 189,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_3.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 190,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_4.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 191,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_5.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 192,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_6.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 193,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_7.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 194,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_8.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 195,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_9.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            {
-                id: 196,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/secert_10.jpg?raw=true",
-                description: "비밀일수밖에",
-                type: "feature"
-            },
-            // 우리동네영화광
-            {
-                id: 197,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_1.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 198,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_2.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 199,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_3.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 200,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_4.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 201,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_5.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 202,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_6.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 203,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_7.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 204,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_8.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 205,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_9.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 206,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_10.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 207,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_11.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            {
-                id: 208,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/KU_12.jpg?raw=true",
-                description: "우리동네영화광",
-                type: "feature"
-            },
-            // YouTube Video
-            {
-                id: 186,
-                category: "portfolio",
-                type: "video",
-                videoUrl: "https://youtu.be/PfEMKreJVDo",
-                embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo",
-                thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg",
-                description: "착한사나이"
-            },
-            // BlackSnake (id 171, 172 삭제 후 제일 하단으로 이동)
-            {
-                id: 173,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS3.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 174,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS4.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 175,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS5.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 176,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS6.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 177,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS7.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 178,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS8.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 179,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS9.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 180,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS10.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 181,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS11.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 182,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS12.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 183,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS13.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 184,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS14.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            },
-            {
-                id: 185,
-                category: "portfolio",
-                image: "https://github.com/suukkim/Feeldiz_Studio_kr/blob/main/BS15.jpg?raw=true",
-                description: "BlackSnake",
-                type: "feature"
-            }
+            {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"}
         ];
 
-        // Loading screen management
-        let loadedImages = 0;
-        let totalImages = portfolioData.length;
-        let currentFilter = 'all';
-        
-        // Modal navigation variables
-        let currentModalIndex = 0;
-        let currentModalItems = [];
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        function updateTotalImages() {
-            if (currentFilter === 'all') {
-                totalImages = portfolioData.length;
-            } else if (currentFilter === '착한사나이') {
-                totalImages = portfolioData.filter(item => item.description === "착한사나이").length;
-            } else if (currentFilter === 'short') {
-                totalImages = portfolioData.filter(item => item.type === "short").length;
-            } else if (currentFilter === 'feature') {
-                totalImages = portfolioData.filter(item => item.type === "feature").length;
-            }
-            loadedImages = 0;
-        }
+        let loadedImages = 0, totalImages = portfolioData.length, currentFilter = 'all', currentModalIndex = 0, currentModalItems = [], touchStartX = 0, touchEndX = 0;
 
         function hideLoadingScreen() {
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loadingScreen');
                 loadingScreen.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 800);
-            }, 1000); // 로딩 바 완료 후 1초 대기
+                setTimeout(() => { loadingScreen.style.display = 'none'; }, 800);
+            }, 1000);
         }
 
         function checkAllImagesLoaded() {
             loadedImages++;
-            if (loadedImages >= totalImages) {
-                hideLoadingScreen();
-            }
+            if (loadedImages >= totalImages) hideLoadingScreen();
         }
 
-        // Initialize gallery
-        function initGallery() {
-            renderGallery(portfolioData);
-            setupEventListeners();
-            showSection('home'); // Show home section by default
-        }
-
-        // Render gallery items
         function renderGallery(items) {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
-
-            // Update total images count for loading
-            updateTotalImages();
-
-            // Filter items based on current filter
-            let filteredItems = items;
-            if (currentFilter === 'all') {
-                filteredItems = items;
-            } else if (currentFilter === '착한사나이') {
-                filteredItems = items.filter(item => item.description === "착한사나이");
-            } else if (currentFilter === 'short') {
-                filteredItems = items.filter(item => item.type === "short");
-            } else if (currentFilter === 'feature') {
-                filteredItems = items.filter(item => item.type === "feature");
-            } else if (currentFilter === 'random') {
-                // Random: shuffle all items
-                filteredItems = [...items].sort(() => Math.random() - 0.5);
-            }
-
-            // Separate 착한사나이 and other items from filtered results (only for non-random filters)
+            let filteredItems = currentFilter === 'all' ? items : currentFilter === '착한사나이' ? items.filter(item => item.description === "착한사나이") : currentFilter === 'short' ? items.filter(item => item.type === "short") : currentFilter === 'feature' ? items.filter(item => item.type === "feature") : [...items].sort(() => Math.random() - 0.5);
             const gmItems = currentFilter === 'random' ? [] : filteredItems.filter(item => item.description === "착한사나이");
             const otherItems = currentFilter === 'random' ? filteredItems : filteredItems.filter(item => item.description !== "착한사나이");
-
-            // Render 착한사나이 with 3 columns (if any in filtered results and not random)
+            
             if (gmItems.length > 0) {
                 for (let i = 0; i < gmItems.length; i += 3) {
                     const galleryRow = document.createElement('div');
                     galleryRow.className = 'gallery-row wide-layout';
-                    
-                    // Add up to 3 items per row
                     for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
-                        const item = gmItems[i + j];
-                        const galleryItem = createGalleryItem(item, i + j);
-                        galleryRow.appendChild(galleryItem);
+                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], i + j));
                     }
-                    
                     gallery.appendChild(galleryRow);
                 }
             }
-
-            // Render other items with 2 columns (or 1 column for random on mobile)
             if (otherItems.length > 0) {
                 for (let i = 0; i < otherItems.length; i += 2) {
                     const galleryRow = document.createElement('div');
                     galleryRow.className = 'gallery-row';
-                    
-                    // First item
-                    const item1 = otherItems[i];
-                    if (item1) {
-                        const galleryItem1 = createGalleryItem(item1, gmItems.length + i);
-                        galleryRow.appendChild(galleryItem1);
-                    }
-                    
-                    // Second item (if exists)
-                    const item2 = otherItems[i + 1];
-                    if (item2) {
-                        const galleryItem2 = createGalleryItem(item2, gmItems.length + i + 1);
-                        galleryRow.appendChild(galleryItem2);
-                    }
-                    
+                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], gmItems.length + i));
+                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], gmItems.length + i + 1));
                     gallery.appendChild(galleryRow);
                 }
             }
         }
 
-        // Show dice animation and shuffle
-        function showDiceAnimation() {
-            const diceOverlay = document.getElementById('diceOverlay');
-            diceOverlay.classList.add('show');
-            
-            setTimeout(() => {
-                diceOverlay.classList.remove('show');
-                renderGallery(portfolioData);
-            }, 1500);
-        }
-
-        // Create individual gallery item
         function createGalleryItem(item, index) {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item loading';
             galleryItem.style.animationDelay = `${index * 0.1}s`;
-            
-            // Check if it's a video item
             const isVideo = item.type === 'video';
             const imageSrc = isVideo ? item.thumbnail : item.image;
             const playIcon = isVideo ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;color:white;font-size:3rem;opacity:0.8;">▶</div>' : '';
-            
-            galleryItem.innerHTML = `
-                <img src="${imageSrc}" alt="Portfolio Image" data-id="${item.id}">
-                ${playIcon}
-                <div class="gallery-item-overlay">
-                    <p class="overlay-category">${item.category}</p>
-                    <p class="overlay-description">${item.description}</p>
-                </div>
-            `;
-
-            // Remove loading class after image loads
+            galleryItem.innerHTML = `<img src="${imageSrc}" alt="Portfolio Image" data-id="${item.id}">${playIcon}<div class="gallery-item-overlay"><p class="overlay-category">${item.category}</p><p class="overlay-description">${item.description}</p></div>`;
             const img = galleryItem.querySelector('img');
-            img.onload = () => {
-                galleryItem.classList.remove('loading');
-                checkAllImagesLoaded();
-            };
-            
-            img.onerror = () => {
-                galleryItem.classList.remove('loading');
-                
-                // Extract filename from URL
-                const url = imageSrc;
-                const fileName = url.split('/').pop().split('?')[0]; // Get filename before '?'
-                
-                galleryItem.innerHTML = `
-                    <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:1.2rem;flex-direction:column;padding:20px;text-align:center;">
-                        <div style="font-size:2rem;margin-bottom:10px;">⚠️</div>
-                        <div style="margin-bottom:5px;">Content not found</div>
-                        <div style="font-size:0.9rem;color:#666;word-break:break-all;">${fileName}</div>
-                    </div>
-                `;
-                checkAllImagesLoaded();
-            };
-
+            img.onload = () => { galleryItem.classList.remove('loading'); checkAllImagesLoaded(); };
+            img.onerror = () => { galleryItem.classList.remove('loading'); checkAllImagesLoaded(); };
             return galleryItem;
         }
 
-        // Navigation and section management
+        function showDiceAnimation() {
+            document.getElementById('diceOverlay').classList.add('show');
+            setTimeout(() => { document.getElementById('diceOverlay').classList.remove('show'); renderGallery(portfolioData); }, 1500);
+        }
+
         let currentSection = 'home';
 
         function showSection(sectionName) {
-            // Get all main content elements
             const homeHeader = document.querySelector('#home');
             const filterSection = document.querySelector('.filter-section');
             const galleryContainer = document.querySelector('.container');
             const aboutSection = document.getElementById('about');
+            const worksSection = document.getElementById('works');
             const contactSection = document.getElementById('contact');
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
             if (sectionName === 'home') {
-                // Show home elements
                 if (homeHeader) homeHeader.style.display = 'block';
                 if (filterSection) filterSection.style.display = 'block';
                 if (galleryContainer) galleryContainer.style.display = 'block';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'flex';
-                
-                // Hide about and contact
-                if (aboutSection) {
-                    aboutSection.style.display = 'none';
-                    aboutSection.classList.remove('active');
-                }
-                if (contactSection) {
-                    contactSection.style.display = 'none';
-                    contactSection.classList.remove('active');
-                }
-                
-                // Restore body background
-                document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)';
-                
+                if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
+                if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
+            } else if (sectionName === 'works') {
+                if (homeHeader) homeHeader.style.display = 'none';
+                if (filterSection) filterSection.style.display = 'none';
+                if (galleryContainer) galleryContainer.style.display = 'none';
+                if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
+                if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
+                if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
+                if (worksSection) { worksSection.style.display = 'block'; worksSection.classList.add('active'); renderWorks('film'); }
             } else if (sectionName === 'about') {
-                // Hide all home elements
                 if (homeHeader) homeHeader.style.display = 'none';
                 if (filterSection) filterSection.style.display = 'none';
                 if (galleryContainer) galleryContainer.style.display = 'none';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
-                
-                // Hide contact section
-                if (contactSection) {
-                    contactSection.style.display = 'none';
-                    contactSection.classList.remove('active');
-                }
-                
-                // Show about section
-                if (aboutSection) {
-                    aboutSection.style.display = 'block';
-                    aboutSection.classList.add('active');
-                }
-                
-                // Change body background for about page
-                document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)';
-                document.body.style.minHeight = '100vh';
-                
+                if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
+                if (aboutSection) { aboutSection.style.display = 'block'; aboutSection.classList.add('active'); }
             } else if (sectionName === 'contact') {
-                // Hide all home elements
                 if (homeHeader) homeHeader.style.display = 'none';
                 if (filterSection) filterSection.style.display = 'none';
                 if (galleryContainer) galleryContainer.style.display = 'none';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
-                
-                // Hide about section
-                if (aboutSection) {
-                    aboutSection.style.display = 'none';
-                    aboutSection.classList.remove('active');
-                }
-                
-                // Show contact section
-                if (contactSection) {
-                    contactSection.style.display = 'block';
-                    contactSection.classList.add('active');
-                }
-                
-                // Change body background for contact page
-                document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)';
-                document.body.style.minHeight = '100vh';
+                if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
+                if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (contactSection) { contactSection.style.display = 'block'; contactSection.classList.add('active'); }
             }
-            
             currentSection = sectionName;
         }
 
-        // Setup event listeners
-        function setupEventListeners() {
-            // Navigation menu
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            // Mobile menu toggle
-            mobileMenuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-
-            // Navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    const section = link.dataset.section;
-                    
-                    // Home 버튼 클릭시 페이지 새로고침
-                    if (section === 'home') {
-                        window.location.reload();
-                        return;
-                    }
-                    
-                    // Update active link
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                    
-                    // Close mobile menu
-                    navMenu.classList.remove('active');
-                    
-                    // Handle navigation
-                    showSection(section);
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                }
-            });
-
-            // Filter buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    // Update active button
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    
-                    // Update filter
-                    currentFilter = e.target.dataset.filter;
-                    
-                    // Show dice animation for random, otherwise render normally
-                    if (currentFilter === 'random') {
-                        showDiceAnimation();
-                    } else {
-                        renderGallery(portfolioData);
-                    }
-                });
-            });
-
-            // Gallery item clicks
-            document.addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG' && e.target.dataset.id) {
-                    const itemId = parseInt(e.target.dataset.id);
-                    const item = portfolioData.find(p => p.id === itemId);
-                    if (item) {
-                        openModal(item);
-                    }
-                }
-            });
-
-            // Modal close
-            const modalCloseBtn = document.querySelector('.modal-close');
-            const imageModal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalVideo = document.getElementById('modalVideo');
-            const modalPrev = document.getElementById('modalPrev');
-            const modalNext = document.getElementById('modalNext');
-            
-            if (modalCloseBtn) {
-                modalCloseBtn.addEventListener('click', closeModal);
-            }
-            
-            if (imageModal) {
-                imageModal.addEventListener('click', (e) => {
-                    if (e.target === imageModal) {
-                        closeModal();
-                    }
-                });
-                
-                // Touch events for mobile swipe
-                imageModal.addEventListener('touchstart', handleTouchStart, { passive: true });
-                imageModal.addEventListener('touchend', handleTouchEnd, { passive: true });
-            }
-
-            // Modal navigation buttons
-            if (modalPrev) {
-                modalPrev.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    showPreviousImage();
-                });
-            }
-            
-            if (modalNext) {
-                modalNext.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    showNextImage();
-                });
-            }
-
-            // 모바일에서 이미지나 비디오 터치로 모달 닫기
-            if (modalImage) {
-                modalImage.addEventListener('click', closeModal);
-            }
-            
-            if (modalVideo) {
-                modalVideo.addEventListener('click', closeModal);
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                const modal = document.getElementById('imageModal');
-                if (modal.style.display === 'block') {
-                    switch(e.key) {
-                        case 'Escape':
-                            closeModal();
-                            break;
-                        case 'ArrowLeft':
-                            e.preventDefault();
-                            showPreviousImage();
-                            break;
-                        case 'ArrowRight':
-                            e.preventDefault();
-                            showNextImage();
-                            break;
-                    }
-                }
-            });
-
-            // Scroll to top button
-            document.getElementById('scrollToTop').addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-
-        // Open modal
         function openModal(item) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalVideo = document.getElementById('modalVideo');
-            
-            // Set current modal items based on filter
-            updateCurrentModalItems();
-            
-            // Find current item index in filtered items
+            currentModalItems = currentFilter === 'all' ? portfolioData : currentFilter === '착한사나이' ? portfolioData.filter(item => item.description === "착한사나이") : currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") : currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") : portfolioData;
             currentModalIndex = currentModalItems.findIndex(modalItem => modalItem.id === item.id);
-            
             showModalContent(item);
-            modal.style.display = 'block';
+            document.getElementById('imageModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-        
-        // Update modal content
+
         function showModalContent(item) {
             const modalImage = document.getElementById('modalImage');
             const modalVideo = document.getElementById('modalVideo');
-            
-            // Check if it's a video item
             if (item.type === 'video') {
                 modalImage.style.display = 'none';
                 modalVideo.style.display = 'block';
@@ -2412,132 +1901,122 @@
                 modalImage.src = item.image;
             }
         }
-        
-        // Update current modal items based on filter
-        function updateCurrentModalItems() {
-            if (currentFilter === 'all') {
-                currentModalItems = portfolioData;
-            } else if (currentFilter === '착한사나이') {
-                currentModalItems = portfolioData.filter(item => item.description === "착한사나이");
-            } else if (currentFilter === 'short') {
-                currentModalItems = portfolioData.filter(item => item.type === "short");
-            } else if (currentFilter === 'feature') {
-                currentModalItems = portfolioData.filter(item => item.type === "feature");
-            }
-        }
-        
-        // Show next image
+
         function showNextImage() {
             if (currentModalItems.length <= 1) return;
-            
             currentModalIndex = (currentModalIndex + 1) % currentModalItems.length;
-            const nextItem = currentModalItems[currentModalIndex];
-            showModalContent(nextItem);
-        }
-        
-        // Show previous image
-        function showPreviousImage() {
-            if (currentModalItems.length <= 1) return;
-            
-            currentModalIndex = currentModalIndex === 0 ? currentModalItems.length - 1 : currentModalIndex - 1;
-            const prevItem = currentModalItems[currentModalIndex];
-            showModalContent(prevItem);
-        }
-        
-        // Handle touch events for mobile swipe
-        function handleTouchStart(e) {
-            touchStartX = e.touches[0].clientX;
-        }
-        
-        function handleTouchEnd(e) {
-            touchEndX = e.changedTouches[0].clientX;
-            handleSwipe();
-        }
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swipe left - next image
-                    showNextImage();
-                } else {
-                    // Swipe right - previous image
-                    showPreviousImage();
-                }
-            }
+            showModalContent(currentModalItems[currentModalIndex]);
         }
 
-        // Close modal
+        function showPreviousImage() {
+            if (currentModalItems.length <= 1) return;
+            currentModalIndex = currentModalIndex === 0 ? currentModalItems.length - 1 : currentModalIndex - 1;
+            showModalContent(currentModalItems[currentModalIndex]);
+        }
+
         function closeModal() {
-            const modal = document.getElementById('imageModal');
-            const modalVideo = document.getElementById('modalVideo');
-            
-            modal.style.display = 'none';
-            modalVideo.src = ''; // Stop video playback
+            document.getElementById('imageModal').style.display = 'none';
+            document.getElementById('modalVideo').src = '';
             document.body.style.overflow = 'auto';
         }
 
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
-            initGallery();
-            showSection('home'); // Ensure home section is shown initially
-            
-            // Initialize EmailJS
-            emailjs.init("LQ4ZMYydDYnVxc1mh"); // Your EmailJS public key
-            
-            // Contact form submission
+            renderGallery(portfolioData);
+            showSection('home');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const section = link.dataset.section;
+                    if (section === 'home') {
+                        window.location.reload();
+                        return;
+                    }
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    showSection(section);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+            document.querySelectorAll('.works-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    document.querySelectorAll('.works-tab').forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderWorks(e.target.dataset.worksFilter);
+                });
+            });
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.filter;
+                    if (currentFilter === 'random') {
+                        showDiceAnimation();
+                    } else {
+                        renderGallery(portfolioData);
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG' && e.target.dataset.id) {
+                    const item = portfolioData.find(p => p.id === parseInt(e.target.dataset.id));
+                    if (item) openModal(item);
+                }
+            });
+
+            const modalCloseBtn = document.querySelector('.modal-close');
+            const imageModal = document.getElementById('imageModal');
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+            if (imageModal) {
+                imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+            }
+
+            document.getElementById('modalPrev').addEventListener('click', (e) => { e.stopPropagation(); showPreviousImage(); });
+            document.getElementById('modalNext').addEventListener('click', (e) => { e.stopPropagation(); showNextImage(); });
+            document.getElementById('scrollToTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('imageModal').style.display === 'block') {
+                    if (e.key === 'Escape') closeModal();
+                    if (e.key === 'ArrowLeft') { e.preventDefault(); showPreviousImage(); }
+                    if (e.key === 'ArrowRight') { e.preventDefault(); showNextImage(); }
+                }
+            });
+
+            emailjs.init("LQ4ZMYydDYnVxc1mh");
             const contactForm = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
             const formStatus = document.getElementById('formStatus');
 
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Show loading state
                 submitBtn.textContent = '전송 중...';
                 submitBtn.disabled = true;
                 formStatus.style.display = 'none';
 
-                // Send email using EmailJS
-                emailjs.sendForm(
-                    'service_s086xku',    // Your EmailJS service ID
-                    'template_0b2efsk',   // Your EmailJS template ID
-                    this
-                )
+                emailjs.sendForm('service_s086xku', 'template_0b2efsk', this)
                 .then(function(response) {
-                    // Success
                     submitBtn.textContent = '문의 보내기';
                     submitBtn.disabled = false;
                     formStatus.style.display = 'block';
                     formStatus.style.color = '#4CAF50';
                     formStatus.innerHTML = '✅ 문의가 성공적으로 전송되었습니다!<br>빠른 시일 내에 답변드리겠습니다.';
                     contactForm.reset();
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        formStatus.style.display = 'none';
-                    }, 5000);
-                    
+                    setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
                 }, function(error) {
-                    // Error
                     submitBtn.textContent = '문의 보내기';
                     submitBtn.disabled = false;
                     formStatus.style.display = 'block';
                     formStatus.style.color = '#f44336';
                     formStatus.innerHTML = '❌ 전송 중 오류가 발생했습니다.<br>직접 이메일로 연락해주세요: feeldiz.studio.di@gmail.com';
-                    
-                    console.error('EmailJS Error:', error);
                 });
             });
-            
-            // 최대 로딩 시간 제한 (5초)
-            setTimeout(() => {
-                if (loadedImages < totalImages) {
-                    hideLoadingScreen();
-                }
-            }, 5000);
+
+            setTimeout(() => { if (loadedImages < totalImages) hideLoadingScreen(); }, 5000);
         });
     </script>
 </body>
