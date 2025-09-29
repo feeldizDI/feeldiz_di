@@ -432,7 +432,7 @@
             height: 100%;
             background: linear-gradient(90deg, #666, #999, #ccc);
             border-radius: 1px;
-            animation: loadingProgress 2.5s ease-in-out forwards;
+            animation: loadingProgress 1.5s ease-in-out forwards;
         }
 
         @keyframes fadeInText {
@@ -455,7 +455,7 @@
             text-transform: uppercase;
             margin-top: 30px;
             opacity: 0;
-            animation: fadeInText 0.8s ease 1.5s forwards;
+            animation: fadeInText 0.8s ease 1s forwards;
         }
 
         /* About Section */
@@ -1570,7 +1570,6 @@
         </div>
     </section>
 
-    <!-- Awards Modal -->
     <div id="awardsModal" class="awards-modal">
         <div class="awards-content">
             <button class="awards-close-btn" onclick="closeAwards()">&times;</button>
@@ -1601,7 +1600,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <script>
-        // 작품별 수상 데이터
         const awardsData = {
             moviefan: [
                 { festival: 'Jeolla누벨바그영화제', award: '장려상' }
@@ -1661,10 +1659,7 @@
         };
 
         const worksData = [
-            // 드라마
             {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney"},
-            
-            // Film - 순서: 그릇된 소녀(1) → 가문의영광(2) → 만추(3) → 수상내역 많은 순
             {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
             {title: "가문의영광", type: "feature", year: "2023", category: "상업영화"},
             {title: "만추", type: "feature", year: "2023 Remaster", category: "상업영화"},
@@ -1768,44 +1763,35 @@
 
         const portfolioData = [
             ...generateGMSeries(),
-            // 환영
             {id: 142, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after2.jpg?raw=true", description: "환영", type: "short"},
             {id: 143, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after23.jpg?raw=true", description: "환영", type: "short"},
             {id: 144, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true", description: "환영", type: "short"},
             {id: 145, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true", description: "환영", type: "short"},
-            // 제비
             {id: 146, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after3.jpg?raw=true", description: "제비", type: "short"},
             {id: 147, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after4.jpg?raw=true", description: "제비", type: "short"},
             {id: 148, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after5.jpg?raw=true", description: "제비", type: "short"},
             {id: 149, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after6.jpg?raw=true", description: "제비", type: "short"},
-            // 16mm 현상
             {id: 150, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_1.jpg?raw=true", description: "16mm 현상", type: "short"},
             {id: 151, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_2.jpg?raw=true", description: "16mm 현상", type: "short"},
             {id: 152, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_3.jpg?raw=true", description: "16mm 현상", type: "short"},
             {id: 153, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_4.jpg?raw=true", description: "16mm 현상", type: "short"},
             {id: 154, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_5.jpg?raw=true", description: "16mm 현상", type: "short"},
-            // Ronin 4D
             {id: 155, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after7.jpg?raw=true", description: "Ronin 4D", type: "short"},
             {id: 156, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after9.jpg?raw=true", description: "Ronin 4D", type: "short"},
-            // Arri 65
             {id: 157, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after8.jpg?raw=true", description: "Arri 65", type: "short"},
             {id: 158, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after10.jpg?raw=true", description: "Arri 65", type: "short"},
-            // 그릇된소녀
             {id: 159, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true", description: "그릇된소녀", type: "feature"},
             {id: 160, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after12.jpg?raw=true", description: "그릇된소녀", type: "feature"},
             {id: 161, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after13.jpg?raw=true", description: "그릇된소녀", type: "feature"},
             {id: 162, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after14.jpg?raw=true", description: "그릇된소녀", type: "feature"},
             {id: 163, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after15.jpg?raw=true", description: "그릇된소녀", type: "feature"},
-            // 로망스
             {id: 164, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after16.jpg?raw=true", description: "로망스", type: "feature"},
             {id: 165, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after17.jpg?raw=true", description: "로망스", type: "feature"},
             {id: 166, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after18.jpg?raw=true", description: "로망스", type: "feature"},
-            // 가문의영광
             {id: 167, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after19.jpg?raw=true", description: "가문의영광", type: "feature"},
             {id: 168, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after20.jpg?raw=true", description: "가문의영광", type: "feature"},
             {id: 169, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after21.jpg?raw=true", description: "가문의영광", type: "feature"},
             {id: 170, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after22.jpg?raw=true", description: "가문의영광", type: "feature"},
-            // 비밀일수밖에
             {id: 187, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
             {id: 188, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_2.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
             {id: 189, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_3.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
@@ -1816,7 +1802,6 @@
             {id: 194, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_8.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
             {id: 195, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_9.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
             {id: 196, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_10.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
-            // 우리동네영화광
             {id: 197, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_1.jpg?raw=true", description: "우리동네영화광", type: "feature"},
             {id: 198, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_2.jpg?raw=true", description: "우리동네영화광", type: "feature"},
             {id: 199, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_3.jpg?raw=true", description: "우리동네영화광", type: "feature"},
@@ -1829,7 +1814,6 @@
             {id: 206, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_10.jpg?raw=true", description: "우리동네영화광", type: "feature"},
             {id: 207, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_11.jpg?raw=true", description: "우리동네영화광", type: "feature"},
             {id: 208, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_12.jpg?raw=true", description: "우리동네영화광", type: "feature"},
-            // BlackSnake
             {id: 173, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true", description: "BlackSnake", type: "feature"},
             {id: 174, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS4.jpg?raw=true", description: "BlackSnake", type: "feature"},
             {id: 175, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS5.jpg?raw=true", description: "BlackSnake", type: "feature"},
@@ -1843,38 +1827,69 @@
             {id: 183, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS13.jpg?raw=true", description: "BlackSnake", type: "feature"},
             {id: 184, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS14.jpg?raw=true", description: "BlackSnake", type: "feature"},
             {id: 185, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS15.jpg?raw=true", description: "BlackSnake", type: "feature"},
-            // YouTube Video
             {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"}
         ];
 
-        let loadedImages = 0, totalImages = portfolioData.length, currentFilter = 'all', currentModalIndex = 0, currentModalItems = [], touchStartX = 0, touchEndX = 0;
+        let loadedImages = 0;
+        let totalImages = portfolioData.length;
+        let currentFilter = 'all';
+        let currentModalIndex = 0;
+        let currentModalItems = [];
+        let imageObserver = null;
+        const INITIAL_LOAD_COUNT = 30;
 
         function hideLoadingScreen() {
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loadingScreen');
                 loadingScreen.classList.add('fade-out');
                 setTimeout(() => { loadingScreen.style.display = 'none'; }, 800);
-            }, 1000);
+            }, 500);
         }
 
         function checkAllImagesLoaded() {
             loadedImages++;
-            if (loadedImages >= totalImages) hideLoadingScreen();
+            if (loadedImages >= Math.min(INITIAL_LOAD_COUNT, totalImages)) hideLoadingScreen();
+        }
+
+        function setupImageObserver() {
+            if (imageObserver) {
+                imageObserver.disconnect();
+            }
+            
+            imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '50px'
+            });
         }
 
         function renderGallery(items) {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
+            loadedImages = 0;
+            
             let filteredItems = currentFilter === 'all' ? items : currentFilter === '착한사나이' ? items.filter(item => item.description === "착한사나이") : currentFilter === 'short' ? items.filter(item => item.type === "short") : currentFilter === 'feature' ? items.filter(item => item.type === "feature") : [...items].sort(() => Math.random() - 0.5);
+            
             const gmItems = currentFilter === 'random' ? [] : filteredItems.filter(item => item.description === "착한사나이");
             const otherItems = currentFilter === 'random' ? filteredItems : filteredItems.filter(item => item.description !== "착한사나이");
+            
+            let itemIndex = 0;
             
             if (gmItems.length > 0) {
                 for (let i = 0; i < gmItems.length; i += 3) {
                     const galleryRow = document.createElement('div');
                     galleryRow.className = 'gallery-row wide-layout';
                     for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
-                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], i + j));
+                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], itemIndex++));
                     }
                     gallery.appendChild(galleryRow);
                 }
@@ -1883,24 +1898,44 @@
                 for (let i = 0; i < otherItems.length; i += 2) {
                     const galleryRow = document.createElement('div');
                     galleryRow.className = 'gallery-row';
-                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], gmItems.length + i));
-                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], gmItems.length + i + 1));
+                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], itemIndex++));
+                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], itemIndex++));
                     gallery.appendChild(galleryRow);
                 }
             }
+            
+            setupImageObserver();
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
         }
 
         function createGalleryItem(item, index) {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item loading';
-            galleryItem.style.animationDelay = `${index * 0.1}s`;
+            galleryItem.style.animationDelay = `${Math.min(index, 30) * 0.05}s`;
             const isVideo = item.type === 'video';
             const imageSrc = isVideo ? item.thumbnail : item.image;
             const playIcon = isVideo ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;color:white;font-size:3rem;opacity:0.8;">▶</div>' : '';
-            galleryItem.innerHTML = `<img src="${imageSrc}" alt="Portfolio Image" data-id="${item.id}">${playIcon}<div class="gallery-item-overlay"><p class="overlay-category">${item.category}</p><p class="overlay-description">${item.description}</p></div>`;
+            
+            const shouldLazyLoad = index >= INITIAL_LOAD_COUNT;
+            const imgSrcAttr = shouldLazyLoad ? '' : `src="${imageSrc}"`;
+            const dataSrcAttr = shouldLazyLoad ? `data-src="${imageSrc}"` : '';
+            const loadingAttr = shouldLazyLoad ? 'loading="lazy"' : '';
+            
+            galleryItem.innerHTML = `<img ${imgSrcAttr} ${dataSrcAttr} ${loadingAttr} alt="Portfolio Image" data-id="${item.id}">${playIcon}<div class="gallery-item-overlay"><p class="overlay-category">${item.category}</p><p class="overlay-description">${item.description}</p></div>`;
+            
             const img = galleryItem.querySelector('img');
-            img.onload = () => { galleryItem.classList.remove('loading'); checkAllImagesLoaded(); };
-            img.onerror = () => { galleryItem.classList.remove('loading'); checkAllImagesLoaded(); };
+            img.onload = () => { 
+                galleryItem.classList.remove('loading'); 
+                if (!shouldLazyLoad) checkAllImagesLoaded(); 
+            };
+            img.onerror = () => { 
+                galleryItem.classList.remove('loading'); 
+                if (!shouldLazyLoad) checkAllImagesLoaded(); 
+            };
+            
             return galleryItem;
         }
 
@@ -1997,6 +2032,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            setupImageObserver();
             renderGallery(portfolioData);
             showSection('home');
 
