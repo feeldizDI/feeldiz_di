@@ -897,6 +897,214 @@
             display: block;
         }
 
+        /* Facility Section */
+        .facility-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+            z-index: 1500;
+            overflow-y: auto;
+            padding-top: 80px;
+        }
+
+        .facility-section.active {
+            display: block;
+        }
+
+        .facility-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 60px 10px 80px;
+        }
+
+        .facility-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .facility-header h2 {
+            font-size: 3.5rem;
+            font-weight: 100;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .facility-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .facility-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .facility-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .facility-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .facility-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .facility-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #666, #999);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .facility-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .facility-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+
+        .facility-info {
+            padding: 30px;
+        }
+
+        .facility-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .facility-description {
+            font-size: 1rem;
+            color: #cccccc;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .facility-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .facility-spec-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+        .facility-spec-item::before {
+            content: '•';
+            color: #999;
+            font-size: 1.5rem;
+        }
+
+        .facility-highlight {
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid #999;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 60px 0;
+        }
+
+        .facility-highlight h3 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .facility-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .facility-header h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .facility-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .facility-intro {
+                padding: 30px 20px;
+                margin-bottom: 50px;
+            }
+            
+            .facility-intro p {
+                font-size: 1rem;
+            }
+        }
+
         .contact-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -1353,6 +1561,9 @@
                     <a href="#works" class="nav-link" data-section="works">Works</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#facility" class="nav-link" data-section="facility">Facility</a>
+                </li>
+                <li class="nav-item">
                     <a href="#about" class="nav-link" data-section="about">About</a>
                 </li>
                 <li class="nav-item">
@@ -1467,6 +1678,107 @@
                     <button class="works-tab" data-works-filter="drama">Drama</button>
                 </div>
                 <div class="works-grid" id="worksGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facility" class="facility-section">
+        <div class="container">
+            <div class="facility-content">
+                <div class="facility-header">
+                    <h2>FACILITY</h2>
+                    <p class="facility-subtitle">State-of-the-Art Post Production Environment</p>
+                </div>
+
+                <div class="facility-intro">
+                    <p>필디즈 DI 스튜디오는 최첨단 포스트 프로덕션 시설을 갖추고 있습니다.</p>
+                    <p>Dolby Vision 인증 시설부터 고성능 컬러 그레이딩 시스템까지,</p>
+                    <p>최상의 영상 완성도를 위한 모든 것을 제공합니다.</p>
+                </div>
+
+                <div class="facility-grid">
+                    <div class="facility-card">
+                        <div class="facility-image">
+                            <img src="https://github.com/feeldizDI/feeldiz_di/blob/4d70adeb273988338d429effff2c4f060c6064fe/photo%201.JPG?raw=true" alt="Color Grading Suite">
+                        </div>
+                        <div class="facility-info">
+                            <h3 class="facility-title">DI Suite (Color Grading)</h3>
+                            <p class="facility-description">전문 컬러리스트를 위한 최적화된 작업 환경. DaVinci Resolve Studio를 기반으로 한 최첨단 컬러 그레이딩 시스템을 운영합니다.</p>
+                            <div class="facility-specs">
+                                <div class="facility-spec-item">DaVinci Resolve Studio</div>
+                                <div class="facility-spec-item">Dolby Vision 인증 모니터</div>
+                                <div class="facility-spec-item">HDR/SDR 동시 모니터링</div>
+                                <div class="facility-spec-item">고정밀 컬러 매칭 시스템</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-image">
+                            <img src="https://github.com/feeldizDI/feeldiz_di/blob/8566f04d52fd61a3c8a130d0543816e29d235f71/DLP.jpg?raw=true" alt="Screening Room">
+                        </div>
+                        <div class="facility-info">
+                            <h3 class="facility-title">Screening Room</h3>
+                            <p class="facility-description">프로젝션 시사를 위한 전문 상영관. 극장과 동일한 환경에서 최종 결과물을 확인할 수 있습니다.</p>
+                            <div class="facility-specs">
+                                <div class="facility-spec-item">4K DLP 프로젝터</div>
+                                <div class="facility-spec-item">5.1 사운드 시스템</div>
+                                <div class="facility-spec-item">실시간 컬러 조정 가능</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-image">
+                            <img src="https://github.com/feeldizDI/feeldiz_di/blob/8566f04d52fd61a3c8a130d0543816e29d235f71/nas.png?raw=true" alt="Data Management">
+                        </div>
+                        <div class="facility-info">
+                            <h3 class="facility-title">Data Management</h3>
+                            <p class="facility-description">안전하고 빠른 데이터 처리를 위한 고성능 스토리지 시스템. 대용량 프로젝트도 안정적으로 관리합니다.</p>
+                            <div class="facility-specs">
+                                <div class="facility-spec-item">600TB 이상의 고속 서버</div>
+                                <div class="facility-spec-item">RAID 백업 시스템</div>
+                                <div class="facility-spec-item">10Gb/s 네트워크 환경</div>
+                                <div class="facility-spec-item">클라우드 백업 서비스</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-image">
+                            <img src="https://github.com/feeldizDI/feeldiz_di/blob/ae4a9de0cdb4aa3f6c2ff99c9fb292d35467a7f6/film.png?raw=true" alt="Film Lab">
+                        </div>
+                        <div class="facility-info">
+                            <h3 class="facility-title">Film Processing Lab</h3>
+                            <p class="facility-description">16mm, 35mm 필름 현상 및 스캔 시설. 아날로그 필름의 디지털 전환 작업을 전문적으로 수행합니다.</p>
+                            <div class="facility-specs">
+                                <div class="facility-spec-item">16mm/35mm 필름 현상</div>
+                                <div class="facility-spec-item">2K/4K 필름 스캐닝</div>
+                                <div class="facility-spec-item">그레인 관리 및 복원</div>
+                                <div class="facility-spec-item">필름 아카이빙 서비스</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-image">
+                            <img src="https://github.com/feeldizDI/feeldiz_di/blob/8872197d23055f459b995f4e1143c00794ebb086/edit%20logo.png?raw=true" alt="Edit Suite">
+                        </div>
+                        <div class="facility-info">
+                            <h3 class="facility-title">Editing Suite</h3>
+                            <p class="facility-description">편집부터 최종 마스터링까지 원스톱으로 진행할 수 있는 통합 편집 시스템입니다.</p>
+                            <div class="facility-specs">
+                                <div class="facility-spec-item">Adobe Premiere Pro / Final Cut Pro</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="facility-highlight">
+                    <h3>🏆 Dolby 인증 시설 및 Colorist</h3>
+                    <p>필디즈 DI 스튜디오는 국내 몇 안 되는 Dolby Vision 인증 시설입니다. 최신 HDR 기술을 활용하여 극장, OTT, 방송 등 모든 플랫폼에 최적화된 영상을 제작할 수 있습니다. Dolby의 엄격한 기준을 통과한 모니터링 환경과 컬러 그레이딩 시스템으로 최상의 화질을 보장합니다.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1915,6 +2227,7 @@
             const galleryContainer = document.querySelector('.container');
             const aboutSection = document.getElementById('about');
             const worksSection = document.getElementById('works');
+            const facilitySection = document.getElementById('facility');
             const contactSection = document.getElementById('contact');
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
@@ -1925,6 +2238,7 @@
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'flex';
                 if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
                 if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (facilitySection) { facilitySection.style.display = 'none'; facilitySection.classList.remove('active'); }
                 if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
             } else if (sectionName === 'works') {
                 if (homeHeader) homeHeader.style.display = 'none';
@@ -1932,14 +2246,25 @@
                 if (galleryContainer) galleryContainer.style.display = 'none';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
                 if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
+                if (facilitySection) { facilitySection.style.display = 'none'; facilitySection.classList.remove('active'); }
                 if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
                 if (worksSection) { worksSection.style.display = 'block'; worksSection.classList.add('active'); renderWorks('film'); }
+            } else if (sectionName === 'facility') {
+                if (homeHeader) homeHeader.style.display = 'none';
+                if (filterSection) filterSection.style.display = 'none';
+                if (galleryContainer) galleryContainer.style.display = 'none';
+                if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
+                if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
+                if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
+                if (facilitySection) { facilitySection.style.display = 'block'; facilitySection.classList.add('active'); }
             } else if (sectionName === 'about') {
                 if (homeHeader) homeHeader.style.display = 'none';
                 if (filterSection) filterSection.style.display = 'none';
                 if (galleryContainer) galleryContainer.style.display = 'none';
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
                 if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (facilitySection) { facilitySection.style.display = 'none'; facilitySection.classList.remove('active'); }
                 if (contactSection) { contactSection.style.display = 'none'; contactSection.classList.remove('active'); }
                 if (aboutSection) { aboutSection.style.display = 'block'; aboutSection.classList.add('active'); }
             } else if (sectionName === 'contact') {
@@ -1949,6 +2274,7 @@
                 if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
                 if (aboutSection) { aboutSection.style.display = 'none'; aboutSection.classList.remove('active'); }
                 if (worksSection) { worksSection.style.display = 'none'; worksSection.classList.remove('active'); }
+                if (facilitySection) { facilitySection.style.display = 'none'; facilitySection.classList.remove('active'); }
                 if (contactSection) { contactSection.style.display = 'block'; contactSection.classList.add('active'); }
             }
             currentSection = sectionName;
