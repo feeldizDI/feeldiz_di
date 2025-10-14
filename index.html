@@ -2011,12 +2011,29 @@
           window.addEventListener('load', l, false);
         }
       })();
+      
+      // Generate unique user ID for each visitor
+      function getOrCreateUserId() {
+        let userId = sessionStorage.getItem('channelTalkUserId');
+        if (!userId) {
+          userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          sessionStorage.setItem('channelTalkUserId', userId);
+        }
+        return userId;
+      }
+      
       ChannelIO('boot', {
         "pluginKey": "54473f29-65d3-49cb-8cf1-41dfac310af0",
         "hideChannelButtonOnBoot": false,
         "customLauncherSelector": "",
         "appearance": "light",
-        "position": "right"
+        "position": "right",
+        "memberId": getOrCreateUserId(),
+        "profile": {
+          "name": "방문자",
+          "mobileNumber": null,
+          "email": null
+        }
       });
     </script>
     
