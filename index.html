@@ -370,16 +370,17 @@
             margin: 0 auto;
             padding: 0 10px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center !important;
             align-items: center;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
             gap: 40px;
+            justify-content: center;
         }
 
         .nav-item {
@@ -1330,7 +1331,8 @@
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60px;
             height: 60px;
             background: rgba(255,255,255,0.2);
@@ -1348,7 +1350,7 @@
         .scroll-to-top:hover {
             background: rgba(255,255,255,0.3);
             border-color: rgba(255,255,255,0.5);
-            transform: translateY(-3px);
+            transform: translateX(-50%) translateY(-3px);
         }
 
         .scroll-to-top::before {
@@ -1356,6 +1358,22 @@
             color: white;
             font-size: 24px;
             font-weight: 300;
+        }
+
+        /* Channel Talk Position - Keep on Right */
+        #ch-plugin {
+            left: auto !important;
+            right: 30px !important;
+        }
+
+        #ch-plugin-launcher {
+            left: auto !important;
+            right: 30px !important;
+        }
+
+        iframe#ch-plugin-core {
+            left: auto !important;
+            right: 30px !important;
         }
 
         .gallery-item.loading {
@@ -1515,12 +1533,22 @@
             }
             .scroll-to-top {
                 bottom: 20px;
-                right: 20px;
+                left: 50%;
+                transform: translateX(-50%);
                 width: 50px;
                 height: 50px;
             }
+            .scroll-to-top:hover {
+                transform: translateX(-50%) translateY(-3px);
+            }
             .scroll-to-top::before {
                 font-size: 20px;
+            }
+            /* Channel Talk Mobile Position */
+            #ch-plugin,
+            #ch-plugin-launcher,
+            iframe#ch-plugin-core {
+                right: 20px !important;
             }
             .overlay-description {
                 font-size: 1.2rem;
@@ -1945,6 +1973,52 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Channel Talk -->
+    <script>
+      (function() {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', l);
+        } else {
+          window.addEventListener('DOMContentLoaded', l, false);
+          window.addEventListener('load', l, false);
+        }
+      })();
+      ChannelIO('boot', {
+        "pluginKey": "54473f29-65d3-49cb-8cf1-41dfac310af0",
+        "hideChannelButtonOnBoot": false,
+        "customLauncherSelector": "",
+        "appearance": "light",
+        "position": "right"
+      });
+    </script>
     
     <script>
         // 작품별 수상 데이터
@@ -2454,6 +2528,48 @@
 
             setTimeout(() => { if (loadedImages < totalImages) hideLoadingScreen(); }, 5000);
         });
+    </script>
+
+    <!-- Channel Talk -->
+    <script>
+      (function() {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', l);
+        } else {
+          window.addEventListener('DOMContentLoaded', l, false);
+          window.addEventListener('load', l, false);
+        }
+      })();
+      ChannelIO('boot', {
+        "pluginKey": "54473f29-65d3-49cb-8cf1-41dfac310af0"
+      });
     </script>
 </body>
 </html>
