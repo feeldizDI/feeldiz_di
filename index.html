@@ -2482,7 +2482,7 @@
 
         let currentSection = 'home';
 
-        function showSection(sectionName) {
+        function showSection(sectionName, skipHistory = false) {
             const homeHeader = document.querySelector('#home');
             const filterSection = document.querySelector('.filter-section');
             const galleryContainer = document.querySelector('.container');
@@ -2492,9 +2492,20 @@
             const contactSection = document.getElementById('contact');
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
-            // Update URL without page reload
+            // Update URL without page reload (skip if triggered by popstate)
             const path = sectionName === 'home' ? '/feeldiz_di/' : `/feeldiz_di/${sectionName}`;
-            window.history.pushState({section: sectionName}, '', path);
+            
+            if (!skipHistory) {
+                window.history.pushState({section: sectionName}, '', path);
+            }
+            
+            // Send pageview to Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('config', 'G-CQ7WEVF0CB', {
+                    'page_path': path,
+                    'page_title': sectionName.charAt(0).toUpperCase() + sectionName.slice(1)
+                });
+            }
             
             if (sectionName === 'home') {
                 if (homeHeader) homeHeader.style.display = 'block';
@@ -2595,7 +2606,7 @@
             const path = window.location.pathname;
             const section = path.split('/').pop() || 'home';
             if (['works', 'facility', 'about', 'contact'].includes(section)) {
-                showSection(section);
+                showSection(section, true); // Skip history on initial load
                 // Update active nav link
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
@@ -2604,23 +2615,21 @@
                     }
                 });
             } else {
-                showSection('home');
+                showSection('home', true); // Skip history on initial load
             }
 
             // Handle browser back/forward buttons
             window.addEventListener('popstate', (event) => {
-                if (event.state && event.state.section) {
-                    showSection(event.state.section);
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.dataset.section === event.state.section) {
-                            link.classList.add('active');
-                        }
-                    });
-                } else {
-                    showSection('home');
-                }
+                const section = event.state && event.state.section ? event.state.section : 'home';
+                showSection(section, true); // Skip history update since URL is already changed
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === section) {
+                        link.classList.add('active');
+                    }
+                });
             });
 
             const navLinks = document.querySelectorAll('.nav-link');
