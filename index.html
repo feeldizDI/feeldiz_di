@@ -2492,6 +2492,10 @@
             const contactSection = document.getElementById('contact');
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
+            // Update URL without page reload
+            const path = sectionName === 'home' ? '/feeldiz_di/' : `/feeldiz_di/${sectionName}`;
+            window.history.pushState({section: sectionName}, '', path);
+            
             if (sectionName === 'home') {
                 if (homeHeader) homeHeader.style.display = 'block';
                 if (filterSection) filterSection.style.display = 'block';
@@ -2583,17 +2587,47 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderGallery(portfolioData);
-            showSection('home');
+            
+            // Set initial history state
+            window.history.replaceState({section: 'home'}, '', '/feeldiz_di/');
+            
+            // Check URL on page load and show correct section
+            const path = window.location.pathname;
+            const section = path.split('/').pop() || 'home';
+            if (['works', 'facility', 'about', 'contact'].includes(section)) {
+                showSection(section);
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === section) {
+                        link.classList.add('active');
+                    }
+                });
+            } else {
+                showSection('home');
+            }
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', (event) => {
+                if (event.state && event.state.section) {
+                    showSection(event.state.section);
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.dataset.section === event.state.section) {
+                            link.classList.add('active');
+                        }
+                    });
+                } else {
+                    showSection('home');
+                }
+            });
 
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const section = link.dataset.section;
-                    if (section === 'home') {
-                        window.location.reload();
-                        return;
-                    }
                     navLinks.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
                     showSection(section);
