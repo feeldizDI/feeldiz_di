@@ -2710,7 +2710,11 @@
             const path = sectionName === 'home' ? '/feeldiz_di/' : `/feeldiz_di/${sectionName}`;
             
             if (!skipHistory) {
-                window.history.pushState({section: sectionName}, '', path);
+                try {
+                    window.history.pushState({section: sectionName}, '', path);
+                } catch (e) {
+                    console.log('History API not available in this context');
+                }
             }
             
             // Send pageview to Google Analytics
@@ -2857,8 +2861,12 @@
             
             renderGallery(portfolioData);
             
-            // Set initial history state
-            window.history.replaceState({section: 'home'}, '', '/feeldiz_di/');
+            // Set initial history state (wrapped in try-catch for compatibility)
+            try {
+                window.history.replaceState({section: 'home'}, '', '/feeldiz_di/');
+            } catch (e) {
+                console.log('History API not available in this context');
+            }
             
             // Check URL on page load and show correct section
             const path = window.location.pathname;
@@ -2980,48 +2988,6 @@
 
             setTimeout(() => { if (loadedImages < totalImages) hideLoadingScreen(); }, 5000);
         });
-    </script>
-
-    <!-- Channel Talk -->
-    <script>
-      (function() {
-        var w = window;
-        if (w.ChannelIO) {
-          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
-        }
-        var ch = function() {
-          ch.c(arguments);
-        };
-        ch.q = [];
-        ch.c = function(args) {
-          ch.q.push(args);
-        };
-        w.ChannelIO = ch;
-        function l() {
-          if (w.ChannelIOInitialized) {
-            return;
-          }
-          w.ChannelIOInitialized = true;
-          var s = document.createElement('script');
-          s.type = 'text/javascript';
-          s.async = true;
-          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-          s.charset = 'UTF-8';
-          var x = document.getElementsByTagName('script')[0];
-          x.parentNode.insertBefore(s, x);
-        }
-        if (document.readyState === 'complete') {
-          l();
-        } else if (window.attachEvent) {
-          window.attachEvent('onload', l);
-        } else {
-          window.addEventListener('DOMContentLoaded', l, false);
-          window.addEventListener('load', l, false);
-        }
-      })();
-      ChannelIO('boot', {
-        "pluginKey": "54473f29-65d3-49cb-8cf1-41dfac310af0"
-      });
     </script>
 </body>
 </html>
