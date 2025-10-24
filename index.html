@@ -1003,6 +1003,140 @@
             font-weight: 300;
         }
 
+        /* Advertisement Modal */
+        .ad-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .ad-modal.show {
+            display: flex;
+        }
+
+        .ad-modal-content {
+            position: relative;
+            max-width: 800px;
+            max-height: 80vh;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .ad-modal-close {
+            position: absolute;
+            top: -50px;
+            right: -10px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ad-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .ad-link {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ad-link:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .ad-image {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .ad-promo-banner {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+            animation: pulse 2s infinite;
+            z-index: 10002;
+        }
+
+        .ad-promo-text {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+
+        .ad-promo-subtext {
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 5px;
+            opacity: 0.95;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* Contact Section */
         .contact-section {
             display: none;
@@ -1724,6 +1858,38 @@
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
+            
+            /* Advertisement Modal Mobile */
+            .ad-modal-content {
+                max-width: 650px;
+                max-height: 75vh;
+            }
+            
+            .ad-modal-close {
+                top: -50px;
+                font-size: 35px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .ad-image {
+                max-height: 75vh;
+                border-radius: 10px;
+            }
+            
+            .ad-promo-banner {
+                padding: 12px 30px;
+                bottom: 15px;
+            }
+            
+            .ad-promo-text {
+                font-size: 1.1rem;
+                letter-spacing: 1.5px;
+            }
+            
+            .ad-promo-subtext {
+                font-size: 0.8rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1743,6 +1909,40 @@
             
             header {
                 padding: 90px 0 30px;
+            }
+            
+            /* Advertisement Modal Small Mobile */
+            .ad-modal-content {
+                max-width: 95%;
+                max-height: 70vh;
+            }
+            
+            .ad-modal-close {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .ad-image {
+                max-height: 70vh;
+                border-radius: 8px;
+            }
+            
+            .ad-promo-banner {
+                padding: 10px 20px;
+                bottom: 10px;
+            }
+            
+            .ad-promo-text {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            
+            .ad-promo-subtext {
+                font-size: 0.7rem;
+                margin-top: 3px;
             }
         }
     </style>
@@ -2103,6 +2303,20 @@
                 <p class="modal-category" id="modalCategory"></p>
                 <h3 class="modal-description" id="modalDescription"></h3>
             </div>
+        </div>
+    </div>
+
+    <!-- Advertisement Modal -->
+    <div id="adModal" class="ad-modal">
+        <div class="ad-modal-content">
+            <span class="ad-modal-close">&times;</span>
+            <a href="https://www.filmmakers.co.kr/crewProfiles/26181915" target="_blank" class="ad-link">
+                <img src="https://github.com/feeldizDI/feeldiz_di/blob/7fa58260d98c09c804e0e3b36aa4f550547ff342/12%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3.png?raw=true" alt="12월 이벤트" class="ad-image">
+                <div class="ad-promo-banner">
+                    <div class="ad-promo-text">🎬 DI 1회 무료 지원 🎬</div>
+                    <div class="ad-promo-subtext">지금 문의하고 특별 혜택을 받으세요!</div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -2597,6 +2811,50 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Show advertisement modal on page load
+            const adModal = document.getElementById('adModal');
+            const adModalClose = document.querySelector('.ad-modal-close');
+            const adLink = document.querySelector('.ad-link');
+            
+            // Show ad modal after 3 seconds
+            setTimeout(() => {
+                adModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }, 3000);
+            
+            // Close ad modal
+            adModalClose.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                adModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close ad modal when clicking outside
+            adModal.addEventListener('click', (e) => {
+                if (e.target === adModal) {
+                    adModal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Navigate to URL with smooth transition when clicking the ad image
+            adLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetUrl = adLink.getAttribute('href');
+                
+                // Add fade out animation
+                adModal.style.transition = 'opacity 0.5s ease-out';
+                adModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    window.open(targetUrl, '_blank');
+                    adModal.classList.remove('show');
+                    adModal.style.opacity = '1';
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            });
+            
             renderGallery(portfolioData);
             
             // Set initial history state
