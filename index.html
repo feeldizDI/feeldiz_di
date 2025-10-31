@@ -19,7 +19,7 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Feeldiz DI Studio offers professional color grading and post-production services in Seoul. Dolby Vision certified facility specializing in feature films, TV dramas, and commercials. Recent work: GoodMan (JTBC/Disney+), Veranda.">
-    <meta name="keywords" content="DI Studio Seoul, Color Grading Korea, Dolby Vision Studio, Post Production Seoul, Digital Intermediate, Film Color Grading, Drama Post Production, Commercial Color Correction, Feeldiz, 컬러그레이딩, 포스트프로덕션, DI 스튜디오, 필디즈, 색보정업체, 색보정">
+    <meta name="keywords" content="DI Studio Seoul, Color Grading Korea, Dolby Vision Studio, Post Production Seoul, Digital Intermediate, Film Color Grading, Drama Post Production, Commercial Color Correction, Feeldiz, 컬러그레이딩, 포스트프로덕션, DI 스튜디오, 필디즈">
     <meta name="author" content="Feeldiz DI Studio">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -232,8 +232,25 @@
             "@type": "Movie",
             "name": "Veranda",
             "alternateName": "베란다",
-            "description": "Feature film color graded by Feeldiz DI Studio",
-            "datePublished": "2024",
+            "description": "Commercial feature film color graded by Feeldiz DI Studio",
+            "datePublished": "2026",
+            "contributor": {
+              "@type": "Organization",
+              "name": "Feeldiz DI Studio",
+              "url": "https://feeldizdi.github.io/feeldiz_di/"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "VideoObject",
+            "name": "Seoul Suicide Prevention Campaign 'Signal'",
+            "alternateName": "서울시 자살예방 캠페인 '시그널'",
+            "description": "Public service announcement for Seoul Metropolitan Government, color graded by Feeldiz DI Studio",
+            "datePublished": "2025",
+            "contentType": "Commercial",
             "contributor": {
               "@type": "Organization",
               "name": "Feeldiz DI Studio",
@@ -2191,6 +2208,7 @@
                 <div class="works-tabs">
                     <button class="works-tab active" data-works-filter="film">Film</button>
                     <button class="works-tab" data-works-filter="drama">Drama</button>
+                    <button class="works-tab" data-works-filter="commercial">Commercial</button>
                 </div>
                 <div class="works-grid" id="worksGrid"></div>
             </div>
@@ -2567,8 +2585,12 @@
             // 드라마
             {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney"},
             
-            // Film - 순서: 그릇된 소녀(1) → 가문의영광(2) → 만추(3) → 수상내역 많은 순
+            // Commercial
+            {title: "서울시 자살예방 캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
+            
+            // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
             {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
+            {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
             {title: "가문의영광", type: "feature", year: "2023", category: "상업영화"},
             {title: "만추", type: "feature", year: "2023 Remaster", category: "상업영화"},
             {title: "얼룩", type: "short", year: "2023", filmId: "stain", category: "단편"},
@@ -2595,6 +2617,7 @@
             const worksGrid = document.getElementById('worksGrid');
             worksGrid.innerHTML = '';
             let filteredWorks = filter === 'drama' ? worksData.filter(work => work.type === 'drama') : 
+                               filter === 'commercial' ? worksData.filter(work => work.type === 'commercial') :
                                filter === 'film' ? worksData.filter(work => work.type === 'feature' || work.type === 'short') : worksData;
             
             filteredWorks.forEach(work => {
