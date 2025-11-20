@@ -339,7 +339,12 @@ function renderGallery(items) {
         }
 
         gallery.innerHTML = '';
-        let filteredItems = currentFilter === 'all' ? items : currentFilter === '착한사나이' ? items.filter(item => item.description === "착한사나이") : currentFilter === 'short' ? items.filter(item => item.type === "short") : currentFilter === 'feature' ? items.filter(item => item.type === "feature") : [...items].sort(() => Math.random() - 0.5);
+        let filteredItems = currentFilter === 'all' ? items :
+                           currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
+                           currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
+                           currentFilter === 'short' ? items.filter(item => item.type === "short") :
+                           currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
+                           [...items].sort(() => Math.random() - 0.5);
         const gmItems = currentFilter === 'random' ? [] : filteredItems.filter(item => item.description === "착한사나이");
         const otherItems = currentFilter === 'random' ? filteredItems : filteredItems.filter(item => item.description !== "착한사나이");
 
@@ -521,7 +526,12 @@ function showSection(sectionName, skipHistory = false) {
 
 function openModal(item) {
     try {
-        currentModalItems = currentFilter === 'all' ? portfolioData : currentFilter === '착한사나이' ? portfolioData.filter(item => item.description === "착한사나이") : currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") : currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") : portfolioData;
+        currentModalItems = currentFilter === 'all' ? portfolioData :
+                           currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
+                           currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
+                           currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
+                           currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
+                           portfolioData;
         currentModalIndex = currentModalItems.findIndex(modalItem => modalItem.id === item.id);
         showModalContent(item);
         const imageModal = document.getElementById('imageModal');
