@@ -107,10 +107,21 @@ function renderWorks(filter = 'film') {
         }
 
         worksGrid.innerHTML = '';
-        let filteredWorks = filter === 'drama' ? worksData.filter(work => work.type === 'drama') :
-                           filter === 'commercial' ? worksData.filter(work => work.type === 'commercial') :
-                           filter === 'mv' ? worksData.filter(work => work.type === 'mv') :
-                           filter === 'film' ? worksData.filter(work => work.type === 'feature' || work.type === 'short') : worksData;
+        let filteredWorks;
+
+        if (filter === 'drama') {
+            filteredWorks = worksData.filter(work => work.type === 'drama');
+        } else if (filter === 'commercial') {
+            filteredWorks = worksData.filter(work => work.type === 'commercial');
+        } else if (filter === 'mv') {
+            filteredWorks = worksData.filter(work => work.type === 'mv');
+        } else if (filter === 'film') {
+            filteredWorks = worksData.filter(work => work.type === 'feature' || work.type === 'short');
+        } else {
+            filteredWorks = [];
+        }
+
+        console.log('Works filter:', filter, 'Filtered works:', filteredWorks);
 
         filteredWorks.forEach(work => {
             try {
