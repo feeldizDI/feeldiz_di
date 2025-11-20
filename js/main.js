@@ -68,7 +68,7 @@ const worksData = [
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney"},
 
     // Commercial
-    {title: "서울시 자살예방 캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
+    {title: "시그널", type: "commercial", year: "2025", category: "공익광고"},
 
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
@@ -275,6 +275,18 @@ const portfolioData = [
     {id: 206, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_10.jpg?raw=true", description: "우리동네영화광", type: "feature"},
     {id: 207, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_11.jpg?raw=true", description: "우리동네영화광", type: "feature"},
     {id: 208, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_12.jpg?raw=true", description: "우리동네영화광", type: "feature"},
+    // 시그널 (서울시 자살예방)
+    {id: 209, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_1.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 210, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_2.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 211, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_3.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 212, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_4.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 213, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_5.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 214, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_6.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 215, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_7.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 216, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_8.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 217, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_9.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 218, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_10.jpg?raw=true", description: "시그널", type: "commercial"},
+    {id: 219, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_11.jpg?raw=true", description: "시그널", type: "commercial"},
     // BlackSnake
     {id: 173, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 174, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS4.jpg?raw=true", description: "BlackSnake", type: "feature"},
