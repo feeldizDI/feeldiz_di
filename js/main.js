@@ -68,7 +68,7 @@ const worksData = [
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney"},
 
     // Commercial
-    {title: "시그널", type: "commercial", year: "2025", category: "공익광고"},
+    {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
 
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
@@ -345,8 +345,14 @@ function renderGallery(items) {
                            currentFilter === 'short' ? items.filter(item => item.type === "short") :
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
-        const gmItems = currentFilter === 'random' ? [] : filteredItems.filter(item => item.description === "착한사나이");
-        const otherItems = currentFilter === 'random' ? filteredItems : filteredItems.filter(item => item.description !== "착한사나이");
+
+        // Drama와 Commercial 필터는 전용 레이아웃 사용
+        const gmItems = (currentFilter === 'random' || currentFilter === 'commercial') ? [] :
+                       currentFilter === 'drama' ? filteredItems :
+                       filteredItems.filter(item => item.description === "착한사나이");
+        const otherItems = (currentFilter === 'random' || currentFilter === 'commercial') ? filteredItems :
+                          currentFilter === 'drama' ? [] :
+                          filteredItems.filter(item => item.description !== "착한사나이");
 
         if (gmItems.length > 0) {
             for (let i = 0; i < gmItems.length; i += 3) {
