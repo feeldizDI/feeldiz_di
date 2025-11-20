@@ -70,6 +70,9 @@ const worksData = [
     // Commercial
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
 
+    // M/V
+    {title: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
+
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
@@ -106,6 +109,7 @@ function renderWorks(filter = 'film') {
         worksGrid.innerHTML = '';
         let filteredWorks = filter === 'drama' ? worksData.filter(work => work.type === 'drama') :
                            filter === 'commercial' ? worksData.filter(work => work.type === 'commercial') :
+                           filter === 'mv' ? worksData.filter(work => work.type === 'mv') :
                            filter === 'film' ? worksData.filter(work => work.type === 'feature' || work.type === 'short') : worksData;
 
         filteredWorks.forEach(work => {
@@ -342,15 +346,16 @@ function renderGallery(items) {
         let filteredItems = currentFilter === 'all' ? items :
                            currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
                            currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
+                           currentFilter === 'mv' ? items.filter(item => item.type === "mv") :
                            currentFilter === 'short' ? items.filter(item => item.type === "short") :
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
 
-        // Drama와 Commercial 필터는 전용 레이아웃 사용
-        const gmItems = (currentFilter === 'random' || currentFilter === 'commercial') ? [] :
+        // Drama, Commercial, M/V 필터는 전용 레이아웃 사용
+        const gmItems = (currentFilter === 'random' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
                        currentFilter === 'drama' ? filteredItems :
                        filteredItems.filter(item => item.description === "착한사나이");
-        const otherItems = (currentFilter === 'random' || currentFilter === 'commercial') ? filteredItems :
+        const otherItems = (currentFilter === 'random' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
                           currentFilter === 'drama' ? [] :
                           filteredItems.filter(item => item.description !== "착한사나이");
 
@@ -535,6 +540,7 @@ function openModal(item) {
         currentModalItems = currentFilter === 'all' ? portfolioData :
                            currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
                            currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
+                           currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
                            currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
                            currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
                            portfolioData;
