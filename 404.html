@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // GitHub Pages SPA redirect hack
+        // Redirect to index.html with the path as a query parameter
+        const pathSegments = window.location.pathname.split('/').filter(segment => segment);
+        const repo = 'feeldiz_di';
+
+        // Extract the section from the URL
+        let section = '';
+        const repoIndex = pathSegments.indexOf(repo);
+        if (repoIndex !== -1 && pathSegments.length > repoIndex + 1) {
+            section = pathSegments[repoIndex + 1];
+        }
+
+        // Redirect to index.html with section info
+        if (section && ['works', 'facility', 'about', 'contact'].includes(section)) {
+            window.location.replace(
+                window.location.origin + '/' + repo + '/?redirect=' + section
+            );
+        } else {
+            // If not a valid section, just go to home
+            window.location.replace(window.location.origin + '/' + repo + '/');
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>

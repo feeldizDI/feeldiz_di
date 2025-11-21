@@ -653,9 +653,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check URL on page load and show correct section
         try {
-            const path = window.location.pathname;
-            const section = path.split('/').pop() || 'home';
-            if (['works', 'facility', 'about', 'contact'].includes(section)) {
+            // Check for redirect parameter from 404.html
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectSection = urlParams.get('redirect');
+
+            let section = 'home';
+
+            if (redirectSection && ['works', 'facility', 'about', 'contact'].includes(redirectSection)) {
+                section = redirectSection;
+                // Clean up URL by removing redirect parameter
+                window.history.replaceState({section: section}, '', `/feeldiz_di/${section}`);
+            } else {
+                const path = window.location.pathname;
+                const pathSection = path.split('/').pop();
+                if (['works', 'facility', 'about', 'contact'].includes(pathSection)) {
+                    section = pathSection;
+                }
+            }
+
+            if (section !== 'home') {
                 showSection(section, true); // Skip history on initial load
                 // Update active nav link
                 document.querySelectorAll('.nav-link').forEach(link => {
