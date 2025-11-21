@@ -374,12 +374,12 @@ function renderGallery(items) {
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
 
-        // Drama, Commercial, M/V 필터는 전용 레이아웃 사용
-        const gmItems = (currentFilter === 'random' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
-                       currentFilter === 'drama' ? filteredItems :
+        // Drama, Commercial, M/V 필터는 3열 레이아웃 사용
+        const gmItems = currentFilter === 'random' ? [] :
+                       (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
                        filteredItems.filter(item => item.description === "착한사나이");
-        const otherItems = (currentFilter === 'random' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
-                          currentFilter === 'drama' ? [] :
+        const otherItems = currentFilter === 'random' ? filteredItems :
+                          (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
                           filteredItems.filter(item => item.description !== "착한사나이");
 
         if (gmItems.length > 0) {
