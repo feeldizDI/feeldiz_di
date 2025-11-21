@@ -382,6 +382,8 @@ function renderGallery(items) {
                           (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
                           filteredItems.filter(item => item.description !== "착한사나이");
 
+        console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
+
         if (gmItems.length > 0) {
             for (let i = 0; i < gmItems.length; i += 3) {
                 const galleryRow = document.createElement('div');
@@ -653,9 +655,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check URL on page load and show correct section
         try {
-            const path = window.location.pathname;
-            const section = path.split('/').pop() || 'home';
-            if (['works', 'facility', 'about', 'contact'].includes(section)) {
+            // Check for redirect parameter from 404.html
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectSection = urlParams.get('redirect');
+
+            let section = 'home';
+
+            if (redirectSection && ['works', 'facility', 'about', 'contact'].includes(redirectSection)) {
+                section = redirectSection;
+                // Clean up URL by removing redirect parameter
+                window.history.replaceState({section: section}, '', `/feeldiz_di/${section}`);
+            } else {
+                const path = window.location.pathname;
+                const pathSection = path.split('/').pop();
+                if (['works', 'facility', 'about', 'contact'].includes(pathSection)) {
+                    section = pathSection;
+                }
+            }
+
+            if (section !== 'home') {
                 showSection(section, true); // Skip history on initial load
                 // Update active nav link
                 document.querySelectorAll('.nav-link').forEach(link => {
