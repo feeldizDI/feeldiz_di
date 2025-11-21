@@ -382,6 +382,8 @@ function renderGallery(items) {
                           (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
                           filteredItems.filter(item => item.description !== "착한사나이");
 
+        console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
+
         if (gmItems.length > 0) {
             for (let i = 0; i < gmItems.length; i += 3) {
                 const galleryRow = document.createElement('div');
