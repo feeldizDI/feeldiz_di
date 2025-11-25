@@ -71,6 +71,7 @@ const worksData = [
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
 
     // M/V
+    {title: "Gardener 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
     {title: "Legend Comes To Life 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
 
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
@@ -91,7 +92,7 @@ const worksData = [
     {title: "비밀일수밖에", type: "feature", year: "2025", category: "독립장편"},
     {title: "워크숍 3", type: "short", year: "2025", filmId: "workshop3", category: "단편"},
     {title: "환영", type: "short", year: "2024", category: "단편"},
-    {title: "제비", type: "short", year: "2024", category: "단편"},
+    // REMOVED: {title: "제비", type: "short", year: "2024", category: "단편"},
     {title: "로망스", type: "feature", year: "2024", category: "독립장편"},
     {title: "우리두리", type: "short", year: "2022", filmId: "uriduri", category: "단편"},
     {title: "휴일", type: "short", year: "2021", filmId: "holiday", category: "단편"},
@@ -234,11 +235,11 @@ const portfolioData = [
     {id: 143, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after23.jpg?raw=true", description: "환영", type: "short"},
     {id: 144, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true", description: "환영", type: "short"},
     {id: 145, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true", description: "환영", type: "short"},
-    // 제비
-    {id: 146, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after3.jpg?raw=true", description: "제비", type: "short"},
-    {id: 147, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after4.jpg?raw=true", description: "제비", type: "short"},
-    {id: 148, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after5.jpg?raw=true", description: "제비", type: "short"},
-    {id: 149, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after6.jpg?raw=true", description: "제비", type: "short"},
+    // REMOVED 제비 - To restore, uncomment lines below:
+    // {id: 146, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after3.jpg?raw=true", description: "제비", type: "short"},
+    // {id: 147, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after4.jpg?raw=true", description: "제비", type: "short"},
+    // {id: 148, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after5.jpg?raw=true", description: "제비", type: "short"},
+    // {id: 149, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after6.jpg?raw=true", description: "제비", type: "short"},
     // 16mm 현상
     {id: 150, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_1.jpg?raw=true", description: "16mm 현상", type: "short"},
     {id: 151, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_2.jpg?raw=true", description: "16mm 현상", type: "short"},
@@ -302,18 +303,18 @@ const portfolioData = [
     {id: 217, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_9.jpg?raw=true", description: "시그널", type: "commercial"},
     {id: 218, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_10.jpg?raw=true", description: "시그널", type: "commercial"},
     {id: 219, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_11.jpg?raw=true", description: "시그널", type: "commercial"},
-    // Legend Comes To Life 클라우디안 (M/V)
-    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
+    // Gardener 클라우디안 (M/V)
+    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
     // BlackSnake
     {id: 173, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 174, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS4.jpg?raw=true", description: "BlackSnake", type: "feature"},
