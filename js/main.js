@@ -99,7 +99,7 @@ const worksData = [
     {title: "오픈유어센스", type: "short", year: "2021", filmId: "openyoursense", category: "단편"}
 ];
 
-function renderWorks(filter = 'film') {
+function renderWorks(filter = 'film', subcategory = 'all') {
     try {
         const worksGrid = document.getElementById('worksGrid');
         if (!worksGrid) {
@@ -118,11 +118,16 @@ function renderWorks(filter = 'film') {
             filteredWorks = worksData.filter(work => work.type === 'mv');
         } else if (filter === 'film') {
             filteredWorks = worksData.filter(work => work.type === 'feature' || work.type === 'short');
+
+            // Apply subcategory filter for film
+            if (subcategory !== 'all') {
+                filteredWorks = filteredWorks.filter(work => work.category === subcategory);
+            }
         } else {
             filteredWorks = [];
         }
 
-        console.log('Works filter:', filter, 'Filtered works:', filteredWorks);
+        console.log('Works filter:', filter, 'Subcategory:', subcategory, 'Filtered works:', filteredWorks);
 
         filteredWorks.forEach(work => {
             try {
@@ -730,9 +735,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         document.querySelectorAll('.works-tab').forEach(t => t.classList.remove('active'));
                         e.target.classList.add('active');
-                        renderWorks(e.target.dataset.worksFilter);
+                        const filter = e.target.dataset.worksFilter;
+
+                        // Show/hide film subcategory tabs
+                        const filmSubcategoryTabs = document.getElementById('filmSubcategoryTabs');
+                        if (filmSubcategoryTabs) {
+                            if (filter === 'film') {
+                                filmSubcategoryTabs.style.display = 'flex';
+                                // Reset subcategory to 'all' when switching to film
+                                document.querySelectorAll('.film-subcategory-tab').forEach(t => t.classList.remove('active'));
+                                document.querySelector('.film-subcategory-tab[data-film-subcategory="all"]').classList.add('active');
+                            } else {
+                                filmSubcategoryTabs.style.display = 'none';
+                            }
+                        }
+
+                        renderWorks(filter);
                     } catch (error) {
                         console.error('Error handling works tab click:', error);
+                    }
+                });
+            });
+
+            // Film subcategory tabs event handler
+            document.querySelectorAll('.film-subcategory-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    try {
+                        document.querySelectorAll('.film-subcategory-tab').forEach(t => t.classList.remove('active'));
+                        e.target.classList.add('active');
+                        const subcategory = e.target.dataset.filmSubcategory;
+                        renderWorks('film', subcategory);
+                    } catch (error) {
+                        console.error('Error handling film subcategory tab click:', error);
                     }
                 });
             });
