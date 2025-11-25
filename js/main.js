@@ -71,8 +71,8 @@ const worksData = [
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
 
     // M/V
-    {title: "Gardener 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
-    {title: "Legend Comes To Life 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
+    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
+    {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
 
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
@@ -146,8 +146,12 @@ function renderWorks(filter = 'film') {
                 const platformHTML = work.platform ?
                     `<div class="work-platform">${work.platform}</div>` : '';
 
+                const artistHTML = work.artist ?
+                    `<div class="work-artist">${work.artist}</div>` : '';
+
                 workCard.innerHTML = `
                     <h3 class="work-title">${work.title}</h3>
+                    ${artistHTML}
                     ${platformHTML}
                     ${categoryHTML}
                     <div class="work-year">${work.year}</div>
