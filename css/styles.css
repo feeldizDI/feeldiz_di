@@ -669,6 +669,40 @@ h1 {
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
+.film-subcategory-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.film-subcategory-tab {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #777;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.film-subcategory-tab:hover {
+    background: rgba(255,255,255,0.08);
+    color: #ccc;
+    border-color: rgba(255,255,255,0.3);
+}
+
+.film-subcategory-tab.active {
+    background: linear-gradient(45deg, #555, #777);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+
 .works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -1592,6 +1626,23 @@ iframe#ch-plugin-core {
     }
     .work-artist {
         font-size: 1rem;
+    }
+    .works-tabs {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    .works-tab {
+        padding: 12px 25px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    .film-subcategory-tabs {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    .film-subcategory-tab {
+        padding: 8px 20px;
+        font-size: 0.8rem;
     }
     .contact-header h2 {
         font-size: 2.5rem;
