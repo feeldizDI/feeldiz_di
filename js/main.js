@@ -71,6 +71,7 @@ const worksData = [
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고"},
 
     // M/V
+    {title: "Gardener 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
     {title: "Legend Comes To Life 클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
 
     // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
@@ -302,18 +303,18 @@ const portfolioData = [
     {id: 217, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_9.jpg?raw=true", description: "시그널", type: "commercial"},
     {id: 218, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_10.jpg?raw=true", description: "시그널", type: "commercial"},
     {id: 219, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_11.jpg?raw=true", description: "시그널", type: "commercial"},
-    // Legend Comes To Life 클라우디안 (M/V)
-    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
-    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Legend Comes To Life 클라우디안", type: "mv"},
+    // Gardener 클라우디안 (M/V)
+    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
     // BlackSnake
     {id: 173, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 174, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS4.jpg?raw=true", description: "BlackSnake", type: "feature"},
