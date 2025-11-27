@@ -247,6 +247,11 @@ function showWorkImages(work) {
             return;
         }
 
+        // 제비는 역순으로 정렬 (jevi20 → jevi1)
+        if (work.title === '제비') {
+            workImages = workImages.reverse();
+        }
+
         currentWorkImages = workImages;
         currentWorkPage = 0;
 
