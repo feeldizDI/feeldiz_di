@@ -247,11 +247,6 @@ function showWorkImages(work) {
             return;
         }
 
-        // 제비는 역순으로 정렬 (jevi20 → jevi1)
-        if (work.title === '제비') {
-            workImages = workImages.reverse();
-        }
-
         currentWorkImages = workImages;
         currentWorkPage = 0;
 
@@ -544,6 +539,14 @@ function renderGallery(items) {
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
 
+        // Short Film 필터에서 제비 이미지는 역순 정렬 (jevi20 → jevi1)
+        if (currentFilter === 'short') {
+            const jeviItems = filteredItems.filter(item => item.description === '제비');
+            const otherItems = filteredItems.filter(item => item.description !== '제비');
+            const reversedJevi = [...jeviItems].reverse();
+            filteredItems = [...reversedJevi, ...otherItems];
+        }
+
         // All Works 필터는 모든 아이템을 3열 레이아웃으로 표시
         if (currentFilter === 'all') {
             console.log('All Works - 3-column layout for all items:', filteredItems.length);
@@ -745,13 +748,23 @@ function showSection(sectionName, skipHistory = false) {
 
 function openModal(item) {
     try {
-        currentModalItems = currentFilter === 'all' ? portfolioData :
-                           currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
-                           currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
-                           currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
-                           currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
-                           currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
-                           portfolioData;
+        // All Works: ID 역순 정렬 (갤러리 표시 순서와 동일)
+        if (currentFilter === 'all') {
+            currentModalItems = [...portfolioData].sort((a, b) => b.id - a.id);
+        } else if (currentFilter === 'short') {
+            // Short Film: 제비 역순 정렬
+            const shortItems = portfolioData.filter(item => item.type === "short");
+            const jeviItems = shortItems.filter(item => item.description === '제비');
+            const otherItems = shortItems.filter(item => item.description !== '제비');
+            const reversedJevi = [...jeviItems].reverse();
+            currentModalItems = [...reversedJevi, ...otherItems];
+        } else {
+            currentModalItems = currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
+                               currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
+                               currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
+                               currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
+                               portfolioData;
+        }
         currentModalIndex = currentModalItems.findIndex(modalItem => modalItem.id === item.id);
         showModalContent(item);
         const imageModal = document.getElementById('imageModal');
