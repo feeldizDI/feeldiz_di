@@ -74,8 +74,9 @@ const worksData = [
     {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
     {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
 
-    // Film - 순서: 선이(최신) → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    // Film - 순서: 선이(최신) → 제비 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편"},
+    {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화"},
@@ -93,7 +94,6 @@ const worksData = [
     {title: "비밀일수밖에", type: "feature", year: "2025", category: "독립장편"},
     {title: "워크숍 3", type: "short", year: "2025", filmId: "workshop3", category: "단편"},
     {title: "환영", type: "short", year: "2024", category: "단편"},
-    // REMOVED: {title: "제비", type: "short", year: "2024", category: "단편"},
     {title: "로망스", type: "feature", year: "2024", category: "독립장편"},
     {title: "우리두리", type: "short", year: "2022", filmId: "uriduri", category: "단편"},
     {title: "휴일", type: "short", year: "2021", filmId: "holiday", category: "단편"},
@@ -138,10 +138,15 @@ function renderWorks(filter = 'film', subcategory = 'all') {
                 const filmId = work.filmId || work.title.toLowerCase().replace(/\s+/g, '').replace(/[[\]]/g, '');
                 const hasAwards = awardsData[filmId] && awardsData[filmId].length > 0;
 
-                if (hasAwards) {
-                    workCard.style.cursor = 'pointer';
-                    workCard.addEventListener('click', () => showAwards(filmId, work.title));
-                }
+                // Add click event to show work images
+                workCard.addEventListener('click', (e) => {
+                    // If has awards badge, show awards; otherwise show images
+                    if (hasAwards && e.target.closest('.work-awards-badge')) {
+                        showAwards(filmId, work.title);
+                    } else {
+                        showWorkImages(work);
+                    }
+                });
 
                 const awardsHTML = hasAwards ?
                     `<div class="work-awards-badge">🏆 수상작 (클릭하여 상세보기)</div>` : '';
@@ -207,6 +212,119 @@ function showAwards(filmId, title) {
     }
 }
 
+let currentWorkPage = 0;
+let currentWorkImages = [];
+
+function showWorkImages(work) {
+    try {
+        // Find matching images in portfolioData
+        // For M/V works, match against the full title with artist
+        let matchTitle = work.title;
+        if (work.artist) {
+            // For M/V, portfolio description might be "Gardener 클라우디안"
+            matchTitle = `${work.title} ${work.artist}`;
+        }
+
+        // Try exact match first
+        let workImages = portfolioData.filter(item => {
+            if (work.artist) {
+                // For M/V, check both formats
+                return item.description === work.title ||
+                       item.description === matchTitle ||
+                       item.description === `${work.title} ${work.artist}`;
+            }
+            return item.description === work.title;
+        });
+
+        // If no images found, try without artist for M/V
+        if (workImages.length === 0 && work.artist) {
+            workImages = portfolioData.filter(item => item.description.includes(work.title));
+        }
+
+        if (workImages.length === 0) {
+            console.log('No images found for work:', work.title);
+            alert('이 작품의 이미지가 아직 업로드되지 않았습니다.');
+            return;
+        }
+
+        currentWorkImages = workImages;
+        currentWorkPage = 0;
+
+        const modal = document.getElementById('workImagesModal');
+        const modalTitle = document.getElementById('workImagesTitle');
+
+        if (!modal || !modalTitle) {
+            console.error('Work images modal elements not found');
+            return;
+        }
+
+        // Set title with artist if M/V
+        if (work.artist) {
+            modalTitle.textContent = `${work.title} - ${work.artist}`;
+        } else {
+            modalTitle.textContent = work.title;
+        }
+
+        renderWorkImagesPage();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    } catch (error) {
+        console.error('Error in showWorkImages:', error);
+    }
+}
+
+function renderWorkImagesPage() {
+    try {
+        const grid = document.getElementById('workImagesGrid');
+        const pageInfo = document.getElementById('workImagesPageInfo');
+        const prevBtn = document.getElementById('workImagesPrev');
+        const nextBtn = document.getElementById('workImagesNext');
+
+        if (!grid || !pageInfo || !prevBtn || !nextBtn) {
+            console.error('Work images modal elements not found');
+            return;
+        }
+
+        const imagesPerPage = 9;
+        const totalPages = Math.ceil(currentWorkImages.length / imagesPerPage);
+        const startIdx = currentWorkPage * imagesPerPage;
+        const endIdx = Math.min(startIdx + imagesPerPage, currentWorkImages.length);
+        const pageImages = currentWorkImages.slice(startIdx, endIdx);
+
+        // Render grid
+        grid.innerHTML = pageImages.map(item => `
+            <img src="${item.image}" alt="${item.description}" loading="lazy">
+        `).join('');
+
+        // Update pagination
+        pageInfo.textContent = `${currentWorkPage + 1} / ${totalPages} (${currentWorkImages.length}장)`;
+        prevBtn.disabled = currentWorkPage === 0;
+        nextBtn.disabled = currentWorkPage >= totalPages - 1;
+
+        // Add click events to images to open in gallery modal
+        grid.querySelectorAll('img').forEach((img, idx) => {
+            img.addEventListener('click', () => {
+                const actualIdx = startIdx + idx;
+                openImageModal(currentWorkImages, actualIdx);
+            });
+        });
+    } catch (error) {
+        console.error('Error in renderWorkImagesPage:', error);
+    }
+}
+
+function closeWorkImages() {
+    try {
+        const modal = document.getElementById('workImagesModal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    } catch (error) {
+        console.error('Error in closeWorkImages:', error);
+    }
+}
+
 function closeAwards() {
     try {
         const modal = document.getElementById('awardsModal');
@@ -259,17 +377,33 @@ const portfolioData = [
     {id: 247, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune17.jpg?raw=true", description: "선이", type: "short"},
     {id: 248, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune18.jpg?raw=true", description: "선이", type: "short"},
     {id: 249, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune19.jpg?raw=true", description: "선이", type: "short"},
+    // 제비
+    {id: 250, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true", description: "제비", type: "short"},
+    {id: 251, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi2.jpg?raw=true", description: "제비", type: "short"},
+    {id: 252, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi3.jpg?raw=true", description: "제비", type: "short"},
+    {id: 253, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi4.jpg?raw=true", description: "제비", type: "short"},
+    {id: 254, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi5.jpg?raw=true", description: "제비", type: "short"},
+    {id: 255, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi6.jpg?raw=true", description: "제비", type: "short"},
+    {id: 256, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi7.jpg?raw=true", description: "제비", type: "short"},
+    {id: 257, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi8.jpg?raw=true", description: "제비", type: "short"},
+    {id: 258, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi9.jpg?raw=true", description: "제비", type: "short"},
+    {id: 259, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi10.jpg?raw=true", description: "제비", type: "short"},
+    {id: 260, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi11.jpg?raw=true", description: "제비", type: "short"},
+    {id: 261, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi12.jpg?raw=true", description: "제비", type: "short"},
+    {id: 262, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi13.jpg?raw=true", description: "제비", type: "short"},
+    {id: 263, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi14.jpg?raw=true", description: "제비", type: "short"},
+    {id: 264, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi15.jpg?raw=true", description: "제비", type: "short"},
+    {id: 265, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi16.jpg?raw=true", description: "제비", type: "short"},
+    {id: 266, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi17.jpg?raw=true", description: "제비", type: "short"},
+    {id: 267, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi18.jpg?raw=true", description: "제비", type: "short"},
+    {id: 268, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi19.jpg?raw=true", description: "제비", type: "short"},
+    {id: 269, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi20.jpg?raw=true", description: "제비", type: "short"},
     ...generateGMSeries(),
     // 환영
     {id: 142, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after2.jpg?raw=true", description: "환영", type: "short"},
     {id: 143, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after23.jpg?raw=true", description: "환영", type: "short"},
     {id: 144, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true", description: "환영", type: "short"},
     {id: 145, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true", description: "환영", type: "short"},
-    // REMOVED 제비 - To restore, uncomment lines below:
-    // {id: 146, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after3.jpg?raw=true", description: "제비", type: "short"},
-    // {id: 147, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after4.jpg?raw=true", description: "제비", type: "short"},
-    // {id: 148, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after5.jpg?raw=true", description: "제비", type: "short"},
-    // {id: 149, category: "portfolio", image: "https://github.com1/feeldizDI/feeldiz_di/blob/main/after6.jpg?raw=true", description: "제비", type: "short"},
     // 16mm 현상
     {id: 150, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_1.jpg?raw=true", description: "16mm 현상", type: "short"},
     {id: 151, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_2.jpg?raw=true", description: "16mm 현상", type: "short"},
@@ -397,7 +531,7 @@ function renderGallery(items) {
         }
 
         gallery.innerHTML = '';
-        let filteredItems = currentFilter === 'all' ? items :
+        let filteredItems = currentFilter === 'all' ? [...items].sort((a, b) => b.id - a.id) :
                            currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
                            currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
                            currentFilter === 'mv' ? items.filter(item => item.type === "mv") :
@@ -804,6 +938,44 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+
+            // Work images modal event handlers
+            const workImagesClose = document.getElementById('workImagesClose');
+            const workImagesPrev = document.getElementById('workImagesPrev');
+            const workImagesNext = document.getElementById('workImagesNext');
+            const workImagesModal = document.getElementById('workImagesModal');
+
+            if (workImagesClose) {
+                workImagesClose.addEventListener('click', closeWorkImages);
+            }
+
+            if (workImagesPrev) {
+                workImagesPrev.addEventListener('click', () => {
+                    if (currentWorkPage > 0) {
+                        currentWorkPage--;
+                        renderWorkImagesPage();
+                    }
+                });
+            }
+
+            if (workImagesNext) {
+                workImagesNext.addEventListener('click', () => {
+                    const totalPages = Math.ceil(currentWorkImages.length / 9);
+                    if (currentWorkPage < totalPages - 1) {
+                        currentWorkPage++;
+                        renderWorkImagesPage();
+                    }
+                });
+            }
+
+            // Close modal when clicking outside
+            if (workImagesModal) {
+                workImagesModal.addEventListener('click', (e) => {
+                    if (e.target === workImagesModal) {
+                        closeWorkImages();
+                    }
+                });
+            }
 
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
