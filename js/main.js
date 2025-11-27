@@ -413,7 +413,7 @@ function renderGallery(items) {
         }
 
         gallery.innerHTML = '';
-        let filteredItems = currentFilter === 'all' ? items :
+        let filteredItems = currentFilter === 'all' ? [...items].sort((a, b) => b.id - a.id) :
                            currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
                            currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
                            currentFilter === 'mv' ? items.filter(item => item.type === "mv") :
