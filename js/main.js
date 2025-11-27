@@ -415,47 +415,23 @@ function renderGallery(items) {
 
         console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
 
-        // All Works 필터일 때는 otherItems를 먼저 렌더링 (최신 작품이 위에 오도록)
-        if (currentFilter === 'all') {
-            if (otherItems.length > 0) {
-                for (let i = 0; i < otherItems.length; i += 2) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row';
-                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], i));
-                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], i + 1));
-                    gallery.appendChild(galleryRow);
+        if (gmItems.length > 0) {
+            for (let i = 0; i < gmItems.length; i += 3) {
+                const galleryRow = document.createElement('div');
+                galleryRow.className = 'gallery-row wide-layout';
+                for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
+                    galleryRow.appendChild(createGalleryItem(gmItems[i + j], i + j));
                 }
+                gallery.appendChild(galleryRow);
             }
-            if (gmItems.length > 0) {
-                for (let i = 0; i < gmItems.length; i += 3) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row wide-layout';
-                    for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
-                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], otherItems.length + i + j));
-                    }
-                    gallery.appendChild(galleryRow);
-                }
-            }
-        } else {
-            // 다른 필터일 때는 기존 로직 (gmItems 먼저)
-            if (gmItems.length > 0) {
-                for (let i = 0; i < gmItems.length; i += 3) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row wide-layout';
-                    for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
-                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], i + j));
-                    }
-                    gallery.appendChild(galleryRow);
-                }
-            }
-            if (otherItems.length > 0) {
-                for (let i = 0; i < otherItems.length; i += 2) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row';
-                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], gmItems.length + i));
-                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], gmItems.length + i + 1));
-                    gallery.appendChild(galleryRow);
-                }
+        }
+        if (otherItems.length > 0) {
+            for (let i = 0; i < otherItems.length; i += 2) {
+                const galleryRow = document.createElement('div');
+                galleryRow.className = 'gallery-row';
+                if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], gmItems.length + i));
+                if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], gmItems.length + i + 1));
+                gallery.appendChild(galleryRow);
             }
         }
     } catch (error) {
