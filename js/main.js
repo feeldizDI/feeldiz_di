@@ -74,7 +74,8 @@ const worksData = [
     {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
     {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
 
-    // Film - 순서: 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    // Film - 순서: 선(최신) → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    {title: "선", type: "short", year: "2025", filmId: "sune", category: "단편"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화"},
@@ -238,6 +239,26 @@ function generateGMSeries() {
 }
 
 const portfolioData = [
+    // 선 (최신 작품 - 맨 앞에 배치)
+    {id: 231, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_1.jpg?raw=true", description: "선", type: "short"},
+    {id: 232, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_2.jpg?raw=true", description: "선", type: "short"},
+    {id: 233, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_3.jpg?raw=true", description: "선", type: "short"},
+    {id: 234, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_4.jpg?raw=true", description: "선", type: "short"},
+    {id: 235, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_5.jpg?raw=true", description: "선", type: "short"},
+    {id: 236, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_6.jpg?raw=true", description: "선", type: "short"},
+    {id: 237, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_7.jpg?raw=true", description: "선", type: "short"},
+    {id: 238, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_8.jpg?raw=true", description: "선", type: "short"},
+    {id: 239, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_9.jpg?raw=true", description: "선", type: "short"},
+    {id: 240, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_10.jpg?raw=true", description: "선", type: "short"},
+    {id: 241, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_11.jpg?raw=true", description: "선", type: "short"},
+    {id: 242, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_12.jpg?raw=true", description: "선", type: "short"},
+    {id: 243, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_13.jpg?raw=true", description: "선", type: "short"},
+    {id: 244, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_14.jpg?raw=true", description: "선", type: "short"},
+    {id: 245, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_15.jpg?raw=true", description: "선", type: "short"},
+    {id: 246, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_16.jpg?raw=true", description: "선", type: "short"},
+    {id: 247, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_17.jpg?raw=true", description: "선", type: "short"},
+    {id: 248, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_18.jpg?raw=true", description: "선", type: "short"},
+    {id: 249, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune_19.jpg?raw=true", description: "선", type: "short"},
     ...generateGMSeries(),
     // 환영
     {id: 142, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after2.jpg?raw=true", description: "환영", type: "short"},
