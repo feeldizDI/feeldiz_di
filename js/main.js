@@ -405,39 +405,28 @@ function renderGallery(items) {
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
 
-        // Drama, Commercial, M/V 필터는 3열 레이아웃 사용
-        const gmItems = currentFilter === 'random' ? [] :
-                       (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
-                       filteredItems.filter(item => item.description === "착한사나이");
-        const otherItems = currentFilter === 'random' ? filteredItems :
-                          (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
-                          filteredItems.filter(item => item.description !== "착한사나이");
-
-        console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
-
-        // All Works 필터일 때는 otherItems를 먼저 렌더링 (최신 작품이 위에 오도록)
+        // All Works 필터는 모든 아이템을 3열 레이아웃으로 표시
         if (currentFilter === 'all') {
-            if (otherItems.length > 0) {
-                for (let i = 0; i < otherItems.length; i += 2) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row';
-                    if (otherItems[i]) galleryRow.appendChild(createGalleryItem(otherItems[i], i));
-                    if (otherItems[i + 1]) galleryRow.appendChild(createGalleryItem(otherItems[i + 1], i + 1));
-                    gallery.appendChild(galleryRow);
+            console.log('All Works - 3-column layout for all items:', filteredItems.length);
+            for (let i = 0; i < filteredItems.length; i += 3) {
+                const galleryRow = document.createElement('div');
+                galleryRow.className = 'gallery-row wide-layout';
+                for (let j = 0; j < 3 && (i + j) < filteredItems.length; j++) {
+                    galleryRow.appendChild(createGalleryItem(filteredItems[i + j], i + j));
                 }
-            }
-            if (gmItems.length > 0) {
-                for (let i = 0; i < gmItems.length; i += 3) {
-                    const galleryRow = document.createElement('div');
-                    galleryRow.className = 'gallery-row wide-layout';
-                    for (let j = 0; j < 3 && (i + j) < gmItems.length; j++) {
-                        galleryRow.appendChild(createGalleryItem(gmItems[i + j], otherItems.length + i + j));
-                    }
-                    gallery.appendChild(galleryRow);
-                }
+                gallery.appendChild(galleryRow);
             }
         } else {
-            // 다른 필터일 때는 기존 로직 (gmItems 먼저)
+            // 다른 필터: Drama, Commercial, M/V는 3열, Feature/Short는 2열
+            const gmItems = currentFilter === 'random' ? [] :
+                           (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
+                           filteredItems.filter(item => item.description === "착한사나이");
+            const otherItems = currentFilter === 'random' ? filteredItems :
+                              (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
+                              filteredItems.filter(item => item.description !== "착한사나이");
+
+            console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
+
             if (gmItems.length > 0) {
                 for (let i = 0; i < gmItems.length; i += 3) {
                     const galleryRow = document.createElement('div');
