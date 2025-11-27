@@ -138,10 +138,15 @@ function renderWorks(filter = 'film', subcategory = 'all') {
                 const filmId = work.filmId || work.title.toLowerCase().replace(/\s+/g, '').replace(/[[\]]/g, '');
                 const hasAwards = awardsData[filmId] && awardsData[filmId].length > 0;
 
-                if (hasAwards) {
-                    workCard.style.cursor = 'pointer';
-                    workCard.addEventListener('click', () => showAwards(filmId, work.title));
-                }
+                // Add click event to show work images
+                workCard.addEventListener('click', (e) => {
+                    // If has awards badge, show awards; otherwise show images
+                    if (hasAwards && e.target.closest('.work-awards-badge')) {
+                        showAwards(filmId, work.title);
+                    } else {
+                        showWorkImages(work);
+                    }
+                });
 
                 const awardsHTML = hasAwards ?
                     `<div class="work-awards-badge">🏆 수상작 (클릭하여 상세보기)</div>` : '';
@@ -204,6 +209,119 @@ function showAwards(filmId, title) {
         document.body.style.overflow = 'hidden';
     } catch (error) {
         console.error('Error in showAwards:', error);
+    }
+}
+
+let currentWorkPage = 0;
+let currentWorkImages = [];
+
+function showWorkImages(work) {
+    try {
+        // Find matching images in portfolioData
+        // For M/V works, match against the full title with artist
+        let matchTitle = work.title;
+        if (work.artist) {
+            // For M/V, portfolio description might be "Gardener 클라우디안"
+            matchTitle = `${work.title} ${work.artist}`;
+        }
+
+        // Try exact match first
+        let workImages = portfolioData.filter(item => {
+            if (work.artist) {
+                // For M/V, check both formats
+                return item.description === work.title ||
+                       item.description === matchTitle ||
+                       item.description === `${work.title} ${work.artist}`;
+            }
+            return item.description === work.title;
+        });
+
+        // If no images found, try without artist for M/V
+        if (workImages.length === 0 && work.artist) {
+            workImages = portfolioData.filter(item => item.description.includes(work.title));
+        }
+
+        if (workImages.length === 0) {
+            console.log('No images found for work:', work.title);
+            alert('이 작품의 이미지가 아직 업로드되지 않았습니다.');
+            return;
+        }
+
+        currentWorkImages = workImages;
+        currentWorkPage = 0;
+
+        const modal = document.getElementById('workImagesModal');
+        const modalTitle = document.getElementById('workImagesTitle');
+
+        if (!modal || !modalTitle) {
+            console.error('Work images modal elements not found');
+            return;
+        }
+
+        // Set title with artist if M/V
+        if (work.artist) {
+            modalTitle.textContent = `${work.title} - ${work.artist}`;
+        } else {
+            modalTitle.textContent = work.title;
+        }
+
+        renderWorkImagesPage();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    } catch (error) {
+        console.error('Error in showWorkImages:', error);
+    }
+}
+
+function renderWorkImagesPage() {
+    try {
+        const grid = document.getElementById('workImagesGrid');
+        const pageInfo = document.getElementById('workImagesPageInfo');
+        const prevBtn = document.getElementById('workImagesPrev');
+        const nextBtn = document.getElementById('workImagesNext');
+
+        if (!grid || !pageInfo || !prevBtn || !nextBtn) {
+            console.error('Work images modal elements not found');
+            return;
+        }
+
+        const imagesPerPage = 9;
+        const totalPages = Math.ceil(currentWorkImages.length / imagesPerPage);
+        const startIdx = currentWorkPage * imagesPerPage;
+        const endIdx = Math.min(startIdx + imagesPerPage, currentWorkImages.length);
+        const pageImages = currentWorkImages.slice(startIdx, endIdx);
+
+        // Render grid
+        grid.innerHTML = pageImages.map(item => `
+            <img src="${item.image}" alt="${item.description}" loading="lazy">
+        `).join('');
+
+        // Update pagination
+        pageInfo.textContent = `${currentWorkPage + 1} / ${totalPages} (${currentWorkImages.length}장)`;
+        prevBtn.disabled = currentWorkPage === 0;
+        nextBtn.disabled = currentWorkPage >= totalPages - 1;
+
+        // Add click events to images to open in gallery modal
+        grid.querySelectorAll('img').forEach((img, idx) => {
+            img.addEventListener('click', () => {
+                const actualIdx = startIdx + idx;
+                openImageModal(currentWorkImages, actualIdx);
+            });
+        });
+    } catch (error) {
+        console.error('Error in renderWorkImagesPage:', error);
+    }
+}
+
+function closeWorkImages() {
+    try {
+        const modal = document.getElementById('workImagesModal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    } catch (error) {
+        console.error('Error in closeWorkImages:', error);
     }
 }
 
@@ -820,6 +938,44 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+
+            // Work images modal event handlers
+            const workImagesClose = document.getElementById('workImagesClose');
+            const workImagesPrev = document.getElementById('workImagesPrev');
+            const workImagesNext = document.getElementById('workImagesNext');
+            const workImagesModal = document.getElementById('workImagesModal');
+
+            if (workImagesClose) {
+                workImagesClose.addEventListener('click', closeWorkImages);
+            }
+
+            if (workImagesPrev) {
+                workImagesPrev.addEventListener('click', () => {
+                    if (currentWorkPage > 0) {
+                        currentWorkPage--;
+                        renderWorkImagesPage();
+                    }
+                });
+            }
+
+            if (workImagesNext) {
+                workImagesNext.addEventListener('click', () => {
+                    const totalPages = Math.ceil(currentWorkImages.length / 9);
+                    if (currentWorkPage < totalPages - 1) {
+                        currentWorkPage++;
+                        renderWorkImagesPage();
+                    }
+                });
+            }
+
+            // Close modal when clicking outside
+            if (workImagesModal) {
+                workImagesModal.addEventListener('click', (e) => {
+                    if (e.target === workImagesModal) {
+                        closeWorkImages();
+                    }
+                });
+            }
 
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
