@@ -1680,6 +1680,46 @@ iframe#ch-plugin-core {
     header {
         padding: 90px 0 30px;
     }
+
+    /* Film subcategory tabs for very small screens */
+    .film-subcategory-tabs {
+        gap: 5px;
+    }
+
+    .film-subcategory-tab {
+        padding: 6px 15px;
+        font-size: 0.75rem;
+    }
+
+    /* Work images modal for very small screens */
+    .work-images-modal-content {
+        margin: 40px auto;
+        padding: 15px;
+    }
+
+    .work-images-header h2 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .work-images-header .modal-close {
+        font-size: 30px;
+    }
+
+    .pagination-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    #workImagesPageInfo {
+        font-size: 0.9rem;
+    }
+
+    /* Works tabs */
+    .works-tab {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+    }
 }
 
 /* Work Images Modal */
