@@ -404,24 +404,24 @@ const portfolioData = [
     {id: 143, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after23.jpg?raw=true", description: "환영", type: "short"},
     {id: 144, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_00_06_20.jpg?raw=true", description: "환영", type: "short"},
     {id: 145, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/HW_250915_OK_00_02_36_17.jpg?raw=true", description: "환영", type: "short"},
-    // 16mm 현상
-    {id: 150, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_1.jpg?raw=true", description: "16mm 현상", type: "short"},
-    {id: 151, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_2.jpg?raw=true", description: "16mm 현상", type: "short"},
-    {id: 152, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_3.jpg?raw=true", description: "16mm 현상", type: "short"},
-    {id: 153, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_4.jpg?raw=true", description: "16mm 현상", type: "short"},
-    {id: 154, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_5.jpg?raw=true", description: "16mm 현상", type: "short"},
+    // 환영
+    {id: 150, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_1.jpg?raw=true", description: "환영", type: "short"},
+    {id: 151, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_2.jpg?raw=true", description: "환영", type: "short"},
+    {id: 152, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_3.jpg?raw=true", description: "환영", type: "short"},
+    {id: 153, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_4.jpg?raw=true", description: "환영", type: "short"},
+    {id: 154, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/16mm_5.jpg?raw=true", description: "환영", type: "short"},
     // Ronin 4D
     {id: 155, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after7.jpg?raw=true", description: "Ronin 4D", type: "short"},
     {id: 156, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after9.jpg?raw=true", description: "Ronin 4D", type: "short"},
     // Arri 65
     {id: 157, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after8.jpg?raw=true", description: "Arri 65", type: "short"},
     {id: 158, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after10.jpg?raw=true", description: "Arri 65", type: "short"},
-    // 그릇된소녀
-    {id: 159, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true", description: "그릇된소녀", type: "feature"},
-    {id: 160, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after12.jpg?raw=true", description: "그릇된소녀", type: "feature"},
-    {id: 161, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after13.jpg?raw=true", description: "그릇된소녀", type: "feature"},
-    {id: 162, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after14.jpg?raw=true", description: "그릇된소녀", type: "feature"},
-    {id: 163, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after15.jpg?raw=true", description: "그릇된소녀", type: "feature"},
+    // 그릇된 소녀
+    {id: 159, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true", description: "그릇된 소녀", type: "feature"},
+    {id: 160, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after12.jpg?raw=true", description: "그릇된 소녀", type: "feature"},
+    {id: 161, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after13.jpg?raw=true", description: "그릇된 소녀", type: "feature"},
+    {id: 162, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after14.jpg?raw=true", description: "그릇된 소녀", type: "feature"},
+    {id: 163, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after15.jpg?raw=true", description: "그릇된 소녀", type: "feature"},
     // 로망스
     {id: 164, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after16.jpg?raw=true", description: "로망스", type: "feature"},
     {id: 165, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after17.jpg?raw=true", description: "로망스", type: "feature"},
@@ -538,14 +538,6 @@ function renderGallery(items) {
                            currentFilter === 'short' ? items.filter(item => item.type === "short") :
                            currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
-
-        // Short Film 필터에서 제비 이미지는 역순 정렬 (jevi20 → jevi1)
-        if (currentFilter === 'short') {
-            const jeviItems = filteredItems.filter(item => item.description === '제비');
-            const otherItems = filteredItems.filter(item => item.description !== '제비');
-            const reversedJevi = [...jeviItems].reverse();
-            filteredItems = [...reversedJevi, ...otherItems];
-        }
 
         // All Works 필터는 모든 아이템을 3열 레이아웃으로 표시
         if (currentFilter === 'all') {
@@ -751,17 +743,11 @@ function openModal(item) {
         // All Works: ID 역순 정렬 (갤러리 표시 순서와 동일)
         if (currentFilter === 'all') {
             currentModalItems = [...portfolioData].sort((a, b) => b.id - a.id);
-        } else if (currentFilter === 'short') {
-            // Short Film: 제비 역순 정렬
-            const shortItems = portfolioData.filter(item => item.type === "short");
-            const jeviItems = shortItems.filter(item => item.description === '제비');
-            const otherItems = shortItems.filter(item => item.description !== '제비');
-            const reversedJevi = [...jeviItems].reverse();
-            currentModalItems = [...reversedJevi, ...otherItems];
         } else {
             currentModalItems = currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
                                currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
                                currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
+                               currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
                                currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
                                portfolioData;
         }
