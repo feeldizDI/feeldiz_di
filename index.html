@@ -13,7 +13,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <!-- Primary Meta Tags -->
     <title>Feeldiz DI Studio - Professional Color Grading & Post Production in Seoul | Dolby Vision Certified</title>
     
@@ -626,7 +630,7 @@
             <span class="modal-close" role="button" aria-label="Close modal" tabindex="0">&times;</span>
             <div class="modal-nav prev" id="modalPrev" role="button" aria-label="Previous item" tabindex="0">‹</div>
             <div class="modal-nav next" id="modalNext" role="button" aria-label="Next item" tabindex="0">›</div>
-            <img class="modal-image" id="modalImage" src="" alt="" style="display: none;">
+            <img class="modal-image" id="modalImage" src="" alt="Portfolio image" style="display: none;">
             <iframe class="modal-video" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
             <div class="modal-info">
                 <p class="modal-category" id="modalCategory"></p>
@@ -699,7 +703,9 @@
         }
         return userId;
       }
-      
+
+      // SECURITY NOTE: Channel Talk plugin key is exposed in client-side code
+      // Configure allowed domains in Channel Talk dashboard to prevent unauthorized use
       ChannelIO('boot', {
         "pluginKey": "54473f29-65d3-49cb-8cf1-41dfac310af0",
         "hideChannelButtonOnBoot": false,
