@@ -1,5 +1,15 @@
 // Feeldiz DI Studio - Main JavaScript File
-// Enhanced with error handling, try-catch blocks, and console logging
+// Enhanced with error handling and optimized for production
+
+// Environment detection
+const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// Console wrapper for production (disable console in production)
+const logger = {
+    log: isDevelopment ? logger.log.bind(console) : () => {},
+    error: isDevelopment ? logger.error.bind(console) : () => {},
+    warn: isDevelopment ? logger.warn.bind(console) : () => {}
+};
 
 // Fallback placeholder for failed image loads
 const FALLBACK_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%23f0f0f0" width="400" height="400"/%3E%3Ctext x="50%25" y="50%25" font-size="24" fill="%23999" text-anchor="middle" dominant-baseline="middle"%3EImage Not Available%3C/text%3E%3C/svg%3E';
@@ -104,7 +114,7 @@ function renderWorks(filter = 'film', subcategory = 'all') {
     try {
         const worksGrid = document.getElementById('worksGrid');
         if (!worksGrid) {
-            console.error('worksGrid element not found');
+            logger.error('worksGrid element not found');
             return;
         }
 
@@ -128,7 +138,7 @@ function renderWorks(filter = 'film', subcategory = 'all') {
             filteredWorks = [];
         }
 
-        console.log('Works filter:', filter, 'Subcategory:', subcategory, 'Filtered works:', filteredWorks);
+        logger.log('Works filter:', filter, 'Subcategory:', subcategory, 'Filtered works:', filteredWorks);
 
         filteredWorks.forEach(work => {
             try {
@@ -171,11 +181,11 @@ function renderWorks(filter = 'film', subcategory = 'all') {
 
                 worksGrid.appendChild(workCard);
             } catch (error) {
-                console.error('Error rendering work card for:', work.title, error);
+                logger.error('Error rendering work card for:', work.title, error);
             }
         });
     } catch (error) {
-        console.error('Error in renderWorks:', error);
+        logger.error('Error in renderWorks:', error);
     }
 }
 
@@ -183,7 +193,7 @@ function showAwards(filmId, title) {
     try {
         const awards = awardsData[filmId];
         if (!awards || awards.length === 0) {
-            console.log('No awards found for filmId:', filmId);
+            logger.log('No awards found for filmId:', filmId);
             return;
         }
 
@@ -192,7 +202,7 @@ function showAwards(filmId, title) {
         const awardsList = document.getElementById('modalAwardsList');
 
         if (!modal || !modalTitle || !awardsList) {
-            console.error('Awards modal elements not found');
+            logger.error('Awards modal elements not found');
             return;
         }
 
@@ -208,12 +218,9 @@ function showAwards(filmId, title) {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     } catch (error) {
-        console.error('Error in showAwards:', error);
+        logger.error('Error in showAwards:', error);
     }
 }
-
-let currentWorkPage = 0;
-let currentWorkImages = [];
 
 function showWorkImages(work) {
     try {
@@ -242,19 +249,19 @@ function showWorkImages(work) {
         }
 
         if (workImages.length === 0) {
-            console.log('No images found for work:', work.title);
+            logger.log('No images found for work:', work.title);
             alert('이 작품의 이미지가 아직 업로드되지 않았습니다.');
             return;
         }
 
-        currentWorkImages = workImages;
-        currentWorkPage = 0;
+        AppState.currentWorkImages = workImages;
+        AppState.currentWorkPage = 0;
 
         const modal = document.getElementById('workImagesModal');
         const modalTitle = document.getElementById('workImagesTitle');
 
         if (!modal || !modalTitle) {
-            console.error('Work images modal elements not found');
+            logger.error('Work images modal elements not found');
             return;
         }
 
@@ -269,7 +276,7 @@ function showWorkImages(work) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     } catch (error) {
-        console.error('Error in showWorkImages:', error);
+        logger.error('Error in showWorkImages:', error);
     }
 }
 
@@ -281,15 +288,15 @@ function renderWorkImagesPage() {
         const nextBtn = document.getElementById('workImagesNext');
 
         if (!grid || !pageInfo || !prevBtn || !nextBtn) {
-            console.error('Work images modal elements not found');
+            logger.error('Work images modal elements not found');
             return;
         }
 
         const imagesPerPage = 9;
-        const totalPages = Math.ceil(currentWorkImages.length / imagesPerPage);
-        const startIdx = currentWorkPage * imagesPerPage;
-        const endIdx = Math.min(startIdx + imagesPerPage, currentWorkImages.length);
-        const pageImages = currentWorkImages.slice(startIdx, endIdx);
+        const totalPages = Math.ceil(AppState.currentWorkImages.length / imagesPerPage);
+        const startIdx = AppState.currentWorkPage * imagesPerPage;
+        const endIdx = Math.min(startIdx + imagesPerPage, AppState.currentWorkImages.length);
+        const pageImages = AppState.currentWorkImages.slice(startIdx, endIdx);
 
         // Render grid
         grid.innerHTML = pageImages.map(item => `
@@ -297,19 +304,19 @@ function renderWorkImagesPage() {
         `).join('');
 
         // Update pagination
-        pageInfo.textContent = `${currentWorkPage + 1} / ${totalPages} (${currentWorkImages.length}장)`;
-        prevBtn.disabled = currentWorkPage === 0;
-        nextBtn.disabled = currentWorkPage >= totalPages - 1;
+        pageInfo.textContent = `${AppState.currentWorkPage + 1} / ${totalPages} (${AppState.currentWorkImages.length}장)`;
+        prevBtn.disabled = AppState.currentWorkPage === 0;
+        nextBtn.disabled = AppState.currentWorkPage >= totalPages - 1;
 
         // Add click events to images to open in gallery modal
         grid.querySelectorAll('img').forEach((img, idx) => {
             img.addEventListener('click', () => {
                 const actualIdx = startIdx + idx;
-                openImageModal(currentWorkImages, actualIdx);
+                openImageModal(AppState.currentWorkImages, actualIdx);
             });
         });
     } catch (error) {
-        console.error('Error in renderWorkImagesPage:', error);
+        logger.error('Error in renderWorkImagesPage:', error);
     }
 }
 
@@ -321,7 +328,7 @@ function closeWorkImages() {
             document.body.style.overflow = 'auto';
         }
     } catch (error) {
-        console.error('Error in closeWorkImages:', error);
+        logger.error('Error in closeWorkImages:', error);
     }
 }
 
@@ -329,13 +336,13 @@ function closeAwards() {
     try {
         const modal = document.getElementById('awardsModal');
         if (!modal) {
-            console.error('awardsModal element not found');
+            logger.error('awardsModal element not found');
             return;
         }
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     } catch (error) {
-        console.error('Error in closeAwards:', error);
+        logger.error('Error in closeAwards:', error);
     }
 }
 
@@ -351,7 +358,7 @@ function generateGMSeries() {
         }
         return gmSeries;
     } catch (error) {
-        console.error('Error in generateGMSeries:', error);
+        logger.error('Error in generateGMSeries:', error);
         return [];
     }
 }
@@ -497,7 +504,19 @@ const portfolioData = [
     {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"}
 ];
 
-let loadedImages = 0, totalImages = portfolioData.length, currentFilter = 'all', currentModalIndex = 0, currentModalItems = [], touchStartX = 0, touchEndX = 0;
+// Application state management (encapsulated to avoid global pollution)
+const AppState = {
+    loadedImages: 0,
+    totalImages: portfolioData.length,
+    currentFilter: 'all',
+    currentModalIndex: 0,
+    currentModalItems: [],
+    currentSection: 'home',
+    currentWorkPage: 0,
+    currentWorkImages: [],
+    touchStartX: 0,
+    touchEndX: 0
+};
 
 function hideLoadingScreen() {
     try {
@@ -509,16 +528,16 @@ function hideLoadingScreen() {
             }
         }, 1000);
     } catch (error) {
-        console.error('Error in hideLoadingScreen:', error);
+        logger.error('Error in hideLoadingScreen:', error);
     }
 }
 
 function checkAllImagesLoaded() {
     try {
-        loadedImages++;
-        if (loadedImages >= totalImages) hideLoadingScreen();
+        AppState.loadedImages++;
+        if (AppState.loadedImages >= AppState.totalImages) hideLoadingScreen();
     } catch (error) {
-        console.error('Error in checkAllImagesLoaded:', error);
+        logger.error('Error in checkAllImagesLoaded:', error);
     }
 }
 
@@ -526,22 +545,22 @@ function renderGallery(items) {
     try {
         const gallery = document.getElementById('gallery');
         if (!gallery) {
-            console.error('Gallery element not found');
+            logger.error('Gallery element not found');
             return;
         }
 
         gallery.innerHTML = '';
-        let filteredItems = currentFilter === 'all' ? [...items].sort((a, b) => b.id - a.id) :
-                           currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
-                           currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
-                           currentFilter === 'mv' ? items.filter(item => item.type === "mv") :
-                           currentFilter === 'short' ? items.filter(item => item.type === "short") :
-                           currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
+        let filteredItems = AppState.currentFilter === 'all' ? [...items].sort((a, b) => b.id - a.id) :
+                           AppState.currentFilter === 'drama' ? items.filter(item => item.description === "착한사나이") :
+                           AppState.currentFilter === 'commercial' ? items.filter(item => item.type === "commercial") :
+                           AppState.currentFilter === 'mv' ? items.filter(item => item.type === "mv") :
+                           AppState.currentFilter === 'short' ? items.filter(item => item.type === "short") :
+                           AppState.currentFilter === 'feature' ? items.filter(item => item.type === "feature") :
                            [...items].sort(() => Math.random() - 0.5);
 
         // All Works 필터는 모든 아이템을 3열 레이아웃으로 표시
-        if (currentFilter === 'all') {
-            console.log('All Works - 3-column layout for all items:', filteredItems.length);
+        if (AppState.currentFilter === 'all') {
+            logger.log('All Works - 3-column layout for all items:', filteredItems.length);
             for (let i = 0; i < filteredItems.length; i += 3) {
                 const galleryRow = document.createElement('div');
                 galleryRow.className = 'gallery-row wide-layout';
@@ -552,14 +571,14 @@ function renderGallery(items) {
             }
         } else {
             // 다른 필터: Drama, Commercial, M/V는 3열, Feature/Short는 2열
-            const gmItems = currentFilter === 'random' ? [] :
-                           (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? filteredItems :
+            const gmItems = AppState.currentFilter === 'random' ? [] :
+                           (AppState.currentFilter === 'drama' || AppState.currentFilter === 'commercial' || AppState.currentFilter === 'mv') ? filteredItems :
                            filteredItems.filter(item => item.description === "착한사나이");
-            const otherItems = currentFilter === 'random' ? filteredItems :
-                              (currentFilter === 'drama' || currentFilter === 'commercial' || currentFilter === 'mv') ? [] :
+            const otherItems = AppState.currentFilter === 'random' ? filteredItems :
+                              (AppState.currentFilter === 'drama' || AppState.currentFilter === 'commercial' || AppState.currentFilter === 'mv') ? [] :
                               filteredItems.filter(item => item.description !== "착한사나이");
 
-            console.log('Current filter:', currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
+            logger.log('Current filter:', AppState.currentFilter, 'gmItems (3-column):', gmItems.length, 'otherItems (2-column):', otherItems.length);
 
             if (gmItems.length > 0) {
                 for (let i = 0; i < gmItems.length; i += 3) {
@@ -582,7 +601,7 @@ function renderGallery(items) {
             }
         }
     } catch (error) {
-        console.error('Error in renderGallery:', error);
+        logger.error('Error in renderGallery:', error);
     }
 }
 
@@ -603,18 +622,18 @@ function createGalleryItem(item, index) {
                 galleryItem.classList.remove('loading');
                 checkAllImagesLoaded();
             } catch (error) {
-                console.error('Error handling image load:', error);
+                logger.error('Error handling image load:', error);
             }
         };
 
         img.onerror = () => {
             try {
-                console.warn('Failed to load image:', imageSrc);
+                logger.warn('Failed to load image:', imageSrc);
                 img.src = FALLBACK_IMAGE;
                 galleryItem.classList.remove('loading');
                 checkAllImagesLoaded();
             } catch (error) {
-                console.error('Error handling image error:', error);
+                logger.error('Error handling image error:', error);
                 galleryItem.classList.remove('loading');
                 checkAllImagesLoaded();
             }
@@ -622,7 +641,7 @@ function createGalleryItem(item, index) {
 
         return galleryItem;
     } catch (error) {
-        console.error('Error in createGalleryItem:', error);
+        logger.error('Error in createGalleryItem:', error);
         return document.createElement('div');
     }
 }
@@ -631,7 +650,7 @@ function showDiceAnimation() {
     try {
         const diceOverlay = document.getElementById('diceOverlay');
         if (!diceOverlay) {
-            console.error('diceOverlay element not found');
+            logger.error('diceOverlay element not found');
             renderGallery(portfolioData);
             return;
         }
@@ -642,15 +661,13 @@ function showDiceAnimation() {
                 diceOverlay.classList.remove('show');
                 renderGallery(portfolioData);
             } catch (error) {
-                console.error('Error in showDiceAnimation timeout:', error);
+                logger.error('Error in showDiceAnimation timeout:', error);
             }
         }, 1500);
     } catch (error) {
-        console.error('Error in showDiceAnimation:', error);
+        logger.error('Error in showDiceAnimation:', error);
     }
 }
-
-let currentSection = 'home';
 
 function showSection(sectionName, skipHistory = false) {
     try {
@@ -670,7 +687,7 @@ function showSection(sectionName, skipHistory = false) {
             try {
                 window.history.pushState({section: sectionName}, '', path);
             } catch (e) {
-                console.log('History API not available in this context');
+                logger.log('History API not available in this context');
             }
         }
 
@@ -682,7 +699,7 @@ function showSection(sectionName, skipHistory = false) {
                     'page_title': sectionName.charAt(0).toUpperCase() + sectionName.slice(1)
                 });
             } catch (error) {
-                console.error('Error sending pageview to Google Analytics:', error);
+                logger.error('Error sending pageview to Google Analytics:', error);
             }
         }
 
@@ -732,26 +749,26 @@ function showSection(sectionName, skipHistory = false) {
             if (facilitySection) { facilitySection.style.display = 'none'; facilitySection.classList.remove('active'); }
             if (contactSection) { contactSection.style.display = 'block'; contactSection.classList.add('active'); }
         }
-        currentSection = sectionName;
+        AppState.currentSection = sectionName;
     } catch (error) {
-        console.error('Error in showSection:', error);
+        logger.error('Error in showSection:', error);
     }
 }
 
 function openModal(item) {
     try {
         // All Works: ID 역순 정렬 (갤러리 표시 순서와 동일)
-        if (currentFilter === 'all') {
-            currentModalItems = [...portfolioData].sort((a, b) => b.id - a.id);
+        if (AppState.currentFilter === 'all') {
+            AppState.currentModalItems = [...portfolioData].sort((a, b) => b.id - a.id);
         } else {
-            currentModalItems = currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
-                               currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
-                               currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
-                               currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
-                               currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
+            AppState.currentModalItems = AppState.currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
+                               AppState.currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
+                               AppState.currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
+                               AppState.currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
+                               AppState.currentFilter === 'feature' ? portfolioData.filter(item => item.type === "feature") :
                                portfolioData;
         }
-        currentModalIndex = currentModalItems.findIndex(modalItem => modalItem.id === item.id);
+        AppState.currentModalIndex = AppState.currentModalItems.findIndex(modalItem => modalItem.id === item.id);
         showModalContent(item);
         const imageModal = document.getElementById('imageModal');
         if (imageModal) {
@@ -759,7 +776,7 @@ function openModal(item) {
             document.body.style.overflow = 'hidden';
         }
     } catch (error) {
-        console.error('Error in openModal:', error);
+        logger.error('Error in openModal:', error);
     }
 }
 
@@ -769,7 +786,7 @@ function showModalContent(item) {
         const modalVideo = document.getElementById('modalVideo');
 
         if (!modalImage || !modalVideo) {
-            console.error('Modal image or video element not found');
+            logger.error('Modal image or video element not found');
             return;
         }
 
@@ -781,33 +798,34 @@ function showModalContent(item) {
             modalVideo.style.display = 'none';
             modalImage.style.display = 'block';
             modalImage.src = item.image;
+            modalImage.alt = `${item.description} - ${item.type} 작품, Feeldiz DI Studio 포트폴리오`;
             modalImage.onerror = () => {
-                console.warn('Failed to load modal image:', item.image);
+                logger.warn('Failed to load modal image:', item.image);
                 modalImage.src = FALLBACK_IMAGE;
             };
         }
     } catch (error) {
-        console.error('Error in showModalContent:', error);
+        logger.error('Error in showModalContent:', error);
     }
 }
 
 function showNextImage() {
     try {
-        if (currentModalItems.length <= 1) return;
-        currentModalIndex = (currentModalIndex + 1) % currentModalItems.length;
-        showModalContent(currentModalItems[currentModalIndex]);
+        if (AppState.currentModalItems.length <= 1) return;
+        AppState.currentModalIndex = (AppState.currentModalIndex + 1) % AppState.currentModalItems.length;
+        showModalContent(AppState.currentModalItems[AppState.currentModalIndex]);
     } catch (error) {
-        console.error('Error in showNextImage:', error);
+        logger.error('Error in showNextImage:', error);
     }
 }
 
 function showPreviousImage() {
     try {
-        if (currentModalItems.length <= 1) return;
-        currentModalIndex = currentModalIndex === 0 ? currentModalItems.length - 1 : currentModalIndex - 1;
-        showModalContent(currentModalItems[currentModalIndex]);
+        if (AppState.currentModalItems.length <= 1) return;
+        AppState.currentModalIndex = AppState.currentModalIndex === 0 ? AppState.currentModalItems.length - 1 : AppState.currentModalIndex - 1;
+        showModalContent(AppState.currentModalItems[AppState.currentModalIndex]);
     } catch (error) {
-        console.error('Error in showPreviousImage:', error);
+        logger.error('Error in showPreviousImage:', error);
     }
 }
 
@@ -820,7 +838,7 @@ function closeModal() {
         if (modalVideo) modalVideo.src = '';
         document.body.style.overflow = 'auto';
     } catch (error) {
-        console.error('Error in closeModal:', error);
+        logger.error('Error in closeModal:', error);
     }
 }
 
@@ -832,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             window.history.replaceState({section: 'home'}, '', '/feeldiz_di/');
         } catch (e) {
-            console.log('History API not available in this context');
+            logger.log('History API not available in this context');
         }
 
         // Check URL on page load and show correct section
@@ -882,7 +900,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
                 } catch (error) {
-                    console.error('Error handling popstate:', error);
+                    logger.error('Error handling popstate:', error);
                 }
             });
 
@@ -897,7 +915,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showSection(section);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     } catch (error) {
-                        console.error('Error handling nav link click:', error);
+                        logger.error('Error handling nav link click:', error);
                     }
                 });
             });
@@ -924,7 +942,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         renderWorks(filter);
                     } catch (error) {
-                        console.error('Error handling works tab click:', error);
+                        logger.error('Error handling works tab click:', error);
                     }
                 });
             });
@@ -938,7 +956,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const subcategory = e.target.dataset.filmSubcategory;
                         renderWorks('film', subcategory);
                     } catch (error) {
-                        console.error('Error handling film subcategory tab click:', error);
+                        logger.error('Error handling film subcategory tab click:', error);
                     }
                 });
             });
@@ -955,8 +973,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (workImagesPrev) {
                 workImagesPrev.addEventListener('click', () => {
-                    if (currentWorkPage > 0) {
-                        currentWorkPage--;
+                    if (AppState.currentWorkPage > 0) {
+                        AppState.currentWorkPage--;
                         renderWorkImagesPage();
                     }
                 });
@@ -964,9 +982,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (workImagesNext) {
                 workImagesNext.addEventListener('click', () => {
-                    const totalPages = Math.ceil(currentWorkImages.length / 9);
-                    if (currentWorkPage < totalPages - 1) {
-                        currentWorkPage++;
+                    const totalPages = Math.ceil(AppState.currentWorkImages.length / 9);
+                    if (AppState.currentWorkPage < totalPages - 1) {
+                        AppState.currentWorkPage++;
                         renderWorkImagesPage();
                     }
                 });
@@ -986,14 +1004,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                         e.target.classList.add('active');
-                        currentFilter = e.target.dataset.filter;
-                        if (currentFilter === 'random') {
+                        AppState.currentFilter = e.target.dataset.filter;
+                        if (AppState.currentFilter === 'random') {
                             showDiceAnimation();
                         } else {
                             renderGallery(portfolioData);
                         }
                     } catch (error) {
-                        console.error('Error handling filter button click:', error);
+                        logger.error('Error handling filter button click:', error);
                     }
                 });
             });
@@ -1005,7 +1023,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (item) openModal(item);
                     }
                 } catch (error) {
-                    console.error('Error handling image click:', error);
+                    logger.error('Error handling image click:', error);
                 }
             });
 
@@ -1017,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         if (e.target === imageModal) closeModal();
                     } catch (error) {
-                        console.error('Error handling modal click:', error);
+                        logger.error('Error handling modal click:', error);
                     }
                 });
             }
@@ -1031,7 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.stopPropagation();
                     showPreviousImage();
                 } catch (error) {
-                    console.error('Error handling modal prev click:', error);
+                    logger.error('Error handling modal prev click:', error);
                 }
             });
 
@@ -1040,7 +1058,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.stopPropagation();
                     showNextImage();
                 } catch (error) {
-                    console.error('Error handling modal next click:', error);
+                    logger.error('Error handling modal next click:', error);
                 }
             });
 
@@ -1048,7 +1066,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } catch (error) {
-                    console.error('Error handling scroll to top:', error);
+                    logger.error('Error handling scroll to top:', error);
                 }
             });
 
@@ -1061,11 +1079,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (e.key === 'ArrowRight') { e.preventDefault(); showNextImage(); }
                     }
                 } catch (error) {
-                    console.error('Error handling keydown:', error);
+                    logger.error('Error handling keydown:', error);
                 }
             });
 
             // Email JS initialization and form handling
+            // SECURITY NOTE: EmailJS public key is exposed in client-side code
+            // Implement rate limiting and domain whitelist in EmailJS dashboard
+            // Consider using serverless function to hide API keys in production
             try {
                 if (typeof emailjs !== 'undefined') {
                     emailjs.init("LQ4ZMYydDYnVxc1mh");
@@ -1078,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             try {
                                 e.preventDefault();
                                 if (!submitBtn || !formStatus) {
-                                    console.error('Form elements not found');
+                                    logger.error('Form elements not found');
                                     return;
                                 }
 
@@ -1097,43 +1118,43 @@ document.addEventListener('DOMContentLoaded', () => {
                                         contactForm.reset();
                                         setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
                                     } catch (error) {
-                                        console.error('Error handling form success:', error);
+                                        logger.error('Error handling form success:', error);
                                     }
                                 }, function(error) {
                                     try {
-                                        console.error('Email JS error:', error);
+                                        logger.error('Email JS error:', error);
                                         submitBtn.textContent = '문의 보내기';
                                         submitBtn.disabled = false;
                                         formStatus.style.display = 'block';
                                         formStatus.style.color = '#f44336';
                                         formStatus.innerHTML = '❌ 전송 중 오류가 발생했습니다.<br>직접 이메일로 연락해주세요: feeldiz.studio.di@gmail.com';
                                     } catch (error) {
-                                        console.error('Error handling form error:', error);
+                                        logger.error('Error handling form error:', error);
                                     }
                                 });
                             } catch (error) {
-                                console.error('Error handling form submission:', error);
+                                logger.error('Error handling form submission:', error);
                             }
                         });
                     }
                 } else {
-                    console.warn('EmailJS library not loaded');
+                    logger.warn('EmailJS library not loaded');
                 }
             } catch (error) {
-                console.error('Error initializing Email JS:', error);
+                logger.error('Error initializing Email JS:', error);
             }
 
             setTimeout(() => {
                 try {
-                    if (loadedImages < totalImages) hideLoadingScreen();
+                    if (AppState.loadedImages < AppState.totalImages) hideLoadingScreen();
                 } catch (error) {
-                    console.error('Error in final timeout:', error);
+                    logger.error('Error in final timeout:', error);
                 }
             }, 5000);
         } catch (error) {
-            console.error('Error in DOMContentLoaded event listener:', error);
+            logger.error('Error in DOMContentLoaded event listener:', error);
         }
     } catch (error) {
-        console.error('Critical error in DOMContentLoaded:', error);
+        logger.error('Critical error in DOMContentLoaded:', error);
     }
 });

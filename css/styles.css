@@ -331,7 +331,7 @@ h1 {
     margin: 0 auto;
     padding: 0 10px;
     display: flex;
-    justify-content: center !important;
+    justify-content: center;
     align-items: center;
 }
 
@@ -1365,6 +1365,7 @@ h1 {
 }
 
 /* Channel Talk Position - Keep on Right */
+/* Note: !important is required to override Channel Talk's inline styles */
 #ch-plugin {
     left: auto !important;
     right: 30px !important;
@@ -1575,6 +1576,7 @@ iframe#ch-plugin-core {
         font-size: 20px;
     }
     /* Channel Talk Mobile Position */
+    /* Note: !important is required to override Channel Talk's inline styles */
     #ch-plugin,
     #ch-plugin-launcher,
     iframe#ch-plugin-core {
