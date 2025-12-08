@@ -396,6 +396,12 @@ function openImageModal(images, startIndex) {
         AppState.currentModalItems = images;
         AppState.currentModalIndex = startIndex;
 
+        // Close work images modal if open
+        const workImagesModal = document.getElementById('workImagesModal');
+        if (workImagesModal && workImagesModal.style.display === 'block') {
+            workImagesModal.style.display = 'none';
+        }
+
         const imageModal = document.getElementById('imageModal');
         if (imageModal) {
             showModalContent(images[startIndex]);
@@ -571,18 +577,6 @@ const portfolioData = [
     {id: 217, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_9.jpg?raw=true", description: "서울시자살예방캠페인 '시그널'", type: "commercial"},
     {id: 218, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_10.jpg?raw=true", description: "서울시자살예방캠페인 '시그널'", type: "commercial"},
     {id: 219, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_11.jpg?raw=true", description: "서울시자살예방캠페인 '시그널'", type: "commercial"},
-    // Gardener 클라우디안 (M/V)
-    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
-    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
     // BlackSnake
     {id: 173, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 174, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS4.jpg?raw=true", description: "BlackSnake", type: "feature"},
@@ -598,7 +592,19 @@ const portfolioData = [
     {id: 184, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS14.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 185, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS15.jpg?raw=true", description: "BlackSnake", type: "feature"},
     // YouTube Video
-    {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"}
+    {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"},
+    // Gardener 클라우디안 (M/V) - moved down 3 items
+    {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 222, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 223, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_4.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 224, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_5.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 225, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_6.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 226, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_7.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 227, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_8.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 228, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_9.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 229, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_10.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
+    {id: 230, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_11.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"}
 ];
 
 // Application state management (encapsulated to avoid global pollution)
