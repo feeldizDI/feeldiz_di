@@ -78,16 +78,17 @@ const worksData = [
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
 
     // Commercial
-    {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/prob_1.jpg?raw=true"},
-
-    // M/V
-    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true"},
-    {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
+    {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
 
     // Film - 순서: 선이(최신) → 제비 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
+
+    // M/V - moved down 3 items
+    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true"},
+    {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
+
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after19.jpg?raw=true"},
     {title: "만추", type: "feature", year: "2023 Remaster", category: "상업영화"},
