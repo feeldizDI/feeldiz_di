@@ -84,11 +84,6 @@ const worksData = [
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
-
-    // M/V - moved down 3 items
-    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true"},
-    {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"},
-
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after19.jpg?raw=true"},
     {title: "만추", type: "feature", year: "2023 Remaster", category: "상업영화"},
@@ -108,7 +103,11 @@ const worksData = [
     {title: "로망스", type: "feature", year: "2024", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after16.jpg?raw=true"},
     {title: "우리두리", type: "short", year: "2022", filmId: "uriduri", category: "단편"},
     {title: "휴일", type: "short", year: "2021", filmId: "holiday", category: "단편"},
-    {title: "오픈유어센스", type: "short", year: "2021", filmId: "openyoursense", category: "단편"}
+    {title: "오픈유어센스", type: "short", year: "2021", filmId: "openyoursense", category: "단편"},
+
+    // M/V - moved to the end
+    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true"},
+    {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"}
 ];
 
 function renderWorks(filter = 'film', subcategory = 'all') {
