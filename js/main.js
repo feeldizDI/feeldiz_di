@@ -16,6 +16,7 @@ const FALLBACK_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/
 
 // 작품별 수상 데이터
 const awardsData = {
+    cake: [],
     moviefan: [
         { festival: 'Jeolla누벨바그영화제', award: '장려상' }
     ],
@@ -80,8 +81,9 @@ const worksData = [
     // Commercial
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
 
-    // Film - 순서: 선이(최신) → 제비 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    // Film - 순서: 선이(최신) → Cake → 제비 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
+    {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_1.jpg?raw=true"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
@@ -487,6 +489,32 @@ const portfolioData = [
     {id: 247, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune17.jpg?raw=true", description: "선이", type: "short"},
     {id: 248, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune18.jpg?raw=true", description: "선이", type: "short"},
     {id: 249, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune19.jpg?raw=true", description: "선이", type: "short"},
+    // Cake
+    {id: 491, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_1.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 492, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_2.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 493, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_3.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 494, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_4.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 495, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_5.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 496, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_6.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 497, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_7.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 498, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_8.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 499, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_9.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 500, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_10.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 501, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_11.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 502, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_12.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 503, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_13.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 504, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_14.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 505, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_15.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 506, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_16.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 507, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_17.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 508, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_18.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 509, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_19.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 510, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_20.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 511, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_21.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 512, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_22.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 513, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_23.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 514, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_24.jpg?raw=true", description: "Cake", type: "short"},
+    {id: 515, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_25.jpg?raw=true", description: "Cake", type: "short"},
     // 제비
     {id: 250, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true", description: "제비", type: "short"},
     {id: 251, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi2.jpg?raw=true", description: "제비", type: "short"},
