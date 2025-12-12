@@ -83,7 +83,7 @@ const worksData = [
 
     // Film - 순서: 선이(최신) → Cake → 제비 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
-    {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_1.jpg?raw=true"},
+    {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cake_1.png?raw=true"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
