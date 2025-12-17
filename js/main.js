@@ -110,7 +110,7 @@ const worksData = [
     {title: "오픈유어센스", type: "short", year: "2021", filmId: "openyoursense", category: "단편"},
 
     // M/V - moved to the end
-    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true"},
+    {title: "Gardener", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_3.jpg?raw=true"},
     {title: "Legend Comes To Life", artist: "클라우디안", type: "mv", year: "2025", category: "뮤직비디오"}
 ];
 
