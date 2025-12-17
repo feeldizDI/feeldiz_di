@@ -86,7 +86,7 @@ const worksData = [
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/c2fc812e124230daf328582c175a19d25bad60f0/cake_1.png?raw=true"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_1.jpg?raw=true"},
-    {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
+    {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune4.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after19.jpg?raw=true"},
