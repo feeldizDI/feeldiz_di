@@ -79,15 +79,16 @@ const awardsData = {
 const worksData = [
     // 드라마
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
+    {title: "영의 확률", type: "short", year: "2025", filmId: "percent", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true"},
 
     // Commercial
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
 
-    // Film - 순서: 제비 → Cake → 에덴 → 영의 확률 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    // Film - 순서: 제비 → Cake → 에덴 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    // NOTE: 새로운 작품들은 착한사나이 다음에 추가
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/c2fc812e124230daf328582c175a19d25bad60f0/cake_1.png?raw=true"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_1.jpg?raw=true"},
-    {title: "영의 확률", type: "short", year: "2025", filmId: "percent", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true"},
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after11.jpg?raw=true"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
@@ -535,26 +536,6 @@ const portfolioData = [
     {id: 527, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_12.jpg?raw=true", description: "에덴", type: "short"},
     {id: 528, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_13.jpg?raw=true", description: "에덴", type: "short"},
     {id: 529, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_14.jpg?raw=true", description: "에덴", type: "short"},
-    // 영의 확률
-    {id: 530, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 531, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_2.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 532, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_3.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 533, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_4.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 534, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_5.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 535, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_6.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 536, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_7.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 537, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_8.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 538, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_9.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 539, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_10.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 540, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_11.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 541, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_12.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 542, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_13.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 543, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_14.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 544, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_15.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 545, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_16.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 546, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_17.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 547, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_18.jpg?raw=true", description: "영의 확률", type: "short"},
-    {id: 548, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_19.jpg?raw=true", description: "영의 확률", type: "short"},
     // 선이
     {id: 231, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune1.jpg?raw=true", description: "선이", type: "short"},
     {id: 232, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune2.jpg?raw=true", description: "선이", type: "short"},
@@ -576,6 +557,26 @@ const portfolioData = [
     {id: 248, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune18.jpg?raw=true", description: "선이", type: "short"},
     {id: 249, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/sune19.jpg?raw=true", description: "선이", type: "short"},
     ...generateGMSeries(),
+    // 영의 확률
+    {id: 530, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 531, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_2.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 532, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_3.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 533, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_4.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 534, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_5.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 535, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_6.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 536, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_7.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 537, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_8.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 538, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_9.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 539, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_10.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 540, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_11.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 541, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_12.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 542, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_13.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 543, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_14.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 544, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_15.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 545, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_16.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 546, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_17.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 547, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_18.jpg?raw=true", description: "영의 확률", type: "short"},
+    {id: 548, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_19.jpg?raw=true", description: "영의 확률", type: "short"},
     // 환영
     {id: 142, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after2.jpg?raw=true", description: "환영", type: "short"},
     {id: 143, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after23.jpg?raw=true", description: "환영", type: "short"},
