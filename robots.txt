@@ -7,24 +7,18 @@ Allow: /
 # Sitemap 위치
 Sitemap: https://feeldizdi.github.io/feeldiz_di/sitemap.xml
 
-# CSS, JS 파일은 검색 결과에서 제외
-Disallow: /css/
-Disallow: /js/
+# Google 검색 로봇 (모두 허용)
+User-agent: Googlebot
+Allow: /
 
-# 이미지 파일 크롤링 제한
-Disallow: /*.jpg$
-Disallow: /*.png$
-Disallow: /*.jpeg$
-Disallow: /*.JPG$
-
-# Google 이미지 검색은 허용
+# Google 이미지 검색
 User-agent: Googlebot-Image
-Allow: /*
+Allow: /
 
-# Naver 검색 로봇 허용
+# Naver 검색 로봇
 User-agent: Yeti
 Allow: /
 
-# Naver 이미지 검색 허용
+# Naver 이미지 검색
 User-agent: Yeti-Mobile
 Allow: /
