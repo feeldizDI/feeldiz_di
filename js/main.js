@@ -78,7 +78,8 @@ const awardsData = {
 
 const worksData = [
     // 드라마
-    {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
+    {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
+    {title: "비밀일수밖에", type: "feature", year: "2025", platform: "Netflix", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true"},
     {title: "영의 확률", type: "short", year: "2025", filmId: "percent", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true"},
 
     // Commercial
@@ -104,7 +105,6 @@ const worksData = [
     {title: "멍", type: "short", year: "2024", filmId: "mung", category: "단편"},
     {title: "유해한 녀석들", type: "short", year: "2020", filmId: "harmful", category: "단편"},
     {title: "BlackSnake", type: "feature", year: "2025", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS3.jpg?raw=true"},
-    {title: "비밀일수밖에", type: "feature", year: "2025", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true"},
     {title: "워크숍 3", type: "short", year: "2025", filmId: "workshop3", category: "단편"},
     {title: "환영", type: "short", year: "2024", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after2.jpg?raw=true"},
     {title: "로망스", type: "feature", year: "2024", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/after16.jpg?raw=true"},
