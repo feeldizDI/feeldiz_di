@@ -459,12 +459,12 @@ function closeAwards() {
 function generateGMSeries() {
     try {
         const gmSeries = [];
-        gmSeries.push({id: 1, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true", description: "착한사나이 (Disney+)"});
-        gmSeries.push({id: 2, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM2.jpg?raw=true", description: "착한사나이 (Disney+)"});
-        gmSeries.push({id: 3, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM3.jpg?raw=true", description: "착한사나이 (Disney+)"});
-        gmSeries.push({id: 4, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM4.jpg?raw=true", description: "착한사나이 (Disney+)"});
+        gmSeries.push({id: 1, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true", description: "착한사나이"});
+        gmSeries.push({id: 2, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM2.jpg?raw=true", description: "착한사나이"});
+        gmSeries.push({id: 3, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM3.jpg?raw=true", description: "착한사나이"});
+        gmSeries.push({id: 4, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM4.jpg?raw=true", description: "착한사나이"});
         for (let i = 1; i <= 137; i++) {
-            gmSeries.push({id: i + 4, category: "portfolio", image: `https://github.com/feeldizDI/feeldiz_di/blob/main/GM_${i}.jpg?raw=true`, description: "착한사나이 (Disney+)"});
+            gmSeries.push({id: i + 4, category: "portfolio", image: `https://github.com/feeldizDI/feeldiz_di/blob/main/GM_${i}.jpg?raw=true`, description: "착한사나이"});
         }
         return gmSeries;
     } catch (error) {
@@ -610,16 +610,16 @@ const portfolioData = [
     {id: 169, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after21.jpg?raw=true", description: "가문의영광", type: "feature"},
     {id: 170, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/after22.jpg?raw=true", description: "가문의영광", type: "feature"},
     // 비밀일수밖에
-    {id: 187, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 188, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_2.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 189, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_3.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 190, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_4.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 191, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_5.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 192, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_6.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 193, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_7.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 194, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_8.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 195, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_9.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
-    {id: 196, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_10.jpg?raw=true", description: "비밀일수밖에 (Netflix)", type: "feature"},
+    {id: 187, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 188, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_2.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 189, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_3.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 190, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_4.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 191, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_5.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 192, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_6.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 193, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_7.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 194, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_8.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 195, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_9.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
+    {id: 196, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_10.jpg?raw=true", description: "비밀일수밖에", type: "feature"},
     // 우리동네영화광
     {id: 197, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_1.jpg?raw=true", description: "우리동네영화광", type: "feature"},
     {id: 198, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/KU_2.jpg?raw=true", description: "우리동네영화광", type: "feature"},
@@ -660,7 +660,7 @@ const portfolioData = [
     {id: 184, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS14.jpg?raw=true", description: "BlackSnake", type: "feature"},
     {id: 185, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/BS15.jpg?raw=true", description: "BlackSnake", type: "feature"},
     // YouTube Video
-    {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이 (Disney+)"},
+    {id: 186, category: "portfolio", type: "video", videoUrl: "https://youtu.be/PfEMKreJVDo", embedUrl: "https://www.youtube.com/embed/PfEMKreJVDo", thumbnail: "https://img.youtube.com/vi/PfEMKreJVDo/maxresdefault.jpg", description: "착한사나이"},
     // Gardener 클라우디안 (M/V) - moved down 3 items
     {id: 220, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_1.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
     {id: 221, category: "portfolio", image: "https://github.com/feeldizDI/feeldiz_di/blob/main/cloud_2.jpg?raw=true", description: "Gardener 클라우디안", type: "mv"},
@@ -973,7 +973,7 @@ function openModal(item) {
         if (AppState.currentFilter === 'all') {
             AppState.currentModalItems = [...portfolioData].sort((a, b) => b.id - a.id);
         } else {
-            AppState.currentModalItems = AppState.currentFilter === 'drama' ? portfolioData.filter(item => item.description && item.description.startsWith("착한사나이")) :
+            AppState.currentModalItems = AppState.currentFilter === 'drama' ? portfolioData.filter(item => item.description === "착한사나이") :
                                AppState.currentFilter === 'commercial' ? portfolioData.filter(item => item.type === "commercial") :
                                AppState.currentFilter === 'mv' ? portfolioData.filter(item => item.type === "mv") :
                                AppState.currentFilter === 'short' ? portfolioData.filter(item => item.type === "short") :
