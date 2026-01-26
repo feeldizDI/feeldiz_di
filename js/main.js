@@ -84,6 +84,7 @@ const worksData = [
 
     // Commercial
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
+    {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/6ef883722886666002f3c93b851e16fe019b05df/FL%20thumb.jpg?raw=true"},
 
     // Film - 순서: 제비 → Cake → 에덴 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
     // NOTE: 새로운 작품들은 착한사나이 다음에 추가
@@ -771,9 +772,21 @@ function createProjectGalleryItem(project, index) {
         const imageSrc = project.representativeImage;
         const categoryText = project.category || project.type;
         const titleText = project.artist ? `${project.title} - ${project.artist}` : project.title;
+        const hasYoutubeLink = project.youtubeUrl;
+
+        // YouTube icon for projects with youtube links
+        const youtubeIcon = hasYoutubeLink ? `
+            <div class="youtube-link-indicator">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+            </div>
+        ` : '';
 
         galleryItem.innerHTML = `
             <img src="${imageSrc}" alt="${titleText} by Feeldiz DI Studio">
+            ${youtubeIcon}
             <div class="gallery-item-overlay">
                 <p class="overlay-category">${categoryText}</p>
                 <p class="overlay-description">${titleText}</p>
@@ -805,9 +818,13 @@ function createProjectGalleryItem(project, index) {
             }
         };
 
-        // Add click handler to open vertical scroll view
+        // Add click handler - open YouTube for youtube projects, otherwise show detail page
         galleryItem.addEventListener('click', () => {
-            showProjectDetailPage(project);
+            if (hasYoutubeLink) {
+                window.open(project.youtubeUrl, '_blank');
+            } else {
+                showProjectDetailPage(project);
+            }
         });
 
         return galleryItem;
