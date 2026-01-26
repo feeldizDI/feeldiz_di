@@ -77,17 +77,18 @@ const awardsData = {
 };
 
 const worksData = [
-    // 드라마
+    // 상단 고정: 착한사나이(1)
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
+    {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/6ef883722886666002f3c93b851e16fe019b05df/FL%20thumb.jpg?raw=true"},
+
+    // Feature/Short
     {title: "비밀일수밖에", type: "feature", year: "2025", platform: "Netflix", category: "독립장편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/secert_1.jpg?raw=true"},
     {title: "영의 확률", type: "short", year: "2025", filmId: "percent", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/aac0975952ca075459e28cc37c4ddc286b951eac/percent_709/percent_1.jpg?raw=true"},
 
     // Commercial
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
-    {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/6ef883722886666002f3c93b851e16fe019b05df/FL%20thumb.jpg?raw=true"},
 
     // Film - 순서: 제비 → Cake → 에덴 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
-    // NOTE: 새로운 작품들은 착한사나이 다음에 추가
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/jevi1.jpg?raw=true"},
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/c2fc812e124230daf328582c175a19d25bad60f0/cake_1.png?raw=true"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/5af2cf44f5b1f3b7f6d5360194dc8d2214e43181/Eden/Eden_1.jpg?raw=true"},
