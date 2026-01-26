@@ -170,6 +170,44 @@ h1 {
     opacity: 1;
 }
 
+/* YouTube link indicator */
+.youtube-link-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.youtube-link-indicator svg {
+    width: 60px;
+    height: 60px;
+    color: #ff0000;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.youtube-link-indicator span {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    background: rgba(255, 0, 0, 0.8);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.gallery-item:hover .youtube-link-indicator {
+    opacity: 1;
+}
+
 .overlay-category {
     font-size: 13px;
     opacity: 1;
