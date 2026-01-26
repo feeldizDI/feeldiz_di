@@ -77,7 +77,7 @@ const awardsData = {
 };
 
 const worksData = [
-    // 상단 고정: 착한사나이(1), 사부작사부작(2)
+    // 상단 고정: 착한사나이(1)
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/main/GM.jpg?raw=true"},
     {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "https://github.com/feeldizDI/feeldiz_di/blob/6ef883722886666002f3c93b851e16fe019b05df/FL%20thumb.jpg?raw=true"},
 
