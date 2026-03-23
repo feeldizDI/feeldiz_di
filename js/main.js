@@ -79,6 +79,7 @@ const awardsData = {
 const worksData = [
     // 상단 고정: 착한사나이(1)
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "GM.jpg"},
+    {title: "이사이", type: "short", year: "2026", filmId: "beside", category: "단편", representativeImage: "Beside/beside_4.jpg"},
     {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "FL%20thumb.jpg"},
 
     // Feature/Short
@@ -93,7 +94,6 @@ const worksData = [
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "cake_1.png"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "Eden/Eden_1.jpg"},
     {title: "선이", type: "short", year: "2025", filmId: "sune", category: "단편", representativeImage: "sune1.jpg"},
-    {title: "이사이", type: "short", year: "2026", filmId: "beside", category: "단편", representativeImage: "Beside/beside_4.jpg"},
     {title: "그릇된 소녀", type: "short", year: "2025", filmId: "wronggirl", category: "독립장편", representativeImage: "after11.jpg"},
     {title: "베란다", type: "feature", year: "2026", category: "상업영화"},
     {title: "가문의영광", type: "feature", year: "2023", category: "상업영화", representativeImage: "after19.jpg"},
