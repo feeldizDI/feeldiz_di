@@ -552,6 +552,17 @@ const portfolioData = [
     {id: 608, category: "portfolio", image: "Beside/beside_9.jpg", description: "이사이", type: "short"},
     {id: 609, category: "portfolio", image: "Beside/beside_10.jpg", description: "이사이", type: "short"},
     {id: 610, category: "portfolio", image: "Beside/beside_11.jpg", description: "이사이", type: "short"},
+    // 교육부 캠페인
+    {id: 611, category: "portfolio", image: "probedu/probedu_1.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 612, category: "portfolio", image: "probedu/probedu_2.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 613, category: "portfolio", image: "probedu/probedu_3.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 614, category: "portfolio", image: "probedu/probedu_5.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 615, category: "portfolio", image: "probedu/probedu_6.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 616, category: "portfolio", image: "probedu/probedu_7.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 617, category: "portfolio", image: "probedu/probedu_8.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 618, category: "portfolio", image: "probedu/probedu_9.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 619, category: "portfolio", image: "probedu/probedu_10.jpeg", description: "교육부 캠페인", type: "commercial"},
+    {id: 620, category: "portfolio", image: "probedu/probedu_11.jpeg", description: "교육부 캠페인", type: "commercial"},
     // 선이
     {id: 231, category: "portfolio", image: "sune1.jpg", description: "선이", type: "short"},
     {id: 232, category: "portfolio", image: "sune2.jpg", description: "선이", type: "short"},
