@@ -79,7 +79,7 @@ const awardsData = {
 const worksData = [
     // 상단 고정: 착한사나이(1)
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "GM.jpg"},
-    {title: "교육부 캠페인", type: "commercial", year: "2026", filmId: "probedu", category: "광고", representativeImage: "probedu/probedu_3.jpg"},
+    {title: "교육부 캠페인", type: "commercial", year: "2026", filmId: "probedu", category: "광고", representativeImage: "probedu/probedu_3.jpeg"},
     {title: "이사이", type: "short", year: "2026", filmId: "beside", category: "단편", representativeImage: "Beside/beside_4.jpg"},
     {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "FL%20thumb.jpg"},
 
