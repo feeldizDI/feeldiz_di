@@ -79,6 +79,7 @@ const awardsData = {
 const worksData = [
     // 상단 고정: 착한사나이(1)
     {title: "착한사나이", type: "drama", year: "2025", platform: "JTBC/Disney+", representativeImage: "GM.jpg"},
+    {title: "말할수없는나의신부", type: "drama", year: "2026", filmId: "vgloo", representativeImage: "vgloo/260604.005.png"},
     {title: "교육부 캠페인", type: "commercial", year: "2026", filmId: "probedu", category: "광고", representativeImage: "probedu/probedu_3.jpeg"},
     {title: "이사이", type: "short", year: "2026", filmId: "beside", category: "단편", representativeImage: "Beside/beside_4.jpg"},
     {title: "사부작사부작", type: "commercial", year: "2025", category: "광고", youtubeUrl: "https://www.youtube.com/@%EC%82%AC%EB%B6%80%EC%9E%91-x6p4y", representativeImage: "FL%20thumb.jpg"},
@@ -563,6 +564,22 @@ const portfolioData = [
     {id: 618, category: "portfolio", image: "probedu/probedu_9.jpeg", description: "교육부 캠페인", type: "commercial"},
     {id: 619, category: "portfolio", image: "probedu/probedu_10.jpeg", description: "교육부 캠페인", type: "commercial"},
     {id: 620, category: "portfolio", image: "probedu/probedu_11.jpeg", description: "교육부 캠페인", type: "commercial"},
+    // 말할수없는나의신부
+    {id: 621, category: "portfolio", image: "vgloo/260604.001.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 622, category: "portfolio", image: "vgloo/260604.002.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 623, category: "portfolio", image: "vgloo/260604.003.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 624, category: "portfolio", image: "vgloo/260604.004.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 625, category: "portfolio", image: "vgloo/260604.005.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 626, category: "portfolio", image: "vgloo/260604.006.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 627, category: "portfolio", image: "vgloo/260604.007.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 628, category: "portfolio", image: "vgloo/260604.008.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 629, category: "portfolio", image: "vgloo/260604.009.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 630, category: "portfolio", image: "vgloo/260604.010.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 631, category: "portfolio", image: "vgloo/260604.011.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 632, category: "portfolio", image: "vgloo/260604.012.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 633, category: "portfolio", image: "vgloo/260604.013.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 634, category: "portfolio", image: "vgloo/260604.014.png", description: "말할수없는나의신부", type: "drama"},
+    {id: 635, category: "portfolio", image: "vgloo/260604.015.png", description: "말할수없는나의신부", type: "drama"},
     // 선이
     {id: 231, category: "portfolio", image: "sune1.jpg", description: "선이", type: "short"},
     {id: 232, category: "portfolio", image: "sune2.jpg", description: "선이", type: "short"},
