@@ -92,7 +92,7 @@ const worksData = [
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
 
     // Film - 순서: 제비 → Cake → 에덴 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
-    {title: "묘르는 사람", type: "short", year: "2025", filmId: "cat", category: "단편", representativeImage: "cat/cat_1.jpg"},
+    {title: "묘르는 사람", type: "short", year: "2026", filmId: "cat", category: "단편", representativeImage: "cat/cat_1.jpg"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "jevi1.jpg"},
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "cake_1.png"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "Eden/Eden_1.jpg"},
