@@ -92,6 +92,7 @@ const worksData = [
     {title: "서울시자살예방캠페인 '시그널'", type: "commercial", year: "2025", category: "공익광고", representativeImage: "prob_1.jpg"},
 
     // Film - 순서: 제비 → Cake → 에덴 → 선이 → 그릇된 소녀(1) → 베란다(2) → 가문의영광(3) → 만추(4) → 수상내역 많은 순
+    {title: "묘르는 사람", type: "short", year: "2026", filmId: "cat", category: "단편", representativeImage: "cat/cat_1.jpg"},
     {title: "제비", type: "short", year: "2025", filmId: "jevi", category: "단편", representativeImage: "jevi1.jpg"},
     {title: "Cake", type: "short", year: "2025", filmId: "cake", category: "단편", representativeImage: "cake_1.png"},
     {title: "에덴", type: "short", year: "2025", filmId: "eden", category: "단편", representativeImage: "Eden/Eden_1.jpg"},
@@ -580,6 +581,22 @@ const portfolioData = [
     {id: 633, category: "portfolio", image: "vgloo/260604.013.png", description: "말할수없는나의신부", type: "drama"},
     {id: 634, category: "portfolio", image: "vgloo/260604.014.png", description: "말할수없는나의신부", type: "drama"},
     {id: 635, category: "portfolio", image: "vgloo/260604.015.png", description: "말할수없는나의신부", type: "drama"},
+    // 묘르는 사람
+    {id: 636, category: "portfolio", image: "cat/cat_1.jpg", description: "묘르는 사람", type: "short"},
+    {id: 637, category: "portfolio", image: "cat/cat_2.jpg", description: "묘르는 사람", type: "short"},
+    {id: 638, category: "portfolio", image: "cat/cat_3.jpg", description: "묘르는 사람", type: "short"},
+    {id: 639, category: "portfolio", image: "cat/cat_4.jpg", description: "묘르는 사람", type: "short"},
+    {id: 640, category: "portfolio", image: "cat/cat_5.jpg", description: "묘르는 사람", type: "short"},
+    {id: 641, category: "portfolio", image: "cat/cat_6.jpg", description: "묘르는 사람", type: "short"},
+    {id: 642, category: "portfolio", image: "cat/cat_7.jpg", description: "묘르는 사람", type: "short"},
+    {id: 643, category: "portfolio", image: "cat/cat_8.jpg", description: "묘르는 사람", type: "short"},
+    {id: 644, category: "portfolio", image: "cat/cat_9.jpg", description: "묘르는 사람", type: "short"},
+    {id: 645, category: "portfolio", image: "cat/cat_10.jpg", description: "묘르는 사람", type: "short"},
+    {id: 646, category: "portfolio", image: "cat/cat_11.jpg", description: "묘르는 사람", type: "short"},
+    {id: 647, category: "portfolio", image: "cat/cat_12.jpg", description: "묘르는 사람", type: "short"},
+    {id: 648, category: "portfolio", image: "cat/cat_13.jpg", description: "묘르는 사람", type: "short"},
+    {id: 649, category: "portfolio", image: "cat/cat_14.jpg", description: "묘르는 사람", type: "short"},
+    {id: 650, category: "portfolio", image: "cat/cat_15.jpg", description: "묘르는 사람", type: "short"},
     // 선이
     {id: 231, category: "portfolio", image: "sune1.jpg", description: "선이", type: "short"},
     {id: 232, category: "portfolio", image: "sune2.jpg", description: "선이", type: "short"},
